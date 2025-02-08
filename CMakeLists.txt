@@ -21,6 +21,7 @@ endif()
 include_directories(${CMAKE_SOURCE_DIR}/src/common)
 
 # Add subdirectories for each event mechanism example
+add_subdirectory(src/common)
 add_subdirectory(src/observer)
 add_subdirectory(src/callbacks)
 add_subdirectory(src/qt_signals)

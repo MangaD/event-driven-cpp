@@ -2,6 +2,55 @@
 
 namespace common {
 
+/**
+ * @brief The Logger class provides logging functionalities with different log levels.
+ */
+class Logger {
+public:
+    /**
+     * @brief Sets the current log level.
+     * @param level The log level to set.
+     */
+    static void setLogLevel(LogLevel level);
+
+    /**
+     * @brief Converts a log level to its string representation.
+     * @param level The log level to convert.
+     * @return The string representation of the log level.
+     */
+    static std::string logLevelToString(LogLevel level);
+
+    /**
+     * @brief Logs a debug message.
+     * @param message The message to log.
+     */
+    static void debug(const std::string &message);
+
+    /**
+     * @brief Logs an info message.
+     * @param message The message to log.
+     */
+    static void info(const std::string &message);
+
+    /**
+     * @brief Logs a warning message.
+     * @param message The message to log.
+     */
+    static void warning(const std::string &message);
+
+    /**
+     * @brief Logs an error message.
+     * @param message The message to log.
+     */
+    static void error(const std::string &message);
+
+private:
+    /**
+     * @brief The current log level.
+     */
+    static LogLevel currentLevel;
+};
+
 // Define and initialize the static member for the current log level.
 // Default log level is set to Info.
 LogLevel Logger::currentLevel = LogLevel::Info;
