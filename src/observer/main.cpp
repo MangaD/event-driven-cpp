@@ -1,36 +1,39 @@
 /**
  * @file main.cpp
- * @brief Demonstrates the observer pattern with a simple example.
+ * @brief Demonstrates the Observer pattern in C++.
+ *
+ * This example creates a Subject, registers concrete observers, and sends
+ * notifications to them. It shows how the Subject can notify multiple observers
+ * about events, and how observers can be dynamically added and removed.
  */
 
 #include <iostream>
-#include "observer.hpp"
 #include "subject.hpp"
+#include "observer.hpp"
 
 /**
- * @class ConcreteObserver
  * @brief A concrete implementation of the IObserver interface.
+ *
+ * The ConcreteObserver class implements the onNotify() method to handle event
+ * notifications by printing the received message to the standard output.
  */
 class ConcreteObserver : public IObserver {
 public:
     /**
-     * @brief Called when the subject sends a notification.
-     * @param message The message sent by the subject.
+     * @brief Handles the notification from the Subject.
+     *
+     * @param message A string containing details about the event.
      */
-    void onNotify(std::string_view message) override {
+    void onNotify(const std::string &message) override {
         std::cout << "ConcreteObserver received: " << message << std::endl;
     }
 };
 
-/**
- * @brief The main function demonstrating the observer pattern.
- * @return int Exit status.
- */
 int main() {
-    // Create a subject that will send notifications.
+    // Create a Subject instance.
     Subject subject;
 
-    // Create two concrete observers.
+    // Create two ConcreteObserver instances.
     ConcreteObserver observer1;
     ConcreteObserver observer2;
 
@@ -38,16 +41,16 @@ int main() {
     subject.addObserver(&observer1);
     subject.addObserver(&observer2);
 
-    // Notify all observers.
-    std::cout << "Notifying observers the first time:" << std::endl;
+    // Notify all observers with an event.
+    std::cout << "Notifying observers (first time):" << std::endl;
     subject.notify("Event 1: Something happened!");
 
     // Remove one observer.
     subject.removeObserver(&observer1);
 
     // Notify the remaining observers.
-    std::cout << "Notifying observers the second time:" << std::endl;
-    subject.notify("Event 2: Observer 1 removed.");
+    std::cout << "Notifying observers (second time):" << std::endl;
+    subject.notify("Event 2: Observer 1 removed!");
 
     return 0;
 }
