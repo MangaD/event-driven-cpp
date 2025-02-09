@@ -85,7 +85,7 @@ Before building this project, ensure you have the following installed:
 - **C++ Compiler:** A modern C++ compiler supporting C++20 (e.g., GCC 10+, Clang 10+, or MSVC 2019/2022).
 - **CMake:** Version 3.19 or later (for CMake Presets support).
 - **Git:** To clone the repository.
-**Qt6:** Installed on your system (Note: The `Qt6_DIR` variable in the CMake presets is set to a default path—e.g., `C:/Qt/6.8.2/msvc2022_64/lib/cmake/Qt6` on Windows. You may need to modify this path to match your Qt installation).
+**Qt6:** Installed on your system (Note: The `Qt6_DIR` variable in the CMake presets is set to a default path—e.g., `C:/Qt/6.8.2/msvc2022_64/lib/cmake/Qt6` on Windows. You may need to modify this path to match your Qt installation. The `VCINSTALLDIR` environment variable should also be set to the Visual Studio installation directory).
   - On **Windows**, a typical installation might be at `C:\Qt\6.8.2\msvc2022_64\`.
   - On **Linux/macOS**, ensure that Qt6 is installed and accessible (e.g., via your package manager or from the Qt website).
 - **Build Tools:** Ninja, Visual Studio, or your preferred generator supported by CMake.

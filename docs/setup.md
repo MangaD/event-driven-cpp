@@ -67,9 +67,9 @@ cmake --build --preset windows-msvc-debug
 
 For the Qt signals & slots example, the CMakeLists.txt file in `src/qt_signals` includes a post-build custom command that runs `windeployqt` automatically. This step copies all required Qt6 DLLs into your build directory alongside the executable. You no longer need to manually run `windeployqt`.
 
-### Note on Qt6_DIR
+### Note on Qt6_DIR and VCINSTALLDIR
 
-The `Qt6_DIR` variable in the CMake presets (or your environment) must point to the directory containing the Qt6 CMake configuration files (typically something like `C:/Qt/<version>/<compiler>/lib/cmake/Qt6` on Windows). If your Qt installation is located elsewhere, please update this variable accordingly in the `CMakePresets.json` file or your environment.
+The `Qt6_DIR` variable in the CMake presets (or your environment) must point to the directory containing the Qt6 CMake configuration files (typically something like `C:/Qt/<version>/<compiler>/lib/cmake/Qt6` on Windows). If your Qt installation is located elsewhere, please update this variable accordingly in the `CMakePresets.json` file or your environment. The `VCINSTALLDIR` environment variable should also be set to the Visual Studio installation directory.
 
 
 ---
@@ -94,7 +94,7 @@ After building, run the executable from the build output directory:
   ./src/qt_signals/qt_signals_example
   ```
 
-If you run into issues with missing DLLs on Windows, verify that the post-build command has executed successfully and that your `Qt6_DIR` is correctly configured.
+If you run into issues with missing DLLs on Windows, verify that the post-build command has executed successfully and that your `Qt6_DIR` and `VCINSTALLDIR` are correctly configured.
 
 ---
 

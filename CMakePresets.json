@@ -27,6 +27,9 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "Qt6_DIR": "C:/Qt/6.8.2/msvc2022_64/lib/cmake/Qt6"
+            },
+            "environment": {
+                "VCINSTALLDIR": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC"
             }
         },
         {
@@ -38,6 +41,9 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
                 "Qt6_DIR": "C:/Qt/6.8.2/msvc2022_64/lib/cmake/Qt6"
+            },
+            "environment": {
+                "VCINSTALLDIR": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC"
             }
         },
         {

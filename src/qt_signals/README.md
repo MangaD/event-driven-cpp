@@ -21,7 +21,7 @@ This directory contains an example implementation demonstrating event-driven pro
 ### Prerequisites
 
 - **Qt6:** Ensure that Qt6 is installed and that the `Qt6_DIR` variable is correctly set. The default in the CMake presets is set to `C:/Qt/6.8.2/msvc2022_64/lib/cmake/Qt6`, but you may need to modify this path depending on your system configuration.
-- **C++ Compiler:** A compiler with C++20 support (e.g., GCC, Clang, or MSVC).
+- **C++ Compiler:** A compiler with C++20 support (e.g., GCC, Clang, or MSVC). You may need to modify the `VCINSTALLDIR` environment variable in the CMake presets to match your MSVC installation.
 - **CMake:** Version 3.19 or later.
 - **Build Tools:** Ninja, Visual Studio, or your preferred generator supported by CMake.
 
