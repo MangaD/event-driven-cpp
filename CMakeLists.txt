@@ -25,7 +25,7 @@ add_subdirectory(src/common)
 add_subdirectory(src/observer)
 add_subdirectory(src/callbacks)
 add_subdirectory(src/qt_signals)
-add_subdirectory(src/io_events)
+add_subdirectory(src/io_and_sockets)
 add_subdirectory(src/event_queue)
 
 # Enable testing and include tests if available

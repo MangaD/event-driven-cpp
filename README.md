@@ -5,7 +5,7 @@ This repository is a case study demonstrating various approaches to event-driven
 - The **Observer pattern** for decoupled event notifications.
 - **Callbacks** using `std::function` to handle events.
 - **Qt Signals & Slots** to leverage Qt’s robust event-driven system.
-- **I/O Events** using system calls like `select()`/`poll()`.
+- **I/O and Sockets** for cross-platform asynchronous I/O and socket programming, using system calls like `select()`/`poll()` on POSIX systems and platform-specific alternatives on Windows.
 - An **Event Queue** implementation to decouple event production from consumption.
 
 The project is cross-platform, supports multiple compilers and build types, and uses CMake (with CMake Presets) to simplify configuration and build management.
@@ -21,7 +21,7 @@ event-driven-cpp/
 │   ├── observer.md                      # Observer pattern explanation
 │   ├── callbacks.md                     # Callbacks explanation
 │   ├── qt_signals.md                    # Qt signals & slots explanation
-│   ├── io_events.md                     # I/O events explanation
+│   ├── io_and_sockets.md                # I/O & sockets explanation
 │   ├── event_queue.md                   # Event queue implementation explanation
 │   ├── event_driven_comparison.md       # Comparison of event-driven programming in various languages
 │   ├── setup.md                         # Setup and build instructions
@@ -46,10 +46,8 @@ event-driven-cpp/
 │   │   ├── main.cpp
 │   │   └── CMakeLists.txt
 │   │
-│   ├── io_events/         # I/O events example
-│   │   ├── io_events.hpp
-│   │   ├── io_events.cpp
-│   │   ├── main.cpp
+│   ├── io_and_sockets/    # I/O and sockets example
+│   │   ├── io_and_sockets.cpp
 │   │   └── CMakeLists.txt
 │   │
 │   ├── event_queue/       # Event queue example
@@ -67,7 +65,7 @@ event-driven-cpp/
 │   ├── observer_test.cpp
 │   ├── callbacks_test.cpp
 │   ├── qt_signals_test.cpp
-│   ├── io_events_test.cpp
+│   ├── io_and_sockets_test.cpp
 │   ├── event_queue_test.cpp
 │   └── CMakeLists.txt
 │

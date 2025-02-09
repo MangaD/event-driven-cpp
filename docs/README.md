@@ -19,8 +19,8 @@ The documentation is organized as follows:
 - **qt_signals.md**  
   Documentation on using the Qt framework’s signal-slot mechanism for event handling, including setup and usage examples.
 
-- **io_events.md**  
-  An explanation of event-driven I/O using `select()` and `poll()`, with examples demonstrating how these system calls are used to handle I/O events.
+- **io_and_sockets.md**  
+  An explanation of event-driven I/O and socket programming using mechanisms such as `select()` on POSIX systems and Winsock’s `select()` with `_kbhit()` on Windows.
 
 - **event_queue.md**  
   Details on implementing a message/event queue in C++ to process events sequentially.
