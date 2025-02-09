@@ -1,78 +1,67 @@
 # Event-Driven Programming in C++
 
-Event-Driven Programming in C++ is a case study project that demonstrates multiple approaches to handling events and asynchronous behavior in C++. This repository includes examples of different techniques and design patterns used for event-driven programming, each implemented in its own subproject.
+This repository is a case study demonstrating various approaches to event-driven programming in C++. It includes examples implemented in C++ using different design patterns and libraries such as:
 
-## Overview
+- The **Observer pattern** for decoupled event notifications.
+- **Callbacks** using `std::function` to handle events.
+- **Qt Signals & Slots** to leverage Qt’s robust event-driven system.
+- **I/O Events** using system calls like `select()`/`poll()`.
+- An **Event Queue** implementation to decouple event production from consumption.
 
-This project provides examples of:
+The project is cross-platform, supports multiple compilers and build types, and uses CMake (with CMake Presets) to simplify configuration and build management.
 
-- **Observer Pattern:**  
-  A classic design pattern for decoupled event handling.
-- **Callbacks:**  
-  Implementation using function pointers, lambdas, and `std::function`.
-- **Qt Signals & Slots:**  
-  Leveraging the Qt framework for a built-in signal-slot mechanism.
-- **I/O Events:**  
-  Handling asynchronous I/O with system calls like `select()` and `poll()`.
-- **Event Queue:**  
-  Implementing a message queue to manage asynchronous events.
+---
 
 ## Project Structure
 
 ```
 event-driven-cpp/
 ├── docs/                  
-│   ├── README.md                        # Documentation overview
+│   ├── README.md                        # This documentation overview
 │   ├── observer.md                      # Observer pattern explanation
 │   ├── callbacks.md                     # Callbacks explanation
 │   ├── qt_signals.md                    # Qt signals & slots explanation
-│   ├── io_events.md                     # I/O event handling explanation
-│   ├── event_queue.md                   # Event queue explanation
+│   ├── io_events.md                     # I/O events explanation
+│   ├── event_queue.md                   # Event queue implementation explanation
 │   ├── event_driven_comparison.md       # Comparison of event-driven programming in various languages
-│   ├── setup.md                         # Build and run instructions
+│   ├── setup.md                         # Setup and build instructions
 │   └── design.md                        # Design considerations
 │
-├── src/                   # Source code for each event mechanism example
+├── src/                   # Source code for each example
 │   ├── observer/          # Observer pattern example
 │   │   ├── observer.hpp
-│   │   ├── observer.cpp
+│   │   ├── subject.hpp
 │   │   ├── main.cpp
-│   │   ├── CMakeLists.txt
-│   │   └── README.md
+│   │   └── CMakeLists.txt
 │   │
 │   ├── callbacks/         # Callbacks example
 │   │   ├── callbacks.hpp
 │   │   ├── callbacks.cpp
 │   │   ├── main.cpp
-│   │   ├── CMakeLists.txt
-│   │   └── README.md
+│   │   └── CMakeLists.txt
 │   │
 │   ├── qt_signals/        # Qt signals & slots example
 │   │   ├── qt_signals.hpp
 │   │   ├── qt_signals.cpp
 │   │   ├── main.cpp
-│   │   ├── CMakeLists.txt
-│   │   └── README.md
+│   │   └── CMakeLists.txt
 │   │
-│   ├── io_events/         # I/O event handling example
+│   ├── io_events/         # I/O events example
 │   │   ├── io_events.hpp
 │   │   ├── io_events.cpp
 │   │   ├── main.cpp
-│   │   ├── CMakeLists.txt
-│   │   └── README.md
+│   │   └── CMakeLists.txt
 │   │
 │   ├── event_queue/       # Event queue example
 │   │   ├── event_queue.hpp
 │   │   ├── event_queue.cpp
 │   │   ├── main.cpp
-│   │   ├── CMakeLists.txt
-│   │   └── README.md
+│   │   └── CMakeLists.txt
 │   │
-│   └── common/            # Shared utilities (if any)
+│   └── common/            # Shared utilities
 │       ├── logger.hpp
 │       ├── logger.cpp
-│       ├── CMakeLists.txt
-│       └── README.md
+│       └── CMakeLists.txt
 │
 ├── tests/                 # Unit tests for each implementation
 │   ├── observer_test.cpp
@@ -80,98 +69,98 @@ event-driven-cpp/
 │   ├── qt_signals_test.cpp
 │   ├── io_events_test.cpp
 │   ├── event_queue_test.cpp
-│   ├── CMakeLists.txt
+│   └── CMakeLists.txt
 │
+├── CMakePresets.json      # Presets for cross-platform configuration/build
 ├── .clang-format          # Code formatting rules
 ├── .gitignore             # Git ignore file
-├── LICENSE                # Project license
-├── README.md              # This file
-└── CMakeLists.txt         # Root CMake configuration
+├── LICENSE                # Project license (MIT)
+└── CMakeLists.txt         # Top-level CMake configuration
 ```
+
+---
 
 ## Prerequisites
 
-Before building the project, ensure you have the following installed:
+Before building this project, ensure you have the following installed:
 
-- **C++ Compiler:** A compiler with C++20 support (e.g., GCC 10+, Clang 10+, or MSVC).
-- **CMake:** Version 3.10 or later.
+- **C++ Compiler:** A modern C++ compiler supporting C++20 (e.g., GCC 10+, Clang 10+, or MSVC 2019/2022).
+- **CMake:** Version 3.19 or later (for CMake Presets support).
 - **Git:** To clone the repository.
-- **Optional:**
-  - **Qt:** Required for the Qt signals & slots example.
-  - **clang-format:** For code formatting (see `.clang-format`).
+**Qt6:** Installed on your system (Note: The `Qt6_DIR` variable in the CMake presets is set to a default path—e.g., `C:/Qt/6.8.2/msvc2022_64/lib/cmake/Qt6` on Windows. You may need to modify this path to match your Qt installation).
+  - On **Windows**, a typical installation might be at `C:\Qt\6.8.2\msvc2022_64\`.
+  - On **Linux/macOS**, ensure that Qt6 is installed and accessible (e.g., via your package manager or from the Qt website).
+- **Build Tools:** Ninja, Visual Studio, or your preferred generator supported by CMake.
 
-## Building the Project
+---
 
-Follow these steps to build the project:
+## Setup and Build Instructions
 
-1. **Clone the Repository:**
+### Using CMake Presets
 
-   ```bash
-   git clone https://github.com/yourusername/event-driven-cpp.git
-   cd event-driven-cpp
-   ```
+The project includes a `CMakePresets.json` file for streamlined configuration and building across different platforms and compilers.
 
-2. **Create a Build Directory:**
+1. **Configure the Project:**
 
-   ```bash
-   mkdir build
-   cd build
-   ```
+   - For a default configuration (cross-platform), run:
+     ```bash
+     cmake --preset default
+     ```
+   - For a specific configuration (e.g., Windows MSVC Debug):
+     ```bash
+     cmake --preset windows-msvc-debug
+     ```
 
-3. **Generate Build Files with CMake:**
+2. **Build the Project:**
 
-   ```bash
-   cmake ..
-   ```
+   - After configuration, build using:
+     ```bash
+     cmake --build --preset default
+     ```
+     Or, for a specific preset:
+     ```bash
+     cmake --build --preset windows-msvc-debug
+     ```
 
-4. **Build the Project:**
+### Automatic Deployment on Windows
 
-   On Unix-like systems, run:
+For the Qt signals & slots example, the CMakeLists.txt in `src/qt_signals` has a post-build custom command that automatically runs `windeployqt` to copy the required Qt DLLs to the executable’s folder. This eliminates the need for manually running `windeployqt`.
 
-   ```bash
-   make
-   ```
+### Running the Applications
 
-   On Windows, open the generated solution in Visual Studio or use the appropriate build tool.
+- **On Windows:**  
+  After building, run the executables from the appropriate build directory. For example:
+  ```powershell
+  .\src\qt_signals\Debug\qt_signals_example.exe
+  ```
+  (The post-build command ensures that the required Qt DLLs are deployed automatically.)
 
-## Running the Examples
+- **On Linux/macOS:**  
+  Simply run the executable from the build directory:
+  ```bash
+  ./src/qt_signals/qt_signals_example
+  ```
 
-Each subproject in the `src/` directory comes with its own example and a corresponding `README.md`. After building the project, you can run the executables found in the build output. For example:
-
-- **Observer Pattern Example:** `build/src/observer/observer_example`
-- **Callbacks Example:** `build/src/callbacks/callbacks_example`
-- **Qt Signals & Slots Example:** `build/src/qt_signals/qt_signals_example` (requires Qt)
-- **I/O Events Example:** `build/src/io_events/io_events_example`
-- **Event Queue Example:** `build/src/event_queue/event_queue_example`
+---
 
 ## Running Tests
 
 Unit tests are provided in the `tests/` directory. To run the tests:
 
-1. Navigate to the `build` directory.
+1. Navigate to the build directory.
 2. Execute:
-
    ```bash
    ctest --verbose
    ```
 
-## Documentation
+---
 
-Comprehensive documentation is available in the `docs/` directory, covering:
+## Contributing
 
-- **Observer Pattern:** `docs/observer.md`
-- **Callbacks:** `docs/callbacks.md`
-- **Qt Signals & Slots:** `docs/qt_signals.md`
-- **I/O Events:** `docs/io_events.md`
-- **Event Queue:** `docs/event_queue.md`
-- **Event-Driven Comparison:** `docs/event_driven_comparison.md`
-- **Setup Instructions:** `docs/setup.md`
-- **Design Considerations:** `docs/design.md`
+Contributions are welcome! If you have improvements, bug fixes, or additional examples, please submit a pull request or open an issue.
+
+---
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-Contributions are welcome! If you have improvements, new examples, or suggestions, please open a pull request or submit an issue.

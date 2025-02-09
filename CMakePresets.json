@@ -1,0 +1,110 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 19,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "default",
+            "displayName": "Default (Cross-platform)",
+            "description": "Default configuration using Ninja (or other cross-platform generator).",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/default",
+            "cacheVariables": {
+                "CMAKE_CXX_STANDARD": "20",
+                "CMAKE_CXX_STANDARD_REQUIRED": "ON",
+                "CMAKE_CXX_EXTENSIONS": "OFF"
+            }
+        },
+        {
+            "name": "windows-msvc-debug",
+            "inherits": "default",
+            "description": "Windows MSVC Debug configuration",
+            "generator": "Visual Studio 17 2022",
+            "binaryDir": "${sourceDir}/build/windows-msvc-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "Qt6_DIR": "C:/Qt/6.8.2/msvc2022_64/lib/cmake/Qt6"
+            }
+        },
+        {
+            "name": "windows-msvc-release",
+            "inherits": "default",
+            "description": "Windows MSVC Release configuration",
+            "generator": "Visual Studio 17 2022",
+            "binaryDir": "${sourceDir}/build/windows-msvc-release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "Qt6_DIR": "C:/Qt/6.8.2/msvc2022_64/lib/cmake/Qt6"
+            }
+        },
+        {
+            "name": "linux-gcc-debug",
+            "inherits": "default",
+            "description": "Linux GCC Debug configuration",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/linux-gcc-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "Qt6_DIR": "/usr/local/Qt6/lib/cmake/Qt6"
+            }
+        },
+        {
+            "name": "linux-gcc-release",
+            "inherits": "default",
+            "description": "Linux GCC Release configuration",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/linux-gcc-release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "Qt6_DIR": "/usr/local/Qt6/lib/cmake/Qt6"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "default",
+            "configurePreset": "default"
+        },
+        {
+            "name": "windows-msvc-debug",
+            "configurePreset": "windows-msvc-debug"
+        },
+        {
+            "name": "windows-msvc-release",
+            "configurePreset": "windows-msvc-release"
+        },
+        {
+            "name": "linux-gcc-debug",
+            "configurePreset": "linux-gcc-debug"
+        },
+        {
+            "name": "linux-gcc-release",
+            "configurePreset": "linux-gcc-release"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "default",
+            "configurePreset": "default"
+        },
+        {
+            "name": "windows-msvc-debug",
+            "configurePreset": "windows-msvc-debug"
+        },
+        {
+            "name": "windows-msvc-release",
+            "configurePreset": "windows-msvc-release"
+        },
+        {
+            "name": "linux-gcc-debug",
+            "configurePreset": "linux-gcc-debug"
+        },
+        {
+            "name": "linux-gcc-release",
+            "configurePreset": "linux-gcc-release"
+        }
+    ]
+}
