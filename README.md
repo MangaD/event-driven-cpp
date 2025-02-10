@@ -1,165 +1,93 @@
 # Event-Driven Programming in C++
 
+*Disclaimer: This project was built collaboratively with AI, step by step. Its primary purpose is to serve as an educational tool for studying and understanding event-driven programming in C++.*
+
 This repository is a case study demonstrating various approaches to event-driven programming in C++. It includes examples implemented in C++ using different design patterns and libraries such as:
 
 - The **Observer pattern** for decoupled event notifications.
-- **Callbacks** using `std::function` to handle events.
+- **Callbacks** using `std::function` to handle asynchronous events.
 - **Qt Signals & Slots** to leverage Qt’s robust event-driven system.
-- **I/O and Sockets** for cross-platform asynchronous I/O and socket programming, using system calls like `select()`/`poll()` on POSIX systems and platform-specific alternatives on Windows.
-- An **Event Queue** implementation to decouple event production from consumption.
-
-The project is cross-platform, supports multiple compilers and build types, and uses CMake (with CMake Presets) to simplify configuration and build management.
-
-*Disclaimer: This project was built collaboratively with AI, step by step. Its primary purpose is to serve as an educational tool for studying and understanding event-driven programming in C++.*
-
----
-
-## Project Structure
-
-```
-event-driven-cpp/
-├── docs/                  
-│   ├── README.md                        # This documentation overview
-│   ├── observer.md                      # Observer pattern explanation
-│   ├── callbacks.md                     # Callbacks explanation
-│   ├── qt_signals.md                    # Qt signals & slots explanation
-│   ├── io_and_sockets.md                # I/O & sockets explanation
-│   ├── event_queue.md                   # Event queue implementation explanation
-│   ├── event_driven_comparison.md       # Comparison of event-driven programming in various languages
-│   ├── setup.md                         # Setup and build instructions
-│   └── design.md                        # Design considerations
-│
-├── src/                   # Source code for each example
-│   ├── observer/          # Observer pattern example
-│   │   ├── observer.hpp
-│   │   ├── subject.hpp
-│   │   ├── main.cpp
-│   │   └── CMakeLists.txt
-│   │
-│   ├── callbacks/         # Callbacks example
-│   │   ├── callbacks.hpp
-│   │   ├── callbacks.cpp
-│   │   ├── main.cpp
-│   │   └── CMakeLists.txt
-│   │
-│   ├── qt_signals/        # Qt signals & slots example
-│   │   ├── qt_signals.hpp
-│   │   ├── qt_signals.cpp
-│   │   ├── main.cpp
-│   │   └── CMakeLists.txt
-│   │
-│   ├── io_and_sockets/    # I/O and sockets example
-│   │   ├── io_and_sockets.cpp
-│   │   └── CMakeLists.txt
-│   │
-│   ├── event_queue/       # Event queue example
-│   │   ├── event_queue.hpp
-│   │   ├── event_queue.cpp
-│   │   ├── main.cpp
-│   │   └── CMakeLists.txt
-│   │
-│   └── common/            # Shared utilities
-│       ├── logger.hpp
-│       ├── logger.cpp
-│       └── CMakeLists.txt
-│
-├── tests/                 # Unit tests for each implementation
-│   ├── observer_test.cpp
-│   ├── callbacks_test.cpp
-│   ├── qt_signals_test.cpp
-│   ├── io_and_sockets_test.cpp
-│   ├── event_queue_test.cpp
-│   └── CMakeLists.txt
-│
-├── CMakePresets.json      # Presets for cross-platform configuration/build
-├── .clang-format          # Code formatting rules
-├── .gitignore             # Git ignore file
-├── LICENSE                # Project license (MIT)
-└── CMakeLists.txt         # Top-level CMake configuration
-```
-
----
+- **I/O and Sockets** for cross-platform asynchronous I/O and socket programming, using system calls (like `select()`) on POSIX systems and platform-specific alternatives on Windows.
+- An **Event Queue** implementation to decouple event production from processing in a thread-safe manner.
 
 ## Prerequisites
 
-Before building this project, ensure you have the following installed:
+Before building and running the project, ensure you have the following installed:
 
 - **C++ Compiler:** A modern C++ compiler supporting C++20 (e.g., GCC 10+, Clang 10+, or MSVC 2019/2022).
-- **CMake:** Version 3.19 or later (for CMake Presets support).
-- **Git:** To clone the repository.
-**Qt6:** Installed on your system (Note: The `Qt6_DIR` variable in the CMake presets is set to a default path—e.g., `C:/Qt/6.8.2/msvc2022_64/lib/cmake/Qt6` on Windows. You may need to modify this path to match your Qt installation. The `VCINSTALLDIR` environment variable should also be set to the Visual Studio installation directory).
-  - On **Windows**, a typical installation might be at `C:\Qt\6.8.2\msvc2022_64\`.
-  - On **Linux/macOS**, ensure that Qt6 is installed and accessible (e.g., via your package manager or from the Qt website).
-- **Build Tools:** Ninja, Visual Studio, or your preferred generator supported by CMake.
+- **CMake:** Version 3.19 or later (to take advantage of CMake Presets).
+- **Git:** For cloning the repository.
+- **Qt6:** Installed on your system.  
+  **Note:** The CMake presets assume a default path (e.g., `C:/Qt/6.8.2/msvc2022_64/lib/cmake/Qt6` on Windows); you may need to modify the `Qt6_DIR` variable in `CMakePresets.json` to match your installation.
+- **Build Tools:** Ninja, Visual Studio, or another supported generator.
 
----
+## Building the Project
 
-## Setup and Build Instructions
+The project uses CMake with presets defined in `CMakePresets.json` to streamline configuration and building across multiple platforms and build types.
 
-### Using CMake Presets
+### Configuration
 
-The project includes a `CMakePresets.json` file for streamlined configuration and building across different platforms and compilers.
-
-1. **Configure the Project:**
-
-   - For a default configuration (cross-platform), run:
-     ```bash
-     cmake --preset default
-     ```
-   - For a specific configuration (e.g., Windows MSVC Debug):
-     ```bash
-     cmake --preset windows-msvc-debug
-     ```
-
-2. **Build the Project:**
-
-   - After configuration, build using:
-     ```bash
-     cmake --build --preset default
-     ```
-     Or, for a specific preset:
-     ```bash
-     cmake --build --preset windows-msvc-debug
-     ```
-
-### Automatic Deployment on Windows
-
-For the Qt signals & slots example, the CMakeLists.txt in `src/qt_signals` has a post-build custom command that automatically runs `windeployqt` to copy the required Qt DLLs to the executable’s folder. This eliminates the need for manually running `windeployqt`.
-
-### Running the Applications
-
-- **On Windows:**  
-  After building, run the executables from the appropriate build directory. For example:
-  ```powershell
-  .\src\qt_signals\Debug\qt_signals_example.exe
-  ```
-  (The post-build command ensures that the required Qt DLLs are deployed automatically.)
-
-- **On Linux/macOS:**  
-  Simply run the executable from the build directory:
+For example, to configure the project:
+- **Default (cross-platform):**
   ```bash
-  ./src/qt_signals/qt_signals_example
+  cmake --preset default
+  ```
+- **Windows MSVC Debug:**
+  ```bash
+  cmake --preset windows-msvc-debug
+  ```
+- **Linux GCC Debug:**
+  ```bash
+  cmake --preset linux-gcc-debug
   ```
 
----
+### Building
 
-## Running Tests
+After configuration, build the project using:
+```bash
+cmake --build --preset <preset>
+```
+Replace `<preset>` with your chosen configuration (e.g., `windows-msvc-debug` or `linux-gcc-debug`).
 
-Unit tests are provided in the `tests/` directory. To run the tests:
+On Windows, post-build steps (such as running `windeployqt` for Qt-based examples) are executed automatically.
 
-1. Navigate to the build directory.
-2. Execute:
+## Running the Examples
+
+Each example is built as a separate executable:
+- **Observer, Callbacks, Qt Signals & Slots, I/O and Sockets,** and **Event Queue** examples are all provided.
+- Run the desired executable from its build directory (e.g., via the command line or your IDE).
+
+## Running the Tests
+
+Unit tests are located in the `tests` directory and are registered via CTest. To run all tests:
+1. Navigate to your build directory.
+2. Run:
    ```bash
-   ctest --verbose
+   ctest --preset <preset> --verbose -C <configuration>
+   ```
+   For example, on Windows:
+   ```bash
+   ctest --preset windows-msvc-debug --verbose -C Debug
    ```
 
----
+## Test Mode for I/O and Sockets Example
+
+For automated testing, the I/O and Sockets demonstration supports a `TEST_MODE` macro. When defined, the Windows-specific code bypasses the `_kbhit()` polling and reads console input using `std::getline()`. This allows tests to simulate input automatically (for example, by redirecting `std::cin`) so that manual intervention isn’t required.
+
+## Additional Notes
+
+- **Temporary Directories:**  
+  The testing process may create a `Testing/Temporary` directory as part of CTest’s internal workflow. This is normal and can be ignored.
+  
+- **Qt DLL Deployment on Windows:**  
+  The Qt-based examples automatically run `windeployqt` as a post-build step on Windows to deploy the required Qt DLLs.
+
+- **Customization:**  
+  You are welcome to modify or extend any of the examples to suit your needs.
 
 ## Contributing
 
-Contributions are welcome! If you have improvements, bug fixes, or additional examples, please submit a pull request or open an issue.
-
----
+Contributions, improvements, and bug fixes are welcome! Please submit pull requests or open issues to help enhance the project.
 
 ## License
 

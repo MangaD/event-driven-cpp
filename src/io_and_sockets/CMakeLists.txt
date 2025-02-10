@@ -16,6 +16,7 @@ include_directories(${CMAKE_SOURCE_DIR}/src/common)
 # a demonstration that monitors both socket events and console I/O.
 add_executable(io_and_sockets_example
     io_and_sockets.cpp
+    main.cpp
 )
 
 # On Windows, link against the ws2_32 library which provides the Winsock API functions.

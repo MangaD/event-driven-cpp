@@ -49,6 +49,8 @@
 
 #include "logger.hpp"
 
+namespace io_and_sockets {
+
 /**
  * @brief The port number on which the TCP server listens.
  */
@@ -96,7 +98,7 @@ void close_socket(int s) {
 #endif
 
 /**
- * @brief Main entry point for the I/O and socket monitoring example.
+ * @brief Run demo for the I/O and socket monitoring example.
  *
  * This function sets up a TCP server socket, binds it to port 12345, and begins listening
  * for incoming connections. It then enters a loop that monitors:
@@ -111,7 +113,7 @@ void close_socket(int s) {
  *
  * @return int Returns 0 upon successful termination.
  */
-int main() {
+int runDemo() {
 
     common::Logger::setLogLevel(common::LogLevel::Debug);
 
@@ -191,7 +193,17 @@ int main() {
             }
         }
 
-        // Check for console input using _kbhit().
+    #ifdef TEST_MODE
+        // In test mode, simply use std::getline() to read from standard input.
+        std::string input;
+        if (std::getline(std::cin, input)) {
+            std::cout << "Console input: " << input << std::endl;
+            if (input == "quit") {
+                running = false;
+            }
+        }
+    #else
+        // In normal mode, use _kbhit() to check for input without blocking.
         if (_kbhit()) {
             std::string input;
             std::getline(std::cin, input);
@@ -200,6 +212,7 @@ int main() {
                 running = false;
             }
         }
+    #endif
 #else
         // On POSIX systems, use select() to monitor both the server socket and standard input.
         fd_set readfds;
@@ -248,3 +261,5 @@ int main() {
 
     return 0;
 }
+
+} // namespace io_and_sockets

@@ -9,6 +9,9 @@ Makefile
 /bin/
 /lib/
 
+# CTest generated files
+/Testing/
+
 # Compiled object files and libraries
 *.o
 *.obj
