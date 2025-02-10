@@ -8,6 +8,8 @@
 
 #include <iostream>
 #include "callbacks.hpp"
+
+using namespace callbacks;
  
 int main() {
     // Create an Event instance.

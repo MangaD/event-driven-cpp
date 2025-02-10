@@ -1,4 +1,3 @@
-
 # Documentation Overview
 
 Welcome to the documentation for the **Event-Driven Programming in C++** case study project. This directory contains detailed explanations and guides covering the various event-handling mechanisms implemented throughout the project.

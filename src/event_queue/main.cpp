@@ -19,6 +19,8 @@
 #include <chrono>
 #include "event_queue.hpp"
 
+using namespace event_queue;
+
 int main() {
     // Create an instance of the EventQueue.
     EventQueue eq;

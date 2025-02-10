@@ -13,17 +13,14 @@
 
 #include <utility>
 
-/// Pushes an event onto the queue in a thread-safe manner.
+namespace event_queue {
+
 void EventQueue::pushEvent(const Event &event) {
     // Lock the mutex to ensure exclusive access to the queue.
     std::lock_guard<std::mutex> lock(mutex_);
     events_.push(event);
 }
 
-/// Processes all events in the queue in FIFO order.
-///
-/// This function repeatedly extracts the front event from the queue and executes it.
-/// The event is executed outside the critical section to minimize lock duration.
 void EventQueue::processEvents() {
     while (true) {
         Event event;
@@ -44,11 +41,10 @@ void EventQueue::processEvents() {
     }
 }
 
-/// Checks if the event queue is empty.
-///
-/// @return true if there are no events in the queue, false otherwise.
 bool EventQueue::isEmpty() const {
     // Lock the mutex to safely access the queue.
     std::lock_guard<std::mutex> lock(mutex_);
     return events_.empty();
 }
+
+} // namespace event_queue

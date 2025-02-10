@@ -18,6 +18,8 @@
 #include <iostream>
 #include "qt_signals/qt_signals.hpp"
 
+using namespace qt_signals;
+
 int main(int argc, char* argv[]) {
     // Create a QCoreApplication to provide the Qt event loop.
     QCoreApplication app(argc, argv);

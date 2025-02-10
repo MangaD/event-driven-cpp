@@ -14,6 +14,8 @@
 #include <algorithm>
 #include <string>
 
+namespace observer {
+
 /**
  * @brief The Subject class manages a list of observers and notifies them of events.
  *
@@ -62,5 +64,7 @@ public:
 private:
     std::vector<IObserver*> observers; ///< Container storing pointers to the registered observers.
 };
+
+} // namespace observer
 
 #endif // SUBJECT_HPP

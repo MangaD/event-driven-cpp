@@ -31,3 +31,7 @@ add_subdirectory(src/event_queue)
 # Enable testing and include tests if available
 enable_testing()
 add_subdirectory(tests)
+
+# Optionally generate Doxygen documentation
+find_package(Doxygen)
+include(cmake/doxygen.cmake)

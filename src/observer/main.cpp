@@ -11,6 +11,8 @@
 #include "subject.hpp"
 #include "observer.hpp"
 
+using namespace observer;
+
 /**
  * @brief A concrete implementation of the IObserver interface.
  *

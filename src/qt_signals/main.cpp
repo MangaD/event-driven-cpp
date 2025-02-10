@@ -10,6 +10,8 @@
 #include <QCoreApplication>
 #include "qt_signals.hpp"
 
+using namespace qt_signals;
+
 int main(int argc, char *argv[]) {
     QCoreApplication app(argc, argv);
 

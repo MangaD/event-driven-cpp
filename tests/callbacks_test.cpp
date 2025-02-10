@@ -15,6 +15,8 @@
 #include <iostream>
 #include "callbacks/callbacks.hpp"
 
+using namespace callbacks;
+
 int main() {
     // Test 1: Triggering an event with no callback should not cause any errors.
     {

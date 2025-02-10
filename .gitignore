@@ -12,6 +12,11 @@ Makefile
 # CTest generated files
 /Testing/
 
+# Doxygen generated files
+/docs/doxygen/html/
+/docs/doxygen/latex/
+/docs/doxygen/xml/
+
 # Compiled object files and libraries
 *.o
 *.obj

@@ -19,6 +19,8 @@
 #include <thread>
 #include <vector>
 
+using namespace event_queue;
+
 int main() {
     // Test 1: Verify that a newly created event queue is empty.
     {

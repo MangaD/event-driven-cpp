@@ -13,6 +13,19 @@
 
 #include <string>
 
+/**
+ * @namespace common
+ * @brief Contains shared utilities and helper functions used across the project.
+ *
+ * This namespace provides functionality that is reused in multiple parts of the project,
+ * such as logging, configuration utilities, and other common helper functions.
+ *
+ * For example, the Logger class defined in this namespace offers a simple mechanism for
+ * logging messages at various levels (Debug, Info, Warning, Error) throughout the project.
+ *
+ * The purpose of the common namespace is to promote code reuse and maintain consistency
+ * across different modules. Additional shared utilities can be added here as the project evolves.
+ */
 namespace common {
 
 /**

@@ -24,12 +24,9 @@
 #include <algorithm>
 
 #ifdef _WIN32
-    /**
-     * @brief Windows-specific definitions and header inclusions.
-     *
-     * The following headers provide socket programming functions, console input checking,
-     * and necessary Windows API functions.
-     */
+    // Windows-specific definitions and header inclusions.
+    // The following headers provide socket programming functions, console input checking,
+    // and necessary Windows API functions.
     #define WIN32_LEAN_AND_MEAN
     #include <winsock2.h> // Must be included before windows.h. For Windows socket functions, such as socket(), bind(), etc.
     #include <ws2tcpip.h> // For TCP/IP socket functions, such as inet_pton().
@@ -37,11 +34,8 @@
     #include <windows.h>  // For Windows API functions, such as Sleep().
     #pragma comment(lib, "Ws2_32.lib") // Link with the Winsock library.
 #else
-    /**
-     * @brief POSIX-specific header inclusions.
-     *
-     * The following headers provide socket programming and I/O functions on POSIX systems.
-     */
+    // POSIX-specific header inclusions.
+    // The following headers provide socket programming and I/O functions on POSIX systems.
     #include <sys/select.h> // For select().
     #include <unistd.h>     // For STDIN_FILENO.
     #include <fcntl.h>      // For fcntl().
@@ -97,22 +91,6 @@ void close_socket(int s) {
 }
 #endif
 
-/**
- * @brief Run demo for the I/O and socket monitoring example.
- *
- * This function sets up a TCP server socket, binds it to port 12345, and begins listening
- * for incoming connections. It then enters a loop that monitors:
- * - The server socket for incoming connection requests.
- * - Console input for user commands.
- *
- * On Windows, the server socket is monitored using Winsock’s `select()` while console input
- * is polled using `_kbhit()`. On POSIX systems, the `select()` system call monitors both the
- * server socket and the standard input file descriptor.
- *
- * Typing "quit" in the console will terminate the loop and shut down the server.
- *
- * @return int Returns 0 upon successful termination.
- */
 int runDemo() {
 
     common::Logger::setLogLevel(common::LogLevel::Debug);

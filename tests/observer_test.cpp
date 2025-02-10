@@ -18,6 +18,8 @@
 #include "observer/observer.hpp"
 #include "observer/subject.hpp"
 
+using namespace observer;
+
 /**
  * @brief A test observer that records notification messages.
  *

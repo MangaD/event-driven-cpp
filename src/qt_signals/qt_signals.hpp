@@ -14,6 +14,20 @@
 #include <QString>
 
 /**
+ * @namespace qt_signals
+ * @brief Demonstrates the usage of Qt's signals and slots mechanism.
+ *
+ * This namespace provides an example of how to use Qt's signals and slots mechanism to
+ * implement event-driven programming in C++. The primary class within this namespace,
+ * QtSignalsExample, illustrates how to declare signals and slots using the Q_OBJECT macro,
+ * how to connect signals to slots, and how to emit signals to trigger corresponding actions.
+ *
+ * The example leverages the Qt Core module and its meta-object system for type-safe communication
+ * between objects, enabling a decoupled and flexible design.
+ */
+namespace qt_signals {
+
+/**
  * @brief A simple class demonstrating Qt's signals and slots.
  *
  * The QtSignalsExample class inherits from QObject and uses the Q_OBJECT macro
@@ -59,5 +73,7 @@ public slots:
      */
     void onMySignal(const QString &message);
 };
+
+} // namespace qt_signals
 
 #endif // QT_SIGNALS_HPP
