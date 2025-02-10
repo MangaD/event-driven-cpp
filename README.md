@@ -10,6 +10,8 @@ This repository is a case study demonstrating various approaches to event-driven
 
 The project is cross-platform, supports multiple compilers and build types, and uses CMake (with CMake Presets) to simplify configuration and build management.
 
+*Disclaimer: This project was built collaboratively with AI, step by step. Its primary purpose is to serve as an educational tool for studying and understanding event-driven programming in C++.*
+
 ---
 
 ## Project Structure
