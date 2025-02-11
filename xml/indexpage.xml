@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Event-Driven Programming in C++</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md_build_2md__files_2README"/></para>
+<para><emphasis>Disclaimer: This project was built collaboratively with AI, step by step. Its primary purpose is to serve as an educational tool for studying and understanding event-driven programming in C++.</emphasis></para>
+<para>This repository is a case study demonstrating various approaches to event-driven programming in C++. It includes examples implemented in C++ using different design patterns and libraries such as:</para>
+<para><itemizedlist>
+<listitem><para>The <bold>Observer pattern</bold> for decoupled event notifications.</para>
+</listitem><listitem><para><bold>Callbacks</bold> using <computeroutput>std::function</computeroutput> to handle asynchronous events.</para>
+</listitem><listitem><para><bold>Qt Signals &amp; Slots</bold> to leverage Qt’s robust event-driven system.</para>
+</listitem><listitem><para><bold>I/O and Sockets</bold> for cross-platform asynchronous I/O and socket programming, using system calls (like <computeroutput>select()</computeroutput>) on POSIX systems and platform-specific alternatives on Windows.</para>
+</listitem><listitem><para>An <bold>Event Queue</bold> implementation to decouple event production from processing in a thread-safe manner.</para>
+</listitem></itemizedlist>
+</para>
+<sect1 id="index_1autotoc_md1">
+<title>Prerequisites</title>
+<para>Before building and running the project, ensure you have the following installed:</para>
+<para><itemizedlist>
+<listitem><para><bold>C++ Compiler:</bold> A modern C++ compiler supporting C++20 (e.g., GCC 10+, Clang 10+, or MSVC 2019/2022).</para>
+</listitem><listitem><para><bold>CMake:</bold> Version 3.19 or later (to take advantage of CMake Presets).</para>
+</listitem><listitem><para><bold>Git:</bold> For cloning the repository.</para>
+</listitem><listitem><para><bold>Qt6:</bold> Installed on your system. <linebreak/>
+ <bold>Note:</bold> The CMake presets assume a default path (e.g., <computeroutput>C:/Qt/6.8.2/msvc2022_64/lib/cmake/Qt6</computeroutput> on Windows); you may need to modify the <computeroutput>Qt6_DIR</computeroutput> variable in <computeroutput>CMakePresets.json</computeroutput> to match your installation.</para>
+</listitem><listitem><para><bold>Build Tools:</bold> Ninja, Visual Studio, or another supported generator.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md2">
+<title>Building the Project</title>
+<para>The project uses CMake with presets defined in <computeroutput>CMakePresets.json</computeroutput> to streamline configuration and building across multiple platforms and build types.</para>
+<sect2 id="index_1autotoc_md3">
+<title>Configuration</title>
+<para>For example, to configure the project:<itemizedlist>
+<listitem><para><bold>Default (cross-platform):</bold> <programlisting filename=".bash"><codeline><highlight class="normal">cmake<sp/>--preset<sp/>default</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para><bold>Windows MSVC Debug:</bold> <programlisting filename=".bash"><codeline><highlight class="normal">cmake<sp/>--preset<sp/>windows-msvc-debug</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para><bold>Linux GCC Debug:</bold> <programlisting filename=".bash"><codeline><highlight class="normal">cmake<sp/>--preset<sp/>linux-gcc-debug</highlight></codeline>
+</programlisting></para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="index_1autotoc_md4">
+<title>Building</title>
+<para>After configuration, build the project using: <programlisting filename=".bash"><codeline><highlight class="normal">cmake<sp/>--build<sp/>--preset<sp/>&lt;preset&gt;</highlight></codeline>
+</programlisting> Replace <computeroutput>&lt;preset&gt;</computeroutput> with your chosen configuration (e.g., <computeroutput>windows-msvc-debug</computeroutput> or <computeroutput>linux-gcc-debug</computeroutput>).</para>
+<para>On Windows, post-build steps (such as running <computeroutput>windeployqt</computeroutput> for Qt-based examples) are executed automatically.</para>
+</sect2>
+</sect1>
+<sect1 id="index_1autotoc_md5">
+<title>Running the Examples</title>
+<para>Each example is built as a separate executable:<itemizedlist>
+<listitem><para><bold>Observer, Callbacks, Qt Signals &amp; Slots, I/O and Sockets,</bold> and <bold>Event Queue</bold> examples are all provided.</para>
+</listitem><listitem><para>Run the desired executable from its build directory (e.g., via the command line or your IDE).</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md6">
+<title>Running the Tests</title>
+<para>Unit tests are located in the <computeroutput>tests</computeroutput> directory and are registered via CTest. To run all tests:<orderedlist>
+<listitem><para>Navigate to your build directory.</para>
+</listitem><listitem><para>Run: <programlisting filename=".bash"><codeline><highlight class="normal">ctest<sp/>--preset<sp/>&lt;preset&gt;<sp/>--verbose<sp/>-C<sp/>&lt;configuration&gt;</highlight></codeline>
+</programlisting> For example, on Windows: <programlisting filename=".bash"><codeline><highlight class="normal">ctest<sp/>--preset<sp/>windows-msvc-debug<sp/>--verbose<sp/>-C<sp/>Debug</highlight></codeline>
+</programlisting></para>
+</listitem></orderedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md7">
+<title>Test Mode for I/O and Sockets Example</title>
+<para>For automated testing, the I/O and Sockets demonstration supports a <computeroutput>TEST_MODE</computeroutput> macro. When defined, the Windows-specific code bypasses the <computeroutput>_kbhit()</computeroutput> polling and reads console input using <computeroutput>std::getline()</computeroutput>. This allows tests to simulate input automatically (for example, by redirecting <computeroutput>std::cin</computeroutput>) so that manual intervention isn’t required.</para>
+</sect1>
+<sect1 id="index_1autotoc_md8">
+<title>Additional Notes</title>
+<para><itemizedlist>
+<listitem><para><bold>Temporary Directories:</bold> <linebreak/>
+ The testing process may create a <computeroutput>Testing/Temporary</computeroutput> directory as part of CTest’s internal workflow. This is normal and can be ignored.</para>
+</listitem><listitem><para><bold>Qt DLL Deployment on Windows:</bold> <linebreak/>
+ The Qt-based examples automatically run <computeroutput>windeployqt</computeroutput> as a post-build step on Windows to deploy the required Qt DLLs.</para>
+</listitem><listitem><para><bold>Customization:</bold> <linebreak/>
+ You are welcome to modify or extend any of the examples to suit your needs.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md9">
+<title>Contributing</title>
+<para>Contributions, improvements, and bug fixes are welcome! Please submit pull requests or open issues to help enhance the project.</para>
+</sect1>
+<sect1 id="index_1autotoc_md10">
+<title>License</title>
+<para>This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details. </para>
+</sect1>
+    </detaileddescription>
+    <location file="build/md_files/README.md"/>
+  </compounddef>
+</doxygen>

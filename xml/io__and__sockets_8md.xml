@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="io__and__sockets_8md" kind="file" language="Markdown">
+    <compoundname>io_and_sockets.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>I/O<sp/>and<sp/>Sockets<sp/>Demonstration</highlight></codeline>
+<codeline><highlight class="normal">[TOC]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>document<sp/>explains<sp/>the<sp/>demonstration<sp/>example<sp/>that<sp/>monitors<sp/>both<sp/>asynchronous<sp/>I/O<sp/>events<sp/>and<sp/>socket<sp/>events<sp/>in<sp/>a<sp/>cross-platform<sp/>manner.<sp/>The<sp/>example<sp/>is<sp/>implemented<sp/>in<sp/>the<sp/>`io_and_sockets`<sp/>directory<sp/>and<sp/>uses<sp/>platform-specific<sp/>techniques<sp/>to<sp/>monitor<sp/>both<sp/>console<sp/>input<sp/>and<sp/>a<sp/>TCP<sp/>server<sp/>socket.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Overview</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>demonstration<sp/>sets<sp/>up<sp/>a<sp/>TCP<sp/>server<sp/>socket<sp/>that<sp/>listens<sp/>on<sp/>port<sp/>**12345**<sp/>for<sp/>incoming<sp/>connections<sp/>and,<sp/>at<sp/>the<sp/>same<sp/>time,<sp/>monitors<sp/>console<sp/>input<sp/>for<sp/>user<sp/>commands.<sp/>Depending<sp/>on<sp/>the<sp/>platform,<sp/>the<sp/>implementation<sp/>uses:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**POSIX<sp/>Systems:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>The<sp/>`select()`<sp/>system<sp/>call<sp/>is<sp/>used<sp/>to<sp/>monitor<sp/>both<sp/>the<sp/>server<sp/>socket<sp/>and<sp/>standard<sp/>input<sp/>(STDIN_FILENO).<sp/>When<sp/>either<sp/>the<sp/>socket<sp/>or<sp/>the<sp/>console<sp/>input<sp/>is<sp/>ready,<sp/>the<sp/>appropriate<sp/>action<sp/>is<sp/>taken.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Windows:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Winsock’s<sp/>`select()`<sp/>function<sp/>is<sp/>used<sp/>to<sp/>monitor<sp/>the<sp/>server<sp/>socket,<sp/>while<sp/>the<sp/>`_kbhit()`<sp/>function<sp/>is<sp/>used<sp/>in<sp/>a<sp/>polling<sp/>loop<sp/>to<sp/>check<sp/>for<sp/>console<sp/>input<sp/>because<sp/>the<sp/>standard<sp/>Windows<sp/>console<sp/>input<sp/>is<sp/>not<sp/>directly<sp/>compatible<sp/>with<sp/>`select()`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>demonstration<sp/>runs<sp/>continuously<sp/>until<sp/>the<sp/>user<sp/>types<sp/>**&quot;quit&quot;**<sp/>in<sp/>the<sp/>console,<sp/>at<sp/>which<sp/>point<sp/>the<sp/>server<sp/>shuts<sp/>down<sp/>gracefully.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Key<sp/>Features</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Cross-Platform<sp/>Socket<sp/>Programming:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Demonstrates<sp/>how<sp/>to<sp/>create,<sp/>bind,<sp/>and<sp/>listen<sp/>on<sp/>a<sp/>TCP<sp/>server<sp/>socket<sp/>on<sp/>both<sp/>Windows<sp/>and<sp/>POSIX<sp/>systems.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Event<sp/>Monitoring:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Uses<sp/>`select()`<sp/>on<sp/>POSIX<sp/>to<sp/>monitor<sp/>multiple<sp/>file<sp/>descriptors<sp/>and<sp/>a<sp/>combination<sp/>of<sp/>Winsock’s<sp/>`select()`<sp/>and<sp/>`_kbhit()`<sp/>on<sp/>Windows<sp/>to<sp/>monitor<sp/>both<sp/>socket<sp/>events<sp/>and<sp/>console<sp/>input.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Graceful<sp/>Shutdown:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Allows<sp/>the<sp/>user<sp/>to<sp/>type<sp/>**&quot;quit&quot;**<sp/>to<sp/>exit<sp/>the<sp/>demonstration,<sp/>ensuring<sp/>that<sp/>resources<sp/>such<sp/>as<sp/>sockets<sp/>are<sp/>properly<sp/>released.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Implementation<sp/>Details</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**TCP<sp/>Server<sp/>Socket:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>A<sp/>TCP<sp/>server<sp/>socket<sp/>is<sp/>created<sp/>and<sp/>bound<sp/>to<sp/>`INADDR_ANY`<sp/>on<sp/>port<sp/>12345,<sp/>allowing<sp/>it<sp/>to<sp/>accept<sp/>connections<sp/>from<sp/>any<sp/>network<sp/>interface.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Event<sp/>Loop:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>The<sp/>application<sp/>enters<sp/>a<sp/>loop<sp/>where:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>On<sp/>**POSIX**,<sp/>`select()`<sp/>monitors<sp/>both<sp/>the<sp/>server<sp/>socket<sp/>and<sp/>the<sp/>standard<sp/>input<sp/>file<sp/>descriptor.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>On<sp/>**Windows**,<sp/>Winsock’s<sp/>`select()`<sp/>monitors<sp/>the<sp/>server<sp/>socket,<sp/>and<sp/>`_kbhit()`<sp/>is<sp/>used<sp/>to<sp/>check<sp/>if<sp/>a<sp/>key<sp/>has<sp/>been<sp/>pressed<sp/>in<sp/>the<sp/>console.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Connection<sp/>Handling:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>When<sp/>the<sp/>server<sp/>socket<sp/>indicates<sp/>an<sp/>incoming<sp/>connection,<sp/>the<sp/>server<sp/>accepts<sp/>the<sp/>connection,<sp/>prints<sp/>a<sp/>message,<sp/>and<sp/>then<sp/>closes<sp/>the<sp/>client<sp/>socket<sp/>immediately.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Console<sp/>Input:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>When<sp/>console<sp/>input<sp/>is<sp/>detected,<sp/>the<sp/>input<sp/>is<sp/>read<sp/>and<sp/>printed.<sp/>If<sp/>the<sp/>user<sp/>enters<sp/>**&quot;quit&quot;**,<sp/>the<sp/>loop<sp/>terminates,<sp/>and<sp/>the<sp/>server<sp/>shuts<sp/>down.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Platform-Specific<sp/>Considerations:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>On<sp/>Windows,<sp/>Winsock<sp/>initialization<sp/>(via<sp/>`WSAStartup()`)<sp/>and<sp/>cleanup<sp/>(`WSACleanup()`)<sp/>are<sp/>performed.<sp/>On<sp/>POSIX,<sp/>standard<sp/>system<sp/>calls<sp/>are<sp/>used<sp/>for<sp/>socket<sp/>and<sp/>I/O<sp/>operations.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>How<sp/>to<sp/>Build<sp/>and<sp/>Run</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Building<sp/>the<sp/>Demonstration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>**Configure<sp/>and<sp/>Build:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>Use<sp/>the<sp/>provided<sp/>CMake<sp/>presets<sp/>or<sp/>configure<sp/>manually.<sp/>For<sp/>example,<sp/>with<sp/>CMake<sp/>presets:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>```bash</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>cmake<sp/>--preset<sp/>&lt;your-preset&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>cmake<sp/>--build<sp/>--preset<sp/>&lt;your-preset&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>```</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>Replace<sp/>`&lt;your-preset&gt;`<sp/>with<sp/>your<sp/>chosen<sp/>configuration,<sp/>such<sp/>as<sp/>`windows-msvc-debug`<sp/>or<sp/>`linux-gcc-debug`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">2.<sp/>**Executable<sp/>Location:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>The<sp/>built<sp/>executable<sp/>will<sp/>be<sp/>located<sp/>in<sp/>the<sp/>build<sp/>directory,<sp/>for<sp/>example:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>On<sp/>Windows:<sp/>`./src/io_and_sockets/Debug/io_and_sockets_example.exe`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>On<sp/>Linux/macOS:<sp/>`./src/io_and_sockets/io_and_sockets_example`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Running<sp/>the<sp/>Demonstration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**On<sp/>Windows:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Open<sp/>a<sp/>Command<sp/>Prompt<sp/>or<sp/>PowerShell,<sp/>navigate<sp/>to<sp/>the<sp/>build<sp/>directory,<sp/>and<sp/>run:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```powershell</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>.\src\io_and_sockets\Debug\io_and_sockets_example.exe</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**On<sp/>Linux/macOS:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>From<sp/>the<sp/>build<sp/>directory,<sp/>run:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```bash</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>./src/io_and_sockets/io_and_sockets_example</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Interacting<sp/>with<sp/>the<sp/>Demonstration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>server<sp/>will<sp/>print<sp/>a<sp/>message<sp/>indicating<sp/>that<sp/>it<sp/>is<sp/>listening<sp/>on<sp/>port<sp/>12345.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>If<sp/>a<sp/>client<sp/>connects<sp/>(for<sp/>example,<sp/>via<sp/>`telnet<sp/>localhost<sp/>12345`),<sp/>the<sp/>server<sp/>will<sp/>print<sp/>a<sp/>message<sp/>indicating<sp/>a<sp/>connection<sp/>was<sp/>accepted.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Any<sp/>console<sp/>input<sp/>will<sp/>be<sp/>echoed<sp/>back.<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Typing<sp/>**&quot;quit&quot;**<sp/>(without<sp/>quotes)<sp/>in<sp/>the<sp/>console<sp/>will<sp/>gracefully<sp/>shut<sp/>down<sp/>the<sp/>server<sp/>and<sp/>exit<sp/>the<sp/>demonstration.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Additional<sp/>Resources</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**POSIX<sp/>select()<sp/>Documentation:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>[man7.org/linux/man-pages/man2/select.2.html](https://man7.org/linux/man-pages/man2/select.2.html)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Winsock<sp/>select()<sp/>Documentation:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>[MSDN<sp/>Winsock<sp/>select()](https://docs.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-select)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**_kbhit()<sp/>on<sp/>Windows:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>[MSDN<sp/>_kbhit()](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/kbhit)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>document<sp/>provides<sp/>a<sp/>detailed<sp/>explanation<sp/>of<sp/>the<sp/>I/O<sp/>and<sp/>Sockets<sp/>demonstration,<sp/>which<sp/>is<sp/>designed<sp/>to<sp/>illustrate<sp/>cross-platform<sp/>event<sp/>monitoring<sp/>using<sp/>both<sp/>socket<sp/>and<sp/>console<sp/>I/O.<sp/>Enjoy<sp/>exploring<sp/>and<sp/>modifying<sp/>the<sp/>example<sp/>for<sp/>your<sp/>needs!</highlight></codeline>
+    </programlisting>
+    <location file="build/md_files/docs/io_and_sockets.md"/>
+  </compounddef>
+</doxygen>

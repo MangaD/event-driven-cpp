@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceqt__signals" kind="namespace" language="C++">
+    <compoundname>qt_signals</compoundname>
+    <innerclass refid="classqt__signals_1_1QtSignalsExample" prot="public">qt_signals::QtSignalsExample</innerclass>
+    <briefdescription>
+<para>Demonstrates the usage of Qt&apos;s signals and slots mechanism. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This namespace provides an example of how to use Qt&apos;s signals and slots mechanism to implement event-driven programming in C++. The primary class within this namespace, <ref refid="classqt__signals_1_1QtSignalsExample" kindref="compound">QtSignalsExample</ref>, illustrates how to declare signals and slots using the Q_OBJECT macro, how to connect signals to slots, and how to emit signals to trigger corresponding actions.</para>
+<para>The example leverages the Qt Core module and its meta-object system for type-safe communication between objects, enabling a decoupled and flexible design. </para>
+    </detaileddescription>
+    <location file="src/qt_signals/qt_signals.cpp" line="13" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="event__queue_8hpp" kind="file" language="C++">
+    <compoundname>event_queue.hpp</compoundname>
+    <includes local="no">queue</includes>
+    <includes local="no">functional</includes>
+    <includes local="no">mutex</includes>
+    <includedby refid="event__queue_8cpp" local="yes">src/event_queue/event_queue.cpp</includedby>
+    <includedby refid="event__queue_2main_8cpp" local="yes">src/event_queue/main.cpp</includedby>
+    <includedby refid="event__queue__test_8cpp" local="yes">tests/event_queue_test.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/event_queue/event_queue.hpp</label>
+        <link refid="event__queue_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>functional</label>
+      </node>
+      <node id="4">
+        <label>mutex</label>
+      </node>
+      <node id="2">
+        <label>queue</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/event_queue/event_queue.cpp</label>
+        <link refid="event__queue_8cpp"/>
+      </node>
+      <node id="1">
+        <label>src/event_queue/event_queue.hpp</label>
+        <link refid="event__queue_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/event_queue/main.cpp</label>
+        <link refid="event__queue_2main_8cpp"/>
+      </node>
+      <node id="4">
+        <label>tests/event_queue_test.cpp</label>
+        <link refid="event__queue__test_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classevent__queue_1_1EventQueue" prot="public">event_queue::EventQueue</innerclass>
+    <innernamespace refid="namespaceevent__queue">event_queue</innernamespace>
+    <briefdescription>
+<para>Declaration of the EventQueue class. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This file declares the EventQueue class, which provides a thread-safe mechanism for queuing and processing events. An event is represented as a callable object (using std::function&lt;void()&gt;), allowing the decoupling of event production from event handling. This is useful in event-driven architectures, game loops, or any asynchronous application. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>EVENT_QUEUE_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EVENT_QUEUE_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;queue&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;functional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mutex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceevent__queue" kindref="compound">event_queue</ref><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="classevent__queue_1_1EventQueue" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classevent__queue_1_1EventQueue" kindref="compound">EventQueue</ref><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="46" refid="classevent__queue_1_1EventQueue_1ab89b2fd741da44f28c564c0109f0746d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classevent__queue_1_1EventQueue_1ab89b2fd741da44f28c564c0109f0746d" kindref="member">Event</ref><sp/>=<sp/>std::function&lt;void()&gt;;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classevent__queue_1_1EventQueue_1abba2e993feb8d71e3304ff7245c95a42" kindref="member">pushEvent</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classevent__queue_1_1EventQueue_1ab89b2fd741da44f28c564c0109f0746d" kindref="member">Event</ref><sp/>&amp;event);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classevent__queue_1_1EventQueue_1afce21650f324ba5fca18af18f6d7b829" kindref="member">processEvents</ref>();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classevent__queue_1_1EventQueue_1ab74d2754ddaf90a5cd285a33bf9491b4" kindref="member">isEmpty</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="73" refid="classevent__queue_1_1EventQueue_1a6a55ae6457ab9f980ce2e39b16aa14a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::queue&lt;Event&gt;<sp/><ref refid="classevent__queue_1_1EventQueue_1a6a55ae6457ab9f980ce2e39b16aa14a2" kindref="member">events_</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="74" refid="classevent__queue_1_1EventQueue_1a63092761a33dcb3bc32515d9dc2cea53" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/>std::mutex<sp/><ref refid="classevent__queue_1_1EventQueue_1a63092761a33dcb3bc32515d9dc2cea53" kindref="member">mutex_</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>event_queue</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>EVENT_QUEUE_HPP</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/event_queue/event_queue.hpp"/>
+  </compounddef>
+</doxygen>

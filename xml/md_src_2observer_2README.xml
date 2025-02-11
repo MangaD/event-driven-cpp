@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md_src_2observer_2README" kind="page">
+    <compoundname>md_src_2observer_2README</compoundname>
+    <title>Observer Pattern Example</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="md_src_2observer_2README_1autotoc_md176"/> This directory contains an implementation of the Observer pattern in C++ as a demonstration of event-driven programming. The Observer pattern enables one object (the Subject) to notify multiple dependent objects (Observers) about events or state changes without tightly coupling the subject to the observers.</para>
+<sect1 id="md_src_2observer_2README_1autotoc_md177">
+<title>Contents</title>
+<para><itemizedlist>
+<listitem><para><bold><ref refid="observer_8hpp" kindref="compound">observer.hpp</ref></bold> <linebreak/>
+ Declares the <computeroutput>IObserver</computeroutput> interface that defines the contract for all observers. Any class that wants to receive notifications should implement this interface.</para>
+</listitem><listitem><para><bold><ref refid="subject_8hpp" kindref="compound">subject.hpp</ref></bold> <linebreak/>
+ Defines the <computeroutput>Subject</computeroutput> class, which manages a list of observers and provides methods to add, remove, and notify them of events.</para>
+</listitem><listitem><para><bold>main.cpp</bold> <linebreak/>
+ A sample program that demonstrates the Observer pattern in action. It creates a subject, registers concrete observers, sends notifications, and shows how observers are notified.</para>
+</listitem><listitem><para><bold>CMakeLists.txt</bold> <linebreak/>
+ The CMake configuration file for building the observer example. It sets the C++ standard, includes necessary directories, and builds the executable.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_src_2observer_2README_1autotoc_md178">
+<title>Building the Example</title>
+<para>To build the observer example:</para>
+<para><orderedlist>
+<listitem><para><bold>Navigate to the Project Root:</bold></para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">cd<sp/>/path/to/event-driven-cpp</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para><bold>Create a Build Directory and Configure the Project:</bold></para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">mkdir<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>..</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para><bold>Build the Observer Example:</bold></para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">make<sp/>observer_example</highlight></codeline>
+</programlisting></para>
+</listitem></orderedlist>
+</para>
+</sect1>
+<sect1 id="md_src_2observer_2README_1autotoc_md179">
+<title>Running the Example</title>
+<para>After building, you can run the observer example by executing the generated binary:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">./src/observer/observer_example</highlight></codeline>
+</programlisting></para>
+<para>This will launch the example program, which demonstrates how the subject notifies its observers when an event occurs.</para>
+</sect1>
+<sect1 id="md_src_2observer_2README_1autotoc_md180">
+<title>Overview of the Observer Pattern</title>
+<para>The Observer pattern is a key design pattern for event-driven programming. It allows a subject to notify multiple observers about events or changes in its state while maintaining loose coupling between the subject and its observers. This example illustrates a simple implementation that can be extended or integrated into larger applications.</para>
+<para><hruler/>
+</para>
+<para>Feel free to modify or extend this example to fit your specific needs. </para>
+</sect1>
+    </detaileddescription>
+    <location file="src/observer/README.md"/>
+  </compounddef>
+</doxygen>

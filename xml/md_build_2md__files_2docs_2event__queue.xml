@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md_build_2md__files_2docs_2event__queue" kind="page">
+    <compoundname>md_build_2md__files_2docs_2event__queue</compoundname>
+    <title>Event Queue in C++</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="md_build_2md__files_2docs_2event__queue_1autotoc_md64"/></para>
+<para>An event queue is a programming construct that allows an application to store and manage events that occur asynchronously. Instead of handling each event immediately as it occurs, events are enqueued and processed sequentially. This mechanism is widely used in GUI applications, game development, and multi-threaded systems to decouple event generation from event processing.</para>
+<sect1 id="md_build_2md__files_2docs_2event__queue_1autotoc_md65">
+<title>Key Concepts</title>
+<para><itemizedlist>
+<listitem><para><bold>Event:</bold> <linebreak/>
+ An action or occurrence—such as a user input, a timer expiry, or a network message—that needs to be processed by the application.</para>
+</listitem><listitem><para><bold>Event Queue:</bold> <linebreak/>
+ A data structure (often implemented as a FIFO queue) that holds events until they are processed.</para>
+</listitem><listitem><para><bold>Producer:</bold> <linebreak/>
+ The component that generates events and pushes them into the queue.</para>
+</listitem><listitem><para><bold>Consumer:</bold> <linebreak/>
+ The component that processes events from the queue, often in an event loop.</para>
+</listitem><listitem><para><bold>Asynchronous Processing:</bold> <linebreak/>
+ Using an event queue allows producers and consumers to operate independently, which is especially useful in asynchronous and multi-threaded environments.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2event__queue_1autotoc_md66">
+<title>Benefits</title>
+<para><itemizedlist>
+<listitem><para><bold>Decoupling:</bold> <linebreak/>
+ The producers of events do not need to know how events are processed, and vice versa, leading to a modular and maintainable design.</para>
+</listitem><listitem><para><bold>Buffering:</bold> <linebreak/>
+ Events can be queued up and processed at a pace that suits the application, which helps in handling bursty event loads.</para>
+</listitem><listitem><para><bold>Simplified Flow:</bold> <linebreak/>
+ A simple FIFO structure can effectively manage events, making it easier to reason about the order and timing of event handling.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2event__queue_1autotoc_md67">
+<title>A Simple C++ Example</title>
+<para>Below is an example implementation of an event queue using <computeroutput>std::queue</computeroutput> and <computeroutput>std::function</computeroutput> for event callbacks. This example demonstrates how events are added to the queue and then processed sequentially.</para>
+<sect2 id="md_build_2md__files_2docs_2event__queue_1autotoc_md68">
+<title>Example Code</title>
+<para><programlisting filename=".cpp"><codeline><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;queue&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;functional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Define<sp/>an<sp/>Event<sp/>type<sp/>using<sp/>std::function</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">Event<sp/>=<sp/>std::function&lt;void()&gt;;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>EventQueue<sp/>class<sp/>that<sp/>manages<sp/>events</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">EventQueue<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>an<sp/>event<sp/>to<sp/>the<sp/>queue</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>push(Event<sp/>event)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>events.push(event);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Process<sp/>and<sp/>remove<sp/>all<sp/>events<sp/>from<sp/>the<sp/>queue</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>processEvents()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!events.empty())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Event<sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal"><sp/>=<sp/>events.front();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>events.pop();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>event();<sp/></highlight><highlight class="comment">//<sp/>Execute<sp/>the<sp/>event<sp/>callback</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::queue&lt;Event&gt;<sp/>events;</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Simulate<sp/>the<sp/>production<sp/>of<sp/>some<sp/>events</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>simulateEvents(EventQueue&amp;<sp/>queue)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Example<sp/>event<sp/>1:<sp/>Print<sp/>a<sp/>greeting</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>queue.push([]()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Event<sp/>1:<sp/>Hello,<sp/>world!&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Example<sp/>event<sp/>2:<sp/>Print<sp/>a<sp/>delayed<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>queue.push([]()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Event<sp/>2:<sp/>This<sp/>is<sp/>a<sp/>delayed<sp/>message.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Example<sp/>event<sp/>3:<sp/>Perform<sp/>a<sp/>simple<sp/>calculation</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>queue.push([]()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>result<sp/>=<sp/>42<sp/>*<sp/>2;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Event<sp/>3:<sp/>The<sp/>result<sp/>of<sp/>the<sp/>calculation<sp/>is<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>result<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="callbacks_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kindref="member">main</ref>()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>EventQueue<sp/>queue;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Simulate<sp/>producing<sp/>events</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>simulateEvents(queue);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Process<sp/>the<sp/>event<sp/>queue</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Processing<sp/>event<sp/>queue...&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>queue.processEvents();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_build_2md__files_2docs_2event__queue_1autotoc_md69">
+<title>Explanation</title>
+<para><itemizedlist>
+<listitem><para><bold>Event Definition:</bold> <linebreak/>
+ The <computeroutput>Event</computeroutput> type is defined as <computeroutput>std::function&lt;void()&gt;</computeroutput>, which allows storing any callable object (such as a lambda) that takes no arguments and returns nothing.</para>
+</listitem><listitem><para><bold>EventQueue Class:</bold> <linebreak/>
+<itemizedlist>
+<listitem><para>The <computeroutput>push()</computeroutput> method adds a new event to the queue.</para>
+</listitem><listitem><para>The <computeroutput>processEvents()</computeroutput> method processes all events in FIFO order, executing each event callback and removing it from the queue.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><bold>Simulating Events:</bold> <linebreak/>
+ The <computeroutput>simulateEvents()</computeroutput> function demonstrates how different events can be generated and added to the queue. In a real-world application, events might come from various parts of the system or different threads.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2event__queue_1autotoc_md70">
+<title>Advanced Considerations</title>
+<para><itemizedlist>
+<listitem><para><bold>Thread Safety:</bold> <linebreak/>
+ In a multi-threaded environment, you would typically protect the event queue using synchronization mechanisms (e.g., mutexes) or use a thread-safe queue implementation to avoid race conditions.</para>
+</listitem><listitem><para><bold>Event Prioritization:</bold> <linebreak/>
+ For systems where certain events should be processed before others, consider using a priority queue or implementing a custom ordering mechanism.</para>
+</listitem><listitem><para><bold>Continuous Event Loop:</bold> <linebreak/>
+ In applications such as GUIs or games, the event queue is often processed inside a continuous event loop that runs for the lifetime of the application.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2event__queue_1autotoc_md71">
+<title>Conclusion</title>
+<para>Event queues provide a powerful mechanism for managing asynchronous events in a decoupled manner. They allow applications to buffer and process events in an orderly fashion, improving responsiveness and modularity. The simple example above demonstrates the basic principles of using an event queue in C++, which you can expand upon for more complex systems. </para>
+</sect1>
+    </detaileddescription>
+    <location file="build/md_files/docs/event_queue.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['pattern_0',['pattern',['../md_build_2md__files_2docs_2design.html#autotoc_md27',1,'1. Observer Pattern'],['../md_build_2md__files_2docs_2event__driven__comparison.html#autotoc_md42',1,'Example: Observer Pattern'],['../md_build_2md__files_2docs_2observer__vs__callbacks.html#autotoc_md97',1,'Observer Pattern'],['../md_src_2observer_2README.html#autotoc_md180',1,'Overview of the Observer Pattern'],['../md_build_2md__files_2docs_2observer.html#autotoc_md91',1,'When to Use the Observer Pattern']]],
+  ['pattern_20example_1',['Observer Pattern Example',['../md_src_2observer_2README.html',1,'']]],
+  ['pattern_20in_20c_2',['Observer Pattern in C++',['../md_build_2md__files_2docs_2observer.html',1,'']]],
+  ['pattern_20vs_20callbacks_3a_20a_20comparison_3',['Observer Pattern vs. Callbacks: A Comparison',['../md_build_2md__files_2docs_2observer__vs__callbacks.html',1,'']]],
+  ['patterns_20and_20concepts_4',['Key Design Patterns and Concepts',['../md_build_2md__files_2docs_2design.html#autotoc_md26',1,'']]],
+  ['pointers_5',['pointers',['../md_build_2md__files_2docs_2callbacks.html#autotoc_md18',1,'1. Function Pointers'],['../md_build_2md__files_2docs_2design.html#autotoc_md28',1,'2. Callbacks and Function Pointers']]],
+  ['poll_20tt_6',['4. I/O Event Handling with &lt;tt&gt;select()&lt;/tt&gt;/&lt;tt&gt;poll()&lt;/tt&gt;',['../md_build_2md__files_2docs_2design.html#autotoc_md30',1,'']]],
+  ['port_7',['port',['../io__and__sockets__test_8cpp.html#a614217d263be1fb1a5f76e2ff7be19a2',1,'PORT:&#160;io_and_sockets_test.cpp'],['../io__and__sockets_8cpp.html#a614217d263be1fb1a5f76e2ff7be19a2',1,'PORT:&#160;io_and_sockets.cpp']]],
+  ['practices_8',['Best Practices',['../md_build_2md__files_2docs_2design.html#autotoc_md36',1,'']]],
+  ['prerequisites_9',['prerequisites',['../md_build_2md__files_2docs_2setup.html#autotoc_md120',1,'Prerequisites'],['../md_src_2qt__signals_2README.html#autotoc_md185',1,'Prerequisites'],['../index.html#autotoc_md1',1,'Prerequisites']]],
+  ['presets_10',['presets',['../md_src_2io__and__sockets_2README.html#autotoc_md170',1,'Using CMake Presets'],['../md_build_2md__files_2docs_2setup.html#autotoc_md124',1,'Using CMake Presets']]],
+  ['processevents_11',['processEvents',['../classevent__queue_1_1EventQueue.html#afce21650f324ba5fca18af18f6d7b829',1,'event_queue::EventQueue']]],
+  ['programming_12',['Benefits of Event-Driven Programming',['../md_build_2md__files_2docs_2what__is__event__driven__programming.html#autotoc_md140',1,'']]],
+  ['programming_20across_20languages_13',['Comparing Event-Driven Programming Across Languages',['../md_build_2md__files_2docs_2event__driven__comparison.html',1,'']]],
+  ['programming_20in_20c_14',['programming in c',['../md_build_2md__files_2docs_2design.html',1,'Design Considerations for Event-Driven Programming in C++'],['../index.html',1,'Event-Driven Programming in C++'],['../md_build_2md__files_2docs_2what__is__event__driven__programming.html',1,'Event-Driven Programming in C++'],['../md_build_2md__files_2docs_2setup.html',1,'Setup Guide for Event-Driven Programming in C++']]],
+  ['programming_20vs_20event_20driven_20architecture_15',['Event-Driven Programming vs. Event-Driven Architecture',['../md_build_2md__files_2docs_2what__is__event__driven__programming.html#autotoc_md139',1,'']]],
+  ['programming_20works_16',['How Event-Driven Programming Works',['../md_build_2md__files_2docs_2what__is__event__driven__programming.html#autotoc_md136',1,'']]],
+  ['project_17',['project',['../index.html#autotoc_md2',1,'Building the Project'],['../md_build_2md__files_2docs_2qt__signals.html#autotoc_md111',1,'Setting Up a Qt Project'],['../md_build_2md__files_2docs_2setup.html#autotoc_md126',1,'To Build the Project'],['../md_build_2md__files_2docs_2setup.html#autotoc_md125',1,'To Configure the Project']]],
+  ['pros_18',['pros',['../md_build_2md__files_2docs_2observer__vs__callbacks.html#autotoc_md102',1,'Pros'],['../md_build_2md__files_2docs_2observer__vs__callbacks.html#autotoc_md98',1,'Pros']]],
+  ['pros_20and_20cons_19',['pros and cons',['../md_build_2md__files_2docs_2event__driven__comparison.html#autotoc_md59',1,'Pros and Cons'],['../md_build_2md__files_2docs_2event__driven__comparison.html#autotoc_md53',1,'Pros and Cons'],['../md_build_2md__files_2docs_2event__driven__comparison.html#autotoc_md48',1,'Pros and Cons'],['../md_build_2md__files_2docs_2event__driven__comparison.html#autotoc_md43',1,'Pros and Cons']]],
+  ['pushevent_20',['pushEvent',['../classevent__queue_1_1EventQueue.html#abba2e993feb8d71e3304ff7245c95a42',1,'event_queue::EventQueue']]],
+  ['python_21',['Python',['../md_build_2md__files_2docs_2event__driven__comparison.html#autotoc_md50',1,'']]]
+];

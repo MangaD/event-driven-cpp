@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['test_20mode_20for_20i_20o_20and_20sockets_20example_0',['Test Mode for I/O and Sockets Example',['../index.html#autotoc_md7',1,'']]],
+  ['testobserver_1',['TestObserver',['../classTestObserver.html',1,'']]],
+  ['tests_2',['Running the Tests',['../index.html#autotoc_md6',1,'']]],
+  ['the_20application_3',['Running the Application',['../md_build_2md__files_2docs_2setup.html#autotoc_md131',1,'']]],
+  ['the_20browser_4',['Example: DOM Event in the Browser',['../md_build_2md__files_2docs_2event__driven__comparison.html#autotoc_md57',1,'']]],
+  ['the_20demonstration_5',['the demonstration',['../md_src_2io__and__sockets_2README.html#autotoc_md169',1,'Building the Demonstration'],['../md_build_2md__files_2docs_2io__and__sockets.html#autotoc_md81',1,'Building the Demonstration'],['../md_build_2md__files_2docs_2io__and__sockets.html#autotoc_md83',1,'Interacting with the Demonstration'],['../md_src_2io__and__sockets_2README.html#autotoc_md173',1,'Running the Demonstration'],['../md_build_2md__files_2docs_2io__and__sockets.html#autotoc_md82',1,'Running the Demonstration']]],
+  ['the_20example_6',['the example',['../md_src_2observer_2README.html#autotoc_md178',1,'Building the Example'],['../md_src_2qt__signals_2README.html#autotoc_md184',1,'Building the Example'],['../md_src_2event__queue_2README.html#autotoc_md157',1,'Building the Example'],['../md_src_2callbacks_2README.html#autotoc_md145',1,'Building the Example'],['../md_src_2qt__signals_2README.html#autotoc_md188',1,'Overview of the Example'],['../md_src_2observer_2README.html#autotoc_md179',1,'Running the Example'],['../md_src_2event__queue_2README.html#autotoc_md160',1,'Running the Example'],['../md_src_2callbacks_2README.html#autotoc_md146',1,'Running the Example'],['../md_src_2qt__signals_2README.html#autotoc_md187',1,'Running the Example']]],
+  ['the_20examples_7',['Running the Examples',['../index.html#autotoc_md5',1,'']]],
+  ['the_20observer_20pattern_8',['the observer pattern',['../md_src_2observer_2README.html#autotoc_md180',1,'Overview of the Observer Pattern'],['../md_build_2md__files_2docs_2observer.html#autotoc_md91',1,'When to Use the Observer Pattern']]],
+  ['the_20project_9',['the project',['../index.html#autotoc_md2',1,'Building the Project'],['../md_build_2md__files_2docs_2setup.html#autotoc_md126',1,'To Build the Project'],['../md_build_2md__files_2docs_2setup.html#autotoc_md125',1,'To Configure the Project']]],
+  ['the_20repository_10',['Cloning the Repository',['../md_build_2md__files_2docs_2setup.html#autotoc_md122',1,'']]],
+  ['the_20tests_11',['Running the Tests',['../index.html#autotoc_md6',1,'']]],
+  ['this_20documentation_12',['How to Use This Documentation',['../md_build_2md__files_2docs_2README.html#autotoc_md13',1,'']]],
+  ['to_20build_20and_20run_13',['How to Build and Run',['../md_build_2md__files_2docs_2io__and__sockets.html#autotoc_md80',1,'']]],
+  ['to_20build_20the_20project_14',['To Build the Project',['../md_build_2md__files_2docs_2setup.html#autotoc_md126',1,'']]],
+  ['to_20choose_15',['How to Choose',['../md_build_2md__files_2docs_2observer__vs__callbacks.html#autotoc_md105',1,'']]],
+  ['to_20configure_20the_20project_16',['To Configure the Project',['../md_build_2md__files_2docs_2setup.html#autotoc_md125',1,'']]],
+  ['to_20implementing_20callbacks_17',['Approaches to Implementing Callbacks',['../md_build_2md__files_2docs_2callbacks.html#autotoc_md17',1,'']]],
+  ['to_20use_20callbacks_18',['When to Use Callbacks',['../md_build_2md__files_2docs_2callbacks.html#autotoc_md22',1,'']]],
+  ['to_20use_20the_20observer_20pattern_19',['When to Use the Observer Pattern',['../md_build_2md__files_2docs_2observer.html#autotoc_md91',1,'']]],
+  ['to_20use_20this_20documentation_20',['How to Use This Documentation',['../md_build_2md__files_2docs_2README.html#autotoc_md13',1,'']]],
+  ['trigger_21',['trigger',['../classcallbacks_1_1Event.html#ae7bf335f2eac0178867cabea497dd1f9',1,'callbacks::Event']]],
+  ['tt_20select_20tt_20tt_20poll_20tt_22',['4. I/O Event Handling with &lt;tt&gt;select()&lt;/tt&gt;/&lt;tt&gt;poll()&lt;/tt&gt;',['../md_build_2md__files_2docs_2design.html#autotoc_md30',1,'']]],
+  ['tt_20std_3a_3afunction_20tt_23',['3. &lt;tt&gt;std::function&lt;/tt&gt;',['../md_build_2md__files_2docs_2callbacks.html#autotoc_md20',1,'']]]
+];

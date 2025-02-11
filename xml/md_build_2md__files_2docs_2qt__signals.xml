@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md_build_2md__files_2docs_2qt__signals" kind="page">
+    <compoundname>md_build_2md__files_2docs_2qt__signals</compoundname>
+    <title>Qt Signals &amp; Slots in C++</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="md_build_2md__files_2docs_2qt__signals_1autotoc_md108"/></para>
+<para>The Qt framework provides a powerful mechanism for event-driven programming through its signals and slots system. This mechanism allows objects to communicate with each other in a loosely coupled manner, which is ideal for building responsive and modular applications.</para>
+<sect1 id="md_build_2md__files_2docs_2qt__signals_1autotoc_md109">
+<title>What Are Signals and Slots?</title>
+<para><itemizedlist>
+<listitem><para><bold>Signals:</bold> <linebreak/>
+ Signals are emitted by an object when a specific event occurs or its state changes. They serve as notifications without providing any implementation details.</para>
+</listitem><listitem><para><bold>Slots:</bold> <linebreak/>
+ Slots are functions (or methods) that are called in response to a signal. They are used to process the event or state change indicated by the signal.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2qt__signals_1autotoc_md110">
+<title>Key Features of Qt&apos;s Signal-Slot Mechanism</title>
+<para><itemizedlist>
+<listitem><para><bold>Loose Coupling:</bold> <linebreak/>
+ Objects can communicate without needing to know about each other&apos;s internal implementations.</para>
+</listitem><listitem><para><bold>Type Safety:</bold> <linebreak/>
+ Connections between signals and slots are checked at compile time, ensuring that the parameters match.</para>
+</listitem><listitem><para><bold>Automatic Disconnection:</bold> <linebreak/>
+ When an object is destroyed, its signals and slots are automatically disconnected, reducing the risk of accessing invalid pointers.</para>
+</listitem><listitem><para><bold>Thread-Safe:</bold> <linebreak/>
+ Qt provides mechanisms to safely communicate across threads using signals and slots.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2qt__signals_1autotoc_md111">
+<title>Setting Up a Qt Project</title>
+<para>To use signals and slots:<itemizedlist>
+<listitem><para>Your classes must inherit from <computeroutput>QObject</computeroutput>.</para>
+</listitem><listitem><para>The class that declares signals or slots must include the <computeroutput>Q_OBJECT</computeroutput> macro.</para>
+</listitem><listitem><para>The Qt Meta-Object Compiler (moc) processes your headers to generate meta-information required for signal-slot communication. This is usually handled automatically by your build system (e.g., qmake or CMake with Qt integration).</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2qt__signals_1autotoc_md112">
+<title>Example: A Simple Signal-Slot Implementation</title>
+<para>Below is a simple console application demonstrating Qt&apos;s signals and slots.</para>
+<sect2 id="md_build_2md__files_2docs_2qt__signals_1autotoc_md113">
+<title>Sender Class</title>
+<para><programlisting filename=".cpp"><codeline><highlight class="comment">//<sp/>sender.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SENDER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SENDER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QString&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Sender<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/>Sender(QObject*<sp/>parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>:<sp/>QObject(parent)<sp/>{}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">signals:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Signal<sp/>that<sp/>carries<sp/>a<sp/>message<sp/>when<sp/>emitted</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mySignal(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;<sp/>message);</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>SENDER_H</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_build_2md__files_2docs_2qt__signals_1autotoc_md114">
+<title>Receiver Class</title>
+<para><programlisting filename=".cpp"><codeline><highlight class="comment">//<sp/>receiver.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>RECEIVER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RECEIVER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Receiver<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/>Receiver(QObject*<sp/>parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>:<sp/>QObject(parent)<sp/>{}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Slot<sp/>to<sp/>handle<sp/>the<sp/>signal<sp/>and<sp/>print<sp/>the<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onMySignal(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;<sp/>message)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Receiver<sp/>received:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>message.toStdString()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>RECEIVER_H</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_build_2md__files_2docs_2qt__signals_1autotoc_md115">
+<title>Main File</title>
+<para><programlisting filename=".cpp"><codeline><highlight class="comment">//<sp/>main.cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QCoreApplication&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;sender.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;receiver.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="callbacks_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kindref="member">main</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*argv[])<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>QCoreApplication<sp/>app(argc,<sp/>argv);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Sender<sp/>sender;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Receiver<sp/>receiver;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Connect<sp/>the<sp/>signal<sp/>to<sp/>the<sp/>slot</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>QObject::connect(&amp;sender,<sp/>&amp;Sender::mySignal,<sp/>&amp;receiver,<sp/>&amp;Receiver::onMySignal);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Emit<sp/>the<sp/>signal<sp/>with<sp/>a<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/>sender.mySignal(</highlight><highlight class="stringliteral">&quot;Hello<sp/>from<sp/>Qt<sp/>Signals<sp/>&amp;<sp/>Slots!&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>app.exec();</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect2>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2qt__signals_1autotoc_md116">
+<title>Explanation</title>
+<para><itemizedlist>
+<listitem><para><bold>Q_OBJECT Macro:</bold> <linebreak/>
+ Classes that use signals and slots must include the <computeroutput>Q_OBJECT</computeroutput> macro in their declaration. This enables Qt&apos;s meta-object features, including runtime type information and dynamic signal-slot connections.</para>
+</listitem><listitem><para><bold>Inheritance from QObject:</bold> <linebreak/>
+ Both <computeroutput>Sender</computeroutput> and <computeroutput>Receiver</computeroutput> inherit from <computeroutput>QObject</computeroutput>, which is essential for the signal-slot mechanism.</para>
+</listitem><listitem><para><bold>Connecting Signals and Slots:</bold> <linebreak/>
+ The <computeroutput>QObject::connect</computeroutput> function is used to connect a signal from the <computeroutput>Sender</computeroutput> object to a slot in the <computeroutput>Receiver</computeroutput> object. When <computeroutput>sender.mySignal</computeroutput> is emitted, the <computeroutput>receiver.onMySignal</computeroutput> slot is automatically called.</para>
+</listitem><listitem><para><bold>Event Loop:</bold> <linebreak/>
+ The call to <computeroutput>app.exec()</computeroutput> starts the Qt event loop, which is required to process and deliver signals and other events.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2qt__signals_1autotoc_md117">
+<title>Conclusion</title>
+<para>Qt&apos;s signals and slots offer a robust, flexible, and type-safe method for building event-driven applications. By using this mechanism, you can design applications that are modular, maintainable, and easy to extend.</para>
+<para>For more in-depth information, refer to the <ulink url="https://doc.qt.io/qt-5/signalsandslots.html">Qt Documentation on Signals and Slots</ulink>. </para>
+</sect1>
+    </detaileddescription>
+    <location file="build/md_files/docs/qt_signals.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md_build_2md__files_2docs_2io__and__sockets" kind="page">
+    <compoundname>md_build_2md__files_2docs_2io__and__sockets</compoundname>
+    <title>I/O and Sockets Demonstration</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="md_build_2md__files_2docs_2io__and__sockets_1autotoc_md72"/></para>
+<para>This document explains the demonstration example that monitors both asynchronous I/O events and socket events in a cross-platform manner. The example is implemented in the <computeroutput><ref refid="namespaceio__and__sockets" kindref="compound">io_and_sockets</ref></computeroutput> directory and uses platform-specific techniques to monitor both console input and a TCP server socket.</para>
+<para><hruler/>
+</para>
+<sect1 id="md_build_2md__files_2docs_2io__and__sockets_1autotoc_md74">
+<title>Overview</title>
+<para>The demonstration sets up a TCP server socket that listens on port <bold>12345</bold> for incoming connections and, at the same time, monitors console input for user commands. Depending on the platform, the implementation uses:</para>
+<para><itemizedlist>
+<listitem><para><bold>POSIX Systems:</bold> <linebreak/>
+ The <computeroutput>select()</computeroutput> system call is used to monitor both the server socket and standard input (STDIN_FILENO). When either the socket or the console input is ready, the appropriate action is taken.</para>
+</listitem><listitem><para><bold>Windows:</bold> <linebreak/>
+ Winsock’s <computeroutput>select()</computeroutput> function is used to monitor the server socket, while the <computeroutput>_kbhit()</computeroutput> function is used in a polling loop to check for console input because the standard Windows console input is not directly compatible with <computeroutput>select()</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+<para>The demonstration runs continuously until the user types **&quot;quit&quot;** in the console, at which point the server shuts down gracefully.</para>
+<para><hruler/>
+</para>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2io__and__sockets_1autotoc_md76">
+<title>Key Features</title>
+<para><itemizedlist>
+<listitem><para><bold>Cross-Platform Socket Programming:</bold> <linebreak/>
+ Demonstrates how to create, bind, and listen on a TCP server socket on both Windows and POSIX systems.</para>
+</listitem><listitem><para><bold>Event Monitoring:</bold> <linebreak/>
+ Uses <computeroutput>select()</computeroutput> on POSIX to monitor multiple file descriptors and a combination of Winsock’s <computeroutput>select()</computeroutput> and <computeroutput>_kbhit()</computeroutput> on Windows to monitor both socket events and console input.</para>
+</listitem><listitem><para><bold>Graceful Shutdown:</bold> <linebreak/>
+ Allows the user to type **&quot;quit&quot;** to exit the demonstration, ensuring that resources such as sockets are properly released.</para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2io__and__sockets_1autotoc_md78">
+<title>Implementation Details</title>
+<para><itemizedlist>
+<listitem><para><bold>TCP Server Socket:</bold> <linebreak/>
+ A TCP server socket is created and bound to <computeroutput>INADDR_ANY</computeroutput> on port 12345, allowing it to accept connections from any network interface.</para>
+</listitem><listitem><para><bold>Event Loop:</bold> <linebreak/>
+ The application enters a loop where:<itemizedlist>
+<listitem><para>On <bold>POSIX</bold>, <computeroutput>select()</computeroutput> monitors both the server socket and the standard input file descriptor.</para>
+</listitem><listitem><para>On <bold>Windows</bold>, Winsock’s <computeroutput>select()</computeroutput> monitors the server socket, and <computeroutput>_kbhit()</computeroutput> is used to check if a key has been pressed in the console.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><bold>Connection Handling:</bold> <linebreak/>
+ When the server socket indicates an incoming connection, the server accepts the connection, prints a message, and then closes the client socket immediately.</para>
+</listitem><listitem><para><bold>Console Input:</bold> <linebreak/>
+ When console input is detected, the input is read and printed. If the user enters **&quot;quit&quot;**, the loop terminates, and the server shuts down.</para>
+</listitem><listitem><para><bold>Platform-Specific Considerations:</bold> <linebreak/>
+ On Windows, Winsock initialization (via <computeroutput>WSAStartup()</computeroutput>) and cleanup (<computeroutput>WSACleanup()</computeroutput>) are performed. On POSIX, standard system calls are used for socket and I/O operations.</para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2io__and__sockets_1autotoc_md80">
+<title>How to Build and Run</title>
+<sect2 id="md_build_2md__files_2docs_2io__and__sockets_1autotoc_md81">
+<title>Building the Demonstration</title>
+<para><orderedlist>
+<listitem><para><bold>Configure and Build:</bold></para>
+<para>Use the provided CMake presets or configure manually. For example, with CMake presets: <programlisting filename=".bash"><codeline><highlight class="normal">cmake<sp/>--preset<sp/>&lt;your-preset&gt;</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--build<sp/>--preset<sp/>&lt;your-preset&gt;</highlight></codeline>
+</programlisting> Replace <computeroutput>&lt;your-preset&gt;</computeroutput> with your chosen configuration, such as <computeroutput>windows-msvc-debug</computeroutput> or <computeroutput>linux-gcc-debug</computeroutput>.</para>
+</listitem><listitem><para><bold>Executable Location:</bold></para>
+<para>The built executable will be located in the build directory, for example:<itemizedlist>
+<listitem><para>On Windows: <computeroutput>./src/io_and_sockets/Debug/io_and_sockets_example.exe</computeroutput></para>
+</listitem><listitem><para>On Linux/macOS: <computeroutput>./src/io_and_sockets/io_and_sockets_example</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem></orderedlist>
+</para>
+</sect2>
+<sect2 id="md_build_2md__files_2docs_2io__and__sockets_1autotoc_md82">
+<title>Running the Demonstration</title>
+<para><itemizedlist>
+<listitem><para><bold>On Windows:</bold> <linebreak/>
+ Open a Command Prompt or PowerShell, navigate to the build directory, and run: <programlisting filename=".powershell"><codeline><highlight class="normal">.\src\io_and_sockets\Debug\io_and_sockets_example.exe</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para><bold>On Linux/macOS:</bold> <linebreak/>
+ From the build directory, run: <programlisting filename=".bash"><codeline><highlight class="normal">./src/io_and_sockets/io_and_sockets_example</highlight></codeline>
+</programlisting></para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_build_2md__files_2docs_2io__and__sockets_1autotoc_md83">
+<title>Interacting with the Demonstration</title>
+<para><itemizedlist>
+<listitem><para>The server will print a message indicating that it is listening on port 12345.</para>
+</listitem><listitem><para>If a client connects (for example, via <computeroutput>telnet localhost 12345</computeroutput>), the server will print a message indicating a connection was accepted.</para>
+</listitem><listitem><para>Any console input will be echoed back. <linebreak/>
+</para>
+</listitem><listitem><para>Typing **&quot;quit&quot;** (without quotes) in the console will gracefully shut down the server and exit the demonstration.</para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2io__and__sockets_1autotoc_md85">
+<title>Additional Resources</title>
+<para><itemizedlist>
+<listitem><para><bold>POSIX select() Documentation:</bold> <linebreak/>
+ <ulink url="https://man7.org/linux/man-pages/man2/select.2.html">man7.org/linux/man-pages/man2/select.2.html</ulink></para>
+</listitem><listitem><para><bold>Winsock select() Documentation:</bold> <linebreak/>
+ <ulink url="https://docs.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-select">MSDN Winsock select()</ulink></para>
+</listitem><listitem><para>**_kbhit() on Windows:** <linebreak/>
+ <ulink url="https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/kbhit">MSDN _kbhit()</ulink></para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+<para>This document provides a detailed explanation of the I/O and Sockets demonstration, which is designed to illustrate cross-platform event monitoring using both socket and console I/O. Enjoy exploring and modifying the example for your needs! </para>
+</sect1>
+    </detaileddescription>
+    <location file="build/md_files/docs/io_and_sockets.md"/>
+  </compounddef>
+</doxygen>

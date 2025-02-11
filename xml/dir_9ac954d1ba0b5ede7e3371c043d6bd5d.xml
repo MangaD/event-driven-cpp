@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_9ac954d1ba0b5ede7e3371c043d6bd5d" kind="dir">
+    <compoundname>src/event_queue</compoundname>
+    <innerfile refid="event__queue_8cpp">event_queue.cpp</innerfile>
+    <innerfile refid="event__queue_8hpp">event_queue.hpp</innerfile>
+    <innerfile refid="event__queue_2main_8cpp">main.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/event_queue/"/>
+  </compounddef>
+</doxygen>

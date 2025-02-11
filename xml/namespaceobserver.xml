@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceobserver" kind="namespace" language="C++">
+    <compoundname>observer</compoundname>
+    <innerclass refid="classobserver_1_1IObserver" prot="public">observer::IObserver</innerclass>
+    <innerclass refid="classobserver_1_1Subject" prot="public">observer::Subject</innerclass>
+    <briefdescription>
+<para>Implements the Observer design pattern for event notifications. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This namespace provides the fundamental components for implementing the Observer design pattern. It defines the <ref refid="classobserver_1_1IObserver" kindref="compound">IObserver</ref> interface, which declares the callback method that must be implemented by any class that wishes to receive event notifications, and the <ref refid="classobserver_1_1Subject" kindref="compound">Subject</ref> class, which maintains a list of observers and dispatches events to them.</para>
+<para>The Observer pattern facilitates a decoupled design where the subject does not need to know the specifics of its observers. This results in a more modular and maintainable system, especially in event-driven applications where multiple components need to respond to changes or events. </para>
+    </detaileddescription>
+    <location file="src/observer/observer.hpp" line="15" column="1"/>
+  </compounddef>
+</doxygen>

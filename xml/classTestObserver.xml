@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTestObserver" kind="class" language="C++" prot="public">
+    <compoundname>TestObserver</compoundname>
+    <basecompoundref refid="classobserver_1_1IObserver" prot="public" virt="non-virtual">observer::IObserver</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTestObserver_1a53942213f42285fe7003d9cb59ffa8dd" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; TestObserver::messages</definition>
+        <argsstring></argsstring>
+        <name>messages</name>
+        <qualifiedname>TestObserver::messages</qualifiedname>
+        <briefdescription>
+<para>Container to store received notification messages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/observer_test.cpp" line="52" column="17" bodyfile="tests/observer_test.cpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTestObserver_1acb60d7f2fe1cbdd8d1359d36088f3bb6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void TestObserver::onNotify</definition>
+        <argsstring>(const std::string &amp;message) override</argsstring>
+        <name>onNotify</name>
+        <qualifiedname>TestObserver::onNotify</qualifiedname>
+        <reimplements refid="classobserver_1_1IObserver_1a97ed5f714384334387b9d2ef0aacd468">onNotify</reimplements>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Callback method invoked when the subject notifies the observer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The received message is appended to an internal vector for later verification.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message provided by the subject. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/observer_test.cpp" line="38" column="10" bodyfile="tests/observer_test.cpp" bodystart="38" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classTestObserver_1ae2b920577fb5f940a6e683d95a1437cb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; std::string &gt; &amp;</type>
+        <definition>const std::vector&lt; std::string &gt; &amp; TestObserver::getMessages</definition>
+        <argsstring>() const</argsstring>
+        <name>getMessages</name>
+        <qualifiedname>TestObserver::getMessages</qualifiedname>
+        <briefdescription>
+<para>Retrieves the messages received by this observer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A constant reference to the vector of received messages. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/observer_test.cpp" line="47" column="23" bodyfile="tests/observer_test.cpp" bodystart="47" bodyend="49"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A test observer that records notification messages. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class implements the IObserver interface and stores any messages it receives in a vector. It is used to verify that notifications are delivered correctly. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>TestObserver</label>
+        <link refid="classTestObserver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>observer::IObserver</label>
+        <link refid="classobserver_1_1IObserver"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>TestObserver</label>
+        <link refid="classTestObserver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>observer::IObserver</label>
+        <link refid="classobserver_1_1IObserver"/>
+      </node>
+    </collaborationgraph>
+    <location file="tests/observer_test.cpp" line="29" column="1" bodyfile="tests/observer_test.cpp" bodystart="29" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classTestObserver_1ae2b920577fb5f940a6e683d95a1437cb" prot="public" virt="non-virtual"><scope>TestObserver</scope><name>getMessages</name></member>
+      <member refid="classTestObserver_1a53942213f42285fe7003d9cb59ffa8dd" prot="private" virt="non-virtual"><scope>TestObserver</scope><name>messages</name></member>
+      <member refid="classTestObserver_1acb60d7f2fe1cbdd8d1359d36088f3bb6" prot="public" virt="virtual"><scope>TestObserver</scope><name>onNotify</name></member>
+      <member refid="classobserver_1_1IObserver_1a8e18c92266b5e99b5a3f6270a38df190" prot="public" virt="virtual"><scope>TestObserver</scope><name>~IObserver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

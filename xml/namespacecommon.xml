@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacecommon" kind="namespace" language="C++">
+    <compoundname>common</compoundname>
+    <innerclass refid="classcommon_1_1Logger" prot="public">common::Logger</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacecommon_1aa3dd8c5983888f4c0199cf0bb2a73b2a" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>LogLevel</name>
+        <qualifiedname>common::LogLevel</qualifiedname>
+        <enumvalue id="namespacecommon_1aa3dd8c5983888f4c0199cf0bb2a73b2aaa603905470e2a5b8c13e96b579ef0dba" prot="public">
+          <name>Debug</name>
+          <briefdescription>
+<para>Debug log level. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacecommon_1aa3dd8c5983888f4c0199cf0bb2a73b2aa4059b0251f66a18cb56f544728796875" prot="public">
+          <name>Info</name>
+          <briefdescription>
+<para>Informational log level. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacecommon_1aa3dd8c5983888f4c0199cf0bb2a73b2aa0eaadb4fcb48a0a0ed7bc9868be9fbaa" prot="public">
+          <name>Warning</name>
+          <briefdescription>
+<para>Warning log level. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacecommon_1aa3dd8c5983888f4c0199cf0bb2a73b2aa902b0d55fddef6f8d651fe1035b7d4bd" prot="public">
+          <name>Error</name>
+          <briefdescription>
+<para>Error log level. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enumeration of log levels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/common/logger.hpp" line="34" column="1" bodyfile="src/common/logger.hpp" bodystart="34" bodyend="39"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Contains shared utilities and helper functions used across the project. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This namespace provides functionality that is reused in multiple parts of the project, such as logging, configuration utilities, and other common helper functions.</para>
+<para>For example, the <ref refid="classcommon_1_1Logger" kindref="compound">Logger</ref> class defined in this namespace offers a simple mechanism for logging messages at various levels (Debug, Info, Warning, Error) throughout the project.</para>
+<para>The purpose of the common namespace is to promote code reuse and maintain consistency across different modules. Additional shared utilities can be added here as the project evolves. </para>
+    </detaileddescription>
+    <location file="src/common/logger.cpp" line="12" column="1"/>
+  </compounddef>
+</doxygen>

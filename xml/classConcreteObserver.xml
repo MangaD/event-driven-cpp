@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classConcreteObserver" kind="class" language="C++" prot="public">
+    <compoundname>ConcreteObserver</compoundname>
+    <basecompoundref refid="classobserver_1_1IObserver" prot="public" virt="non-virtual">observer::IObserver</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classConcreteObserver_1aebc85755ca3d5640fc2473da96c2b4d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void ConcreteObserver::onNotify</definition>
+        <argsstring>(const std::string &amp;message) override</argsstring>
+        <name>onNotify</name>
+        <qualifiedname>ConcreteObserver::onNotify</qualifiedname>
+        <reimplements refid="classobserver_1_1IObserver_1a97ed5f714384334387b9d2ef0aacd468">onNotify</reimplements>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Handles the notification from the Subject. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A string containing details about the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/observer/main.cpp" line="29" column="10" bodyfile="src/observer/main.cpp" bodystart="29" bodyend="31"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A concrete implementation of the IObserver interface. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classConcreteObserver" kindref="compound">ConcreteObserver</ref> class implements the <ref refid="classConcreteObserver_1aebc85755ca3d5640fc2473da96c2b4d6" kindref="member">onNotify()</ref> method to handle event notifications by printing the received message to the standard output. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ConcreteObserver</label>
+        <link refid="classConcreteObserver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>observer::IObserver</label>
+        <link refid="classobserver_1_1IObserver"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ConcreteObserver</label>
+        <link refid="classConcreteObserver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>observer::IObserver</label>
+        <link refid="classobserver_1_1IObserver"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/observer/main.cpp" line="22" column="1" bodyfile="src/observer/main.cpp" bodystart="22" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classConcreteObserver_1aebc85755ca3d5640fc2473da96c2b4d6" prot="public" virt="virtual"><scope>ConcreteObserver</scope><name>onNotify</name></member>
+      <member refid="classobserver_1_1IObserver_1a8e18c92266b5e99b5a3f6270a38df190" prot="public" virt="virtual"><scope>ConcreteObserver</scope><name>~IObserver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

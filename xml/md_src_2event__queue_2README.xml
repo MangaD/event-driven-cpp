@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md_src_2event__queue_2README" kind="page">
+    <compoundname>md_src_2event__queue_2README</compoundname>
+    <title>Event Queue Example</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="md_src_2event__queue_2README_1autotoc_md153"/> This directory contains an example implementation of a thread-safe event queue in C++. The event queue is designed to decouple event production from event processing, making it useful in event-driven architectures, game loops, or any asynchronous application. Each event is represented as a callable object (<computeroutput>std::function&lt;void()&gt;</computeroutput>), and the queue processes events in a FIFO (first-in, first-out) manner.</para>
+<para><hruler/>
+</para>
+<sect1 id="md_src_2event__queue_2README_1autotoc_md155">
+<title>Contents</title>
+<para><itemizedlist>
+<listitem><para><bold><ref refid="event__queue_8hpp" kindref="compound">event_queue.hpp</ref></bold> <linebreak/>
+ Declares the <computeroutput>EventQueue</computeroutput> class, which provides methods for enqueuing events, processing them, and checking if the queue is empty.</para>
+</listitem><listitem><para><bold><ref refid="event__queue_8cpp" kindref="compound">event_queue.cpp</ref></bold> <linebreak/>
+ Implements the <computeroutput>EventQueue</computeroutput> class. It handles thread-safe insertion of events and processing of queued events.</para>
+</listitem><listitem><para><bold>main.cpp</bold> <linebreak/>
+ A demonstration program that enqueues several events (using lambda functions) and then processes them in FIFO order, printing messages to the console.</para>
+</listitem><listitem><para><bold>CMakeLists.txt</bold> <linebreak/>
+ Contains the CMake build configuration for this example.</para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+</sect1>
+<sect1 id="md_src_2event__queue_2README_1autotoc_md157">
+<title>Building the Example</title>
+<para>This example is built using CMake. You can either use the provided CMake presets (if available) or manually configure and build the project.</para>
+<sect2 id="md_src_2event__queue_2README_1autotoc_md158">
+<title>Manual Build Steps</title>
+<para><orderedlist>
+<listitem><para><bold>Create a Build Directory and Configure:</bold></para>
+<para>Open a terminal in the project root and run:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">mkdir<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>..</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para><bold>Build the Project:</bold></para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">cmake<sp/>--build<sp/>.</highlight></codeline>
+</programlisting></para>
+</listitem></orderedlist>
+</para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md_src_2event__queue_2README_1autotoc_md160">
+<title>Running the Example</title>
+<para>After building, run the executable from the build output directory. For example:</para>
+<para><itemizedlist>
+<listitem><para><bold>On Windows:</bold></para>
+<para><programlisting filename=".powershell"><codeline><highlight class="normal">.\src\event_queue\Debug\event_queue_example.exe</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para><bold>On Linux/macOS:</bold></para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">./src/event_queue/event_queue_example</highlight></codeline>
+</programlisting></para>
+</listitem></itemizedlist>
+</para>
+<para>When executed, the program enqueues several events that print messages to the console and then processes them. The output should display the messages in the order the events were added to the queue.</para>
+<para><hruler/>
+</para>
+</sect1>
+<sect1 id="md_src_2event__queue_2README_1autotoc_md162">
+<title>Overview</title>
+<para>This example demonstrates:<itemizedlist>
+<listitem><para><bold>Thread-Safe Event Queuing:</bold> <linebreak/>
+ Using <computeroutput>std::queue</computeroutput>, <computeroutput>std::mutex</computeroutput>, and <computeroutput>std::lock_guard</computeroutput> to safely manage events across multiple threads.</para>
+</listitem><listitem><para><bold>Decoupled Event Processing:</bold> <linebreak/>
+ Separating the production of events from their consumption allows flexible and scalable system design.</para>
+</listitem><listitem><para><bold>FIFO Processing:</bold> <linebreak/>
+ Ensuring that events are processed in the order they were enqueued.</para>
+</listitem></itemizedlist>
+</para>
+<para>Feel free to modify or extend this example to suit your needs, such as adding events from multiple threads or integrating additional functionality.</para>
+<para><hruler/>
+</para>
+</sect1>
+<sect1 id="md_src_2event__queue_2README_1autotoc_md164">
+<title>License</title>
+<para>This project is licensed under the MIT License. See the <ulink url="../../LICENSE">LICENSE</ulink> file for details. </para>
+</sect1>
+    </detaileddescription>
+    <location file="src/event_queue/README.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md_src_2callbacks_2README" kind="page">
+    <compoundname>md_src_2callbacks_2README</compoundname>
+    <title>Callbacks Example</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="md_src_2callbacks_2README_1autotoc_md143"/> This directory contains an example implementation of a simple callback mechanism in C++ using <computeroutput>std::function</computeroutput>. The example demonstrates how to set and trigger callbacks through an <computeroutput>Event</computeroutput> class, illustrating one approach to event-driven programming.</para>
+<sect1 id="md_src_2callbacks_2README_1autotoc_md144">
+<title>Contents</title>
+<para><itemizedlist>
+<listitem><para><bold><ref refid="callbacks_8hpp" kindref="compound">callbacks.hpp</ref></bold> <linebreak/>
+ Declares the <computeroutput>Event</computeroutput> class, which provides a mechanism to register a callback function (using <computeroutput>std::function&lt;void()&gt;</computeroutput>) and trigger it when needed.</para>
+</listitem><listitem><para><bold><ref refid="callbacks_8cpp" kindref="compound">callbacks.cpp</ref></bold> <linebreak/>
+ Provides the implementation of the <computeroutput>Event</computeroutput> class methods. The <computeroutput>setCallback()</computeroutput> method assigns a callback function, and the <computeroutput>trigger()</computeroutput> method invokes the callback if it has been set.</para>
+</listitem><listitem><para><bold>main.cpp</bold> <linebreak/>
+ Contains a simple demonstration of the callback mechanism. In this example, an <computeroutput>Event</computeroutput> instance is created, a callback is set using a lambda expression, and the event is triggered to execute the callback.</para>
+</listitem><listitem><para><bold>CMakeLists.txt</bold> <linebreak/>
+ The CMake configuration file for building this example. It sets the C++20 standard, includes necessary directories (such as <computeroutput>src/common</computeroutput> if shared utilities are used), and creates an executable target named <computeroutput>callbacks_example</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_src_2callbacks_2README_1autotoc_md145">
+<title>Building the Example</title>
+<para>To build the callbacks example:</para>
+<para><orderedlist>
+<listitem><para><bold>Navigate to the project root directory:</bold></para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">cd<sp/>/path/to/event-driven-cpp</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para><bold>Create a build directory and configure the project with CMake:</bold></para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">mkdir<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>..</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para><bold>Build the callbacks example:</bold></para>
+<para>On Unix-like systems, run:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">make<sp/>callbacks_example</highlight></codeline>
+</programlisting></para>
+</listitem></orderedlist>
+</para>
+</sect1>
+<sect1 id="md_src_2callbacks_2README_1autotoc_md146">
+<title>Running the Example</title>
+<para>After building, run the executable for the callbacks example. For instance:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">./src/callbacks/callbacks_example</highlight></codeline>
+</programlisting></para>
+<para>This will execute the program, which sets a callback that prints a message to the console, and then triggers the event to invoke the callback.</para>
+</sect1>
+<sect1 id="md_src_2callbacks_2README_1autotoc_md147">
+<title>Overview</title>
+<para>The callbacks example is designed to illustrate a lightweight approach to handling asynchronous events or function calls using callbacks. The <computeroutput>Event</computeroutput> class encapsulates the callback mechanism, making it easy to decouple the registration of callback functions from their execution. This pattern is commonly used in event-driven programming to enable flexible, modular, and decoupled designs.</para>
+<para>Feel free to modify and extend this example to experiment with different callback scenarios and integrate it into larger projects. </para>
+</sect1>
+    </detaileddescription>
+    <location file="src/callbacks/README.md"/>
+  </compounddef>
+</doxygen>

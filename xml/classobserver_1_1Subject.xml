@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classobserver_1_1Subject" kind="class" language="C++" prot="public">
+    <compoundname>observer::Subject</compoundname>
+    <includes refid="subject_8hpp" local="no">subject.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classobserver_1_1Subject_1aa290266885924983b5f596c3aa884955" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classobserver_1_1IObserver" kindref="compound">IObserver</ref> * &gt;</type>
+        <definition>std::vector&lt;IObserver*&gt; observer::Subject::observers</definition>
+        <argsstring></argsstring>
+        <name>observers</name>
+        <qualifiedname>observer::Subject::observers</qualifiedname>
+        <briefdescription>
+<para>Container storing pointers to the registered observers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/observer/subject.hpp" line="65" column="17" bodyfile="src/observer/subject.hpp" bodystart="65" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classobserver_1_1Subject_1a544ee43d21c9347650505338df5f5753" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void observer::Subject::addObserver</definition>
+        <argsstring>(IObserver *observer)</argsstring>
+        <name>addObserver</name>
+        <qualifiedname>observer::Subject::addObserver</qualifiedname>
+        <param>
+          <type><ref refid="classobserver_1_1IObserver" kindref="compound">IObserver</ref> *</type>
+          <declname>observer</declname>
+        </param>
+        <briefdescription>
+<para>Adds an observer to the list of observers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>observer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to an object implementing the <ref refid="classobserver_1_1IObserver" kindref="compound">IObserver</ref> interface. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/observer/subject.hpp" line="32" column="10" bodyfile="src/observer/subject.hpp" bodystart="32" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classobserver_1_1Subject_1a7331c2bfa78d6f912b63406613cc7477" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void observer::Subject::removeObserver</definition>
+        <argsstring>(IObserver *observer)</argsstring>
+        <name>removeObserver</name>
+        <qualifiedname>observer::Subject::removeObserver</qualifiedname>
+        <param>
+          <type><ref refid="classobserver_1_1IObserver" kindref="compound">IObserver</ref> *</type>
+          <declname>observer</declname>
+        </param>
+        <briefdescription>
+<para>Removes an observer from the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>observer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the observer to remove. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/observer/subject.hpp" line="41" column="10" bodyfile="src/observer/subject.hpp" bodystart="41" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classobserver_1_1Subject_1ac86ff543cfc456a25147ebb296bfd04a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void observer::Subject::notify</definition>
+        <argsstring>(const std::string &amp;message)</argsstring>
+        <name>notify</name>
+        <qualifiedname>observer::Subject::notify</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Notifies all registered observers of an event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method calls the onNotify() function on each observer, passing the provided message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A string describing the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/observer/subject.hpp" line="56" column="10" bodyfile="src/observer/subject.hpp" bodystart="56" bodyend="62"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The <ref refid="classobserver_1_1Subject" kindref="compound">Subject</ref> class manages a list of observers and notifies them of events. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classobserver_1_1Subject" kindref="compound">Subject</ref> class provides methods to add and remove observers, as well as to notify all registered observers by calling their onNotify() method. </para>
+    </detaileddescription>
+    <location file="src/observer/subject.hpp" line="25" column="1" bodyfile="src/observer/subject.hpp" bodystart="25" bodyend="66"/>
+    <listofallmembers>
+      <member refid="classobserver_1_1Subject_1a544ee43d21c9347650505338df5f5753" prot="public" virt="non-virtual"><scope>observer::Subject</scope><name>addObserver</name></member>
+      <member refid="classobserver_1_1Subject_1ac86ff543cfc456a25147ebb296bfd04a" prot="public" virt="non-virtual"><scope>observer::Subject</scope><name>notify</name></member>
+      <member refid="classobserver_1_1Subject_1aa290266885924983b5f596c3aa884955" prot="private" virt="non-virtual"><scope>observer::Subject</scope><name>observers</name></member>
+      <member refid="classobserver_1_1Subject_1a7331c2bfa78d6f912b63406613cc7477" prot="public" virt="non-virtual"><scope>observer::Subject</scope><name>removeObserver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacecallbacks" kind="namespace" language="C++">
+    <compoundname>callbacks</compoundname>
+    <innerclass refid="classcallbacks_1_1Event" prot="public">callbacks::Event</innerclass>
+    <briefdescription>
+<para>Provides functionality for handling event callbacks. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The callbacks namespace encapsulates a simple mechanism for event-driven programming using callbacks. It defines classes and functions that allow a callback function to be registered and triggered at a later point. The primary class in this namespace is the <ref refid="classcallbacks_1_1Event" kindref="compound">Event</ref> class, which uses a <computeroutput>std::function&lt;void()&gt;</computeroutput> to store a callback. This design enables decoupling of the event producer from the event consumer.</para>
+<para>The <ref refid="classcallbacks_1_1Event" kindref="compound">Event</ref> class provides methods such as:<itemizedlist>
+<listitem><para><computeroutput>setCallback()</computeroutput>: to assign a callback function.</para>
+</listitem><listitem><para><computeroutput>trigger()</computeroutput>: to invoke the assigned callback.</para>
+</listitem></itemizedlist>
+</para>
+<para>This mechanism is useful for asynchronous event handling in scenarios where you want to notify parts of your application when certain events occur without tightly coupling components. </para>
+    </detaileddescription>
+    <location file="src/callbacks/callbacks.cpp" line="11" column="1"/>
+  </compounddef>
+</doxygen>

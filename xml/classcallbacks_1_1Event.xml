@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcallbacks_1_1Event" kind="class" language="C++" prot="public">
+    <compoundname>callbacks::Event</compoundname>
+    <includes refid="callbacks_8hpp" local="no">callbacks.hpp</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classcallbacks_1_1Event_1ac5e390cce170616d162e0fe187ece788" prot="public" static="no">
+        <type>std::function&lt; void()&gt;</type>
+        <definition>using callbacks::Event::Callback =  std::function&lt;void()&gt;</definition>
+        <argsstring></argsstring>
+        <name>Callback</name>
+        <qualifiedname>callbacks::Event::Callback</qualifiedname>
+        <briefdescription>
+<para>Type alias for a callback function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Represents a callable that takes no arguments and returns void. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/callbacks/callbacks.hpp" line="45" column="5" bodyfile="src/callbacks/callbacks.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcallbacks_1_1Event_1ac7e13b7eb097069cdd3b5f1efdc221b3" prot="private" static="no" mutable="no">
+        <type><ref refid="classcallbacks_1_1Event_1ac5e390cce170616d162e0fe187ece788" kindref="member">Callback</ref></type>
+        <definition>Callback callbacks::Event::callback_</definition>
+        <argsstring></argsstring>
+        <name>callback_</name>
+        <qualifiedname>callbacks::Event::callback_</qualifiedname>
+        <briefdescription>
+<para>The callback function to be triggered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/callbacks/callbacks.hpp" line="64" column="14" bodyfile="src/callbacks/callbacks.hpp" bodystart="64" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcallbacks_1_1Event_1a7296429ce3c0b6a22d50fb9da459b910" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void callbacks::Event::setCallback</definition>
+        <argsstring>(Callback cb)</argsstring>
+        <name>setCallback</name>
+        <qualifiedname>callbacks::Event::setCallback</qualifiedname>
+        <param>
+          <type><ref refid="classcallbacks_1_1Event_1ac5e390cce170616d162e0fe187ece788" kindref="member">Callback</ref></type>
+          <declname>cb</declname>
+        </param>
+        <briefdescription>
+<para>Sets the callback function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Assigns the callback function that will be invoked when <ref refid="classcallbacks_1_1Event_1ae7bf335f2eac0178867cabea497dd1f9" kindref="member">trigger()</ref> is called.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The callback function to set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/callbacks/callbacks.hpp" line="54" column="10" bodyfile="src/callbacks/callbacks.cpp" bodystart="13" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classcallbacks_1_1Event_1ae7bf335f2eac0178867cabea497dd1f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void callbacks::Event::trigger</definition>
+        <argsstring>()</argsstring>
+        <name>trigger</name>
+        <qualifiedname>callbacks::Event::trigger</qualifiedname>
+        <briefdescription>
+<para>Triggers the event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Invokes the stored callback function if one has been set. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/callbacks/callbacks.hpp" line="61" column="10" bodyfile="src/callbacks/callbacks.cpp" bodystart="17" bodyend="21"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A simple class for handling callback events. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classcallbacks_1_1Event" kindref="compound">Event</ref> class allows clients to register a callback function which will be invoked when the event is triggered. </para>
+    </detaileddescription>
+    <location file="src/callbacks/callbacks.hpp" line="38" column="1" bodyfile="src/callbacks/callbacks.hpp" bodystart="38" bodyend="65"/>
+    <listofallmembers>
+      <member refid="classcallbacks_1_1Event_1ac5e390cce170616d162e0fe187ece788" prot="public" virt="non-virtual"><scope>callbacks::Event</scope><name>Callback</name></member>
+      <member refid="classcallbacks_1_1Event_1ac7e13b7eb097069cdd3b5f1efdc221b3" prot="private" virt="non-virtual"><scope>callbacks::Event</scope><name>callback_</name></member>
+      <member refid="classcallbacks_1_1Event_1a7296429ce3c0b6a22d50fb9da459b910" prot="public" virt="non-virtual"><scope>callbacks::Event</scope><name>setCallback</name></member>
+      <member refid="classcallbacks_1_1Event_1ae7bf335f2eac0178867cabea497dd1f9" prot="public" virt="non-virtual"><scope>callbacks::Event</scope><name>trigger</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

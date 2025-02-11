@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="classConcreteObserver" kind="class"><name>ConcreteObserver</name>
+    <member refid="classConcreteObserver_1aebc85755ca3d5640fc2473da96c2b4d6" kind="function"><name>onNotify</name></member>
+  </compound>
+  <compound refid="classcallbacks_1_1Event" kind="class"><name>callbacks::Event</name>
+    <member refid="classcallbacks_1_1Event_1ac5e390cce170616d162e0fe187ece788" kind="typedef"><name>Callback</name></member>
+    <member refid="classcallbacks_1_1Event_1ac7e13b7eb097069cdd3b5f1efdc221b3" kind="variable"><name>callback_</name></member>
+    <member refid="classcallbacks_1_1Event_1a7296429ce3c0b6a22d50fb9da459b910" kind="function"><name>setCallback</name></member>
+    <member refid="classcallbacks_1_1Event_1ae7bf335f2eac0178867cabea497dd1f9" kind="function"><name>trigger</name></member>
+  </compound>
+  <compound refid="classevent__queue_1_1EventQueue" kind="class"><name>event_queue::EventQueue</name>
+    <member refid="classevent__queue_1_1EventQueue_1ab89b2fd741da44f28c564c0109f0746d" kind="typedef"><name>Event</name></member>
+    <member refid="classevent__queue_1_1EventQueue_1a6a55ae6457ab9f980ce2e39b16aa14a2" kind="variable"><name>events_</name></member>
+    <member refid="classevent__queue_1_1EventQueue_1a63092761a33dcb3bc32515d9dc2cea53" kind="variable"><name>mutex_</name></member>
+    <member refid="classevent__queue_1_1EventQueue_1abba2e993feb8d71e3304ff7245c95a42" kind="function"><name>pushEvent</name></member>
+    <member refid="classevent__queue_1_1EventQueue_1afce21650f324ba5fca18af18f6d7b829" kind="function"><name>processEvents</name></member>
+    <member refid="classevent__queue_1_1EventQueue_1ab74d2754ddaf90a5cd285a33bf9491b4" kind="function"><name>isEmpty</name></member>
+  </compound>
+  <compound refid="classobserver_1_1IObserver" kind="class"><name>observer::IObserver</name>
+    <member refid="classobserver_1_1IObserver_1a8e18c92266b5e99b5a3f6270a38df190" kind="function"><name>~IObserver</name></member>
+    <member refid="classobserver_1_1IObserver_1a97ed5f714384334387b9d2ef0aacd468" kind="function"><name>onNotify</name></member>
+  </compound>
+  <compound refid="classcommon_1_1Logger" kind="class"><name>common::Logger</name>
+    <member refid="classcommon_1_1Logger_1aa40d1036c84bd67ddf0d860e9fae0e70" kind="variable"><name>currentLevel</name></member>
+    <member refid="classcommon_1_1Logger_1a56f19fa952edee3073774d6d423c715c" kind="function"><name>setLogLevel</name></member>
+    <member refid="classcommon_1_1Logger_1a2af61f1a28f8242267a5d7dd7b38a16f" kind="function"><name>debug</name></member>
+    <member refid="classcommon_1_1Logger_1a1512b5091e25ee377f0f7bc92fa79e2c" kind="function"><name>info</name></member>
+    <member refid="classcommon_1_1Logger_1ad63cb13f8ae295d2763dac7e2b8144c1" kind="function"><name>warning</name></member>
+    <member refid="classcommon_1_1Logger_1aec9c7a7111c70e5f9b4e13aa71cc805f" kind="function"><name>error</name></member>
+    <member refid="classcommon_1_1Logger_1a46ecbb7628cb0be0e0438da4d4f5d57d" kind="function"><name>logLevelToString</name></member>
+  </compound>
+  <compound refid="classqt__signals_1_1QtSignalsExample" kind="class"><name>qt_signals::QtSignalsExample</name>
+    <member refid="classqt__signals_1_1QtSignalsExample_1a818fb1f8ceb8d997e2c051e18a34cd33" kind="function"><name>QtSignalsExample</name></member>
+    <member refid="classqt__signals_1_1QtSignalsExample_1ade4211730232a696cbaa6829cbc86dcb" kind="function"><name>emitSignal</name></member>
+    <member refid="classqt__signals_1_1QtSignalsExample_1a472393d7a246c556799ae89ca7d82881" kind="signal"><name>mySignal</name></member>
+    <member refid="classqt__signals_1_1QtSignalsExample_1ad7a3e954f056e33ddd3ef1a34b97be89" kind="slot"><name>onMySignal</name></member>
+  </compound>
+  <compound refid="classobserver_1_1Subject" kind="class"><name>observer::Subject</name>
+    <member refid="classobserver_1_1Subject_1aa290266885924983b5f596c3aa884955" kind="variable"><name>observers</name></member>
+    <member refid="classobserver_1_1Subject_1a544ee43d21c9347650505338df5f5753" kind="function"><name>addObserver</name></member>
+    <member refid="classobserver_1_1Subject_1a7331c2bfa78d6f912b63406613cc7477" kind="function"><name>removeObserver</name></member>
+    <member refid="classobserver_1_1Subject_1ac86ff543cfc456a25147ebb296bfd04a" kind="function"><name>notify</name></member>
+  </compound>
+  <compound refid="classTestObserver" kind="class"><name>TestObserver</name>
+    <member refid="classTestObserver_1a53942213f42285fe7003d9cb59ffa8dd" kind="variable"><name>messages</name></member>
+    <member refid="classTestObserver_1acb60d7f2fe1cbdd8d1359d36088f3bb6" kind="function"><name>onNotify</name></member>
+    <member refid="classTestObserver_1ae2b920577fb5f940a6e683d95a1437cb" kind="function"><name>getMessages</name></member>
+  </compound>
+  <compound refid="namespacecallbacks" kind="namespace"><name>callbacks</name>
+  </compound>
+  <compound refid="namespacecommon" kind="namespace"><name>common</name>
+    <member refid="namespacecommon_1aa3dd8c5983888f4c0199cf0bb2a73b2a" kind="enum"><name>LogLevel</name></member>
+    <member refid="namespacecommon_1aa3dd8c5983888f4c0199cf0bb2a73b2aaa603905470e2a5b8c13e96b579ef0dba" kind="enumvalue"><name>Debug</name></member>
+    <member refid="namespacecommon_1aa3dd8c5983888f4c0199cf0bb2a73b2aa4059b0251f66a18cb56f544728796875" kind="enumvalue"><name>Info</name></member>
+    <member refid="namespacecommon_1aa3dd8c5983888f4c0199cf0bb2a73b2aa0eaadb4fcb48a0a0ed7bc9868be9fbaa" kind="enumvalue"><name>Warning</name></member>
+    <member refid="namespacecommon_1aa3dd8c5983888f4c0199cf0bb2a73b2aa902b0d55fddef6f8d651fe1035b7d4bd" kind="enumvalue"><name>Error</name></member>
+  </compound>
+  <compound refid="namespaceevent__queue" kind="namespace"><name>event_queue</name>
+  </compound>
+  <compound refid="namespaceio__and__sockets" kind="namespace"><name>io_and_sockets</name>
+    <member refid="namespaceio__and__sockets_1a457b83d6abb24a223f0ebf214c4062ae" kind="function"><name>close_socket</name></member>
+    <member refid="namespaceio__and__sockets_1a299dfd5182c57c5d2facbb0bb8e5a8b4" kind="function"><name>runDemo</name></member>
+  </compound>
+  <compound refid="namespaceobserver" kind="namespace"><name>observer</name>
+  </compound>
+  <compound refid="namespaceqt__signals" kind="namespace"><name>qt_signals</name>
+  </compound>
+  <compound refid="callbacks_8md" kind="file"><name>callbacks.md</name>
+  </compound>
+  <compound refid="design_8md" kind="file"><name>design.md</name>
+  </compound>
+  <compound refid="event__driven__comparison_8md" kind="file"><name>event_driven_comparison.md</name>
+  </compound>
+  <compound refid="event__queue_8md" kind="file"><name>event_queue.md</name>
+  </compound>
+  <compound refid="io__and__sockets_8md" kind="file"><name>io_and_sockets.md</name>
+  </compound>
+  <compound refid="observer_8md" kind="file"><name>observer.md</name>
+  </compound>
+  <compound refid="observer__vs__callbacks_8md" kind="file"><name>observer_vs_callbacks.md</name>
+  </compound>
+  <compound refid="qt__signals_8md" kind="file"><name>qt_signals.md</name>
+  </compound>
+  <compound refid="setup_8md" kind="file"><name>setup.md</name>
+  </compound>
+  <compound refid="what__is__event__driven__programming_8md" kind="file"><name>what_is_event_driven_programming.md</name>
+  </compound>
+  <compound refid="build_2md__files_2docs_2README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="build_2md__files_2README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="src_2callbacks_2README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="src_2common_2README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="src_2event__queue_2README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="src_2io__and__sockets_2README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="src_2observer_2README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="src_2qt__signals_2README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="callbacks_8cpp" kind="file"><name>callbacks.cpp</name>
+  </compound>
+  <compound refid="callbacks_8hpp" kind="file"><name>callbacks.hpp</name>
+  </compound>
+  <compound refid="callbacks_2main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="callbacks_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="event__queue_2main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="event__queue_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="io__and__sockets_2main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="io__and__sockets_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="observer_2main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="observer_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="qt__signals_2main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="qt__signals_2main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="logger_8cpp" kind="file"><name>logger.cpp</name>
+  </compound>
+  <compound refid="logger_8hpp" kind="file"><name>logger.hpp</name>
+  </compound>
+  <compound refid="event__queue_8cpp" kind="file"><name>event_queue.cpp</name>
+  </compound>
+  <compound refid="event__queue_8hpp" kind="file"><name>event_queue.hpp</name>
+  </compound>
+  <compound refid="io__and__sockets_8cpp" kind="file"><name>io_and_sockets.cpp</name>
+    <member refid="io__and__sockets_8cpp_1a614217d263be1fb1a5f76e2ff7be19a2" kind="define"><name>PORT</name></member>
+  </compound>
+  <compound refid="io__and__sockets_8hpp" kind="file"><name>io_and_sockets.hpp</name>
+  </compound>
+  <compound refid="observer_8hpp" kind="file"><name>observer.hpp</name>
+  </compound>
+  <compound refid="subject_8hpp" kind="file"><name>subject.hpp</name>
+  </compound>
+  <compound refid="qt__signals_8cpp" kind="file"><name>qt_signals.cpp</name>
+  </compound>
+  <compound refid="qt__signals_8hpp" kind="file"><name>qt_signals.hpp</name>
+  </compound>
+  <compound refid="callbacks__test_8cpp" kind="file"><name>callbacks_test.cpp</name>
+    <member refid="callbacks__test_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="event__queue__test_8cpp" kind="file"><name>event_queue_test.cpp</name>
+    <member refid="event__queue__test_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="io__and__sockets__test_8cpp" kind="file"><name>io_and_sockets_test.cpp</name>
+    <member refid="io__and__sockets__test_8cpp_1a614217d263be1fb1a5f76e2ff7be19a2" kind="define"><name>PORT</name></member>
+    <member refid="io__and__sockets__test_8cpp_1ac6cec8e952f9431316b363684e877047" kind="variable"><name>clientConnected</name></member>
+    <member refid="io__and__sockets__test_8cpp_1ab71c60046211a77a2e046402a6ba468c" kind="function"><name>clientThreadFunction</name></member>
+    <member refid="io__and__sockets__test_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="observer__test_8cpp" kind="file"><name>observer_test.cpp</name>
+    <member refid="observer__test_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="qt__signals__test_8cpp" kind="file"><name>qt_signals_test.cpp</name>
+    <member refid="qt__signals__test_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="md_build_2md__files_2docs_2README" kind="page"><name>md_build_2md__files_2docs_2README</name>
+  </compound>
+  <compound refid="md_build_2md__files_2docs_2callbacks" kind="page"><name>md_build_2md__files_2docs_2callbacks</name>
+  </compound>
+  <compound refid="md_build_2md__files_2docs_2design" kind="page"><name>md_build_2md__files_2docs_2design</name>
+  </compound>
+  <compound refid="md_build_2md__files_2docs_2event__driven__comparison" kind="page"><name>md_build_2md__files_2docs_2event__driven__comparison</name>
+  </compound>
+  <compound refid="md_build_2md__files_2docs_2event__queue" kind="page"><name>md_build_2md__files_2docs_2event__queue</name>
+  </compound>
+  <compound refid="md_build_2md__files_2docs_2io__and__sockets" kind="page"><name>md_build_2md__files_2docs_2io__and__sockets</name>
+  </compound>
+  <compound refid="md_build_2md__files_2docs_2observer" kind="page"><name>md_build_2md__files_2docs_2observer</name>
+  </compound>
+  <compound refid="md_build_2md__files_2docs_2observer__vs__callbacks" kind="page"><name>md_build_2md__files_2docs_2observer__vs__callbacks</name>
+  </compound>
+  <compound refid="md_build_2md__files_2docs_2qt__signals" kind="page"><name>md_build_2md__files_2docs_2qt__signals</name>
+  </compound>
+  <compound refid="md_build_2md__files_2docs_2setup" kind="page"><name>md_build_2md__files_2docs_2setup</name>
+  </compound>
+  <compound refid="md_build_2md__files_2docs_2what__is__event__driven__programming" kind="page"><name>md_build_2md__files_2docs_2what__is__event__driven__programming</name>
+  </compound>
+  <compound refid="md_src_2callbacks_2README" kind="page"><name>md_src_2callbacks_2README</name>
+  </compound>
+  <compound refid="md_src_2common_2README" kind="page"><name>md_src_2common_2README</name>
+  </compound>
+  <compound refid="md_src_2event__queue_2README" kind="page"><name>md_src_2event__queue_2README</name>
+  </compound>
+  <compound refid="md_src_2io__and__sockets_2README" kind="page"><name>md_src_2io__and__sockets_2README</name>
+  </compound>
+  <compound refid="md_src_2observer_2README" kind="page"><name>md_src_2observer_2README</name>
+  </compound>
+  <compound refid="md_src_2qt__signals_2README" kind="page"><name>md_src_2qt__signals_2README</name>
+  </compound>
+  <compound refid="dir_4fef79e7177ba769987a8da36c892c5f" kind="dir"><name>build</name>
+  </compound>
+  <compound refid="dir_ba144cc142e2000a234564bcf1628ca1" kind="dir"><name>src/callbacks</name>
+  </compound>
+  <compound refid="dir_fdedb0aba14d44ce9d99bc100e026e6a" kind="dir"><name>src/common</name>
+  </compound>
+  <compound refid="dir_0ada2ea2987ff030dbd28857b66aa96f" kind="dir"><name>build/md_files/docs</name>
+  </compound>
+  <compound refid="dir_9ac954d1ba0b5ede7e3371c043d6bd5d" kind="dir"><name>src/event_queue</name>
+  </compound>
+  <compound refid="dir_d4a213ced0ecafd3d6be06d9b364b5c2" kind="dir"><name>src/io_and_sockets</name>
+  </compound>
+  <compound refid="dir_6b33c6d9b060a7769022dd925d88950d" kind="dir"><name>build/md_files</name>
+  </compound>
+  <compound refid="dir_5376cbbeba9836d2ab7d01399d5aa22a" kind="dir"><name>src/observer</name>
+  </compound>
+  <compound refid="dir_625eb6cf9642261cb7aab9043792d4b4" kind="dir"><name>src/qt_signals</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_59425e443f801f1f2fd8bbe4959a3ccf" kind="dir"><name>tests</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

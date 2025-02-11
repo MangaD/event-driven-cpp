@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceio__and__sockets" kind="namespace" language="C++">
+    <compoundname>io_and_sockets</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceio__and__sockets_1a457b83d6abb24a223f0ebf214c4062ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void io_and_sockets::close_socket</definition>
+        <argsstring>(int s)</argsstring>
+        <name>close_socket</name>
+        <qualifiedname>io_and_sockets::close_socket</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>Closes a socket on POSIX systems. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function wraps the <computeroutput>close()</computeroutput> system call to close a file descriptor.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The socket file descriptor to close. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/io_and_sockets/io_and_sockets.cpp" line="91" column="6" bodyfile="src/io_and_sockets/io_and_sockets.cpp" bodystart="91" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceio__and__sockets_1a299dfd5182c57c5d2facbb0bb8e5a8b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int io_and_sockets::runDemo</definition>
+        <argsstring>()</argsstring>
+        <name>runDemo</name>
+        <qualifiedname>io_and_sockets::runDemo</qualifiedname>
+        <briefdescription>
+<para>Run demo for the I/O and socket monitoring example. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function sets up a TCP server socket, binds it to port 12345, and begins listening for incoming connections. It then enters a loop that monitors:<itemizedlist>
+<listitem><para>The server socket for incoming connection requests.</para>
+</listitem><listitem><para>Console input for user commands.</para>
+</listitem></itemizedlist>
+</para>
+<para>On Windows, the server socket is monitored using Winsock’s <computeroutput>select()</computeroutput> while console input is polled using <computeroutput>_kbhit()</computeroutput>. On POSIX systems, the <computeroutput>select()</computeroutput> system call monitors both the server socket and the standard input file descriptor.</para>
+<para>Typing &quot;quit&quot; in the console will terminate the loop and shut down the server.</para>
+<para><simplesect kind="return"><para>int Returns 0 upon successful termination. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/io_and_sockets/io_and_sockets.cpp" line="96" column="5" bodyfile="src/io_and_sockets/io_and_sockets.cpp" bodystart="96" bodyend="267" declfile="src/io_and_sockets/io_and_sockets.hpp" declline="47" declcolumn="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Provides cross-platform functionality for monitoring I/O and socket events. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This namespace contains functions and classes that enable the creation and management of a TCP server socket along with the monitoring of console input. It is designed to work on both Windows and POSIX systems.</para>
+<para>On POSIX systems, the implementation uses the standard socket APIs and the select() system call to monitor both the server socket and the standard input (STDIN_FILENO). On Windows, Winsock’s select() function is used to monitor the server socket while console input is handled either by polling with _kbhit() or, when in test mode (TEST_MODE defined), by using standard input functions like std::getline().</para>
+<para>The primary function provided in this namespace is <ref refid="namespaceio__and__sockets_1a299dfd5182c57c5d2facbb0bb8e5a8b4" kindref="member">runDemo()</ref>, which sets up the server, enters an event loop, and gracefully terminates when the user inputs the &quot;quit&quot; command. </para>
+    </detaileddescription>
+    <location file="src/io_and_sockets/io_and_sockets.cpp" line="48" column="1"/>
+  </compounddef>
+</doxygen>

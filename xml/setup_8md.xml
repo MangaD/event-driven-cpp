@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="setup_8md" kind="file" language="Markdown">
+    <compoundname>setup.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Setup<sp/>Guide<sp/>for<sp/>Event-Driven<sp/>Programming<sp/>in<sp/>C++</highlight></codeline>
+<codeline><highlight class="normal">[TOC]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>guide<sp/>explains<sp/>how<sp/>to<sp/>set<sp/>up,<sp/>build,<sp/>and<sp/>run<sp/>the<sp/>Event-Driven<sp/>Programming<sp/>in<sp/>C++<sp/>project<sp/>across<sp/>multiple<sp/>platforms<sp/>using<sp/>CMake<sp/>and<sp/>CMake<sp/>Presets.<sp/>The<sp/>project<sp/>includes<sp/>examples<sp/>of<sp/>various<sp/>event-driven<sp/>techniques,<sp/>including<sp/>a<sp/>Qt<sp/>signals<sp/>&amp;<sp/>slots<sp/>example.<sp/>On<sp/>Windows,<sp/>a<sp/>post-build<sp/>command<sp/>automatically<sp/>runs<sp/>`windeployqt`<sp/>to<sp/>deploy<sp/>the<sp/>necessary<sp/>Qt<sp/>DLLs,<sp/>so<sp/>you<sp/>don&apos;t<sp/>have<sp/>to<sp/>run<sp/>it<sp/>manually.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Prerequisites</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Before<sp/>you<sp/>begin,<sp/>ensure<sp/>you<sp/>have<sp/>the<sp/>following<sp/>installed:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**C++<sp/>Compiler:**<sp/>A<sp/>compiler<sp/>supporting<sp/>C++20<sp/>(e.g.,<sp/>GCC,<sp/>Clang,<sp/>or<sp/>MSVC).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**CMake:**<sp/>Version<sp/>3.19<sp/>or<sp/>later<sp/>(to<sp/>support<sp/>CMake<sp/>Presets).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Git:**<sp/>For<sp/>cloning<sp/>the<sp/>repository.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Qt6:**<sp/>Installed<sp/>on<sp/>your<sp/>system.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>**Windows:**<sp/>e.g.,<sp/>`C:\Qt\6.8.2\msvc2022_64\`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>**Linux/macOS:**<sp/>Ensure<sp/>Qt6<sp/>is<sp/>installed<sp/>and<sp/>accessible.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Build<sp/>Tool:**<sp/>Ninja,<sp/>Visual<sp/>Studio,<sp/>or<sp/>another<sp/>generator<sp/>supported<sp/>by<sp/>CMake.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Cloning<sp/>the<sp/>Repository</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Clone<sp/>the<sp/>repository<sp/>from<sp/>GitHub<sp/>and<sp/>navigate<sp/>into<sp/>the<sp/>project<sp/>directory:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/MangaD/event-driven-cpp.git</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>event-driven-cpp</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Using<sp/>CMake<sp/>Presets</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>project<sp/>includes<sp/>a<sp/>`CMakePresets.json`<sp/>file<sp/>in<sp/>the<sp/>root<sp/>directory<sp/>that<sp/>defines<sp/>several<sp/>configuration<sp/>presets<sp/>for<sp/>cross-platform<sp/>builds<sp/>and<sp/>multiple<sp/>build<sp/>types.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>To<sp/>Configure<sp/>the<sp/>Project</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>a<sp/>default<sp/>cross-platform<sp/>configuration,<sp/>run:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--preset<sp/>default</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>Windows<sp/>MSVC<sp/>in<sp/>Debug<sp/>mode,<sp/>for<sp/>example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--preset<sp/>windows-msvc-debug</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>To<sp/>Build<sp/>the<sp/>Project</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">After<sp/>configuration,<sp/>build<sp/>using:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--build<sp/>--preset<sp/>default</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Or,<sp/>for<sp/>a<sp/>specific<sp/>preset<sp/>(e.g.,<sp/>Windows<sp/>MSVC<sp/>Debug):</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--build<sp/>--preset<sp/>windows-msvc-debug</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Automatic<sp/>Deployment<sp/>on<sp/>Windows</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>the<sp/>Qt<sp/>signals<sp/>&amp;<sp/>slots<sp/>example,<sp/>the<sp/>CMakeLists.txt<sp/>file<sp/>in<sp/>`src/qt_signals`<sp/>includes<sp/>a<sp/>post-build<sp/>custom<sp/>command<sp/>that<sp/>runs<sp/>`windeployqt`<sp/>automatically.<sp/>This<sp/>step<sp/>copies<sp/>all<sp/>required<sp/>Qt6<sp/>DLLs<sp/>into<sp/>your<sp/>build<sp/>directory<sp/>alongside<sp/>the<sp/>executable.<sp/>You<sp/>no<sp/>longer<sp/>need<sp/>to<sp/>manually<sp/>run<sp/>`windeployqt`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Note<sp/>on<sp/>Qt6_DIR<sp/>and<sp/>VCINSTALLDIR</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>`Qt6_DIR`<sp/>variable<sp/>in<sp/>the<sp/>CMake<sp/>presets<sp/>(or<sp/>your<sp/>environment)<sp/>must<sp/>point<sp/>to<sp/>the<sp/>directory<sp/>containing<sp/>the<sp/>Qt6<sp/>CMake<sp/>configuration<sp/>files<sp/>(typically<sp/>something<sp/>like<sp/>`C:/Qt/&lt;version&gt;/&lt;compiler&gt;/lib/cmake/Qt6`<sp/>on<sp/>Windows).<sp/>If<sp/>your<sp/>Qt<sp/>installation<sp/>is<sp/>located<sp/>elsewhere,<sp/>please<sp/>update<sp/>this<sp/>variable<sp/>accordingly<sp/>in<sp/>the<sp/>`CMakePresets.json`<sp/>file<sp/>or<sp/>your<sp/>environment.<sp/>The<sp/>`VCINSTALLDIR`<sp/>environment<sp/>variable<sp/>should<sp/>also<sp/>be<sp/>set<sp/>to<sp/>the<sp/>Visual<sp/>Studio<sp/>installation<sp/>directory.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Running<sp/>the<sp/>Application</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">After<sp/>building,<sp/>run<sp/>the<sp/>executable<sp/>from<sp/>the<sp/>build<sp/>output<sp/>directory:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**On<sp/>Windows:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>The<sp/>post-build<sp/>command<sp/>will<sp/>have<sp/>deployed<sp/>the<sp/>Qt<sp/>DLLs<sp/>automatically.<sp/>For<sp/>example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```powershell</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>.\src\qt_signals\Debug\qt_signals_example.exe</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**On<sp/>Linux/macOS:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Run<sp/>the<sp/>executable<sp/>from<sp/>the<sp/>build<sp/>directory:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```bash</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>./src/qt_signals/qt_signals_example</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>run<sp/>into<sp/>issues<sp/>with<sp/>missing<sp/>DLLs<sp/>on<sp/>Windows,<sp/>verify<sp/>that<sp/>the<sp/>post-build<sp/>command<sp/>has<sp/>executed<sp/>successfully<sp/>and<sp/>that<sp/>your<sp/>`Qt6_DIR`<sp/>and<sp/>`VCINSTALLDIR`<sp/>are<sp/>correctly<sp/>configured.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Summary</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>**Clone<sp/>the<sp/>Repository:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>Use<sp/>Git<sp/>to<sp/>clone<sp/>the<sp/>project<sp/>and<sp/>change<sp/>into<sp/>its<sp/>directory.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">2.<sp/>**Configure<sp/>and<sp/>Build:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>Use<sp/>the<sp/>provided<sp/>`CMakePresets.json`<sp/>with<sp/>the<sp/>`cmake<sp/>--preset`<sp/>and<sp/>`cmake<sp/>--build`<sp/>commands<sp/>to<sp/>configure<sp/>and<sp/>build<sp/>the<sp/>project.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">3.<sp/>**Automatic<sp/>Deployment<sp/>(Windows):**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>The<sp/>post-build<sp/>custom<sp/>command<sp/>runs<sp/>`windeployqt`<sp/>to<sp/>deploy<sp/>the<sp/>necessary<sp/>Qt<sp/>DLLs<sp/>automatically.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">4.<sp/>**Run<sp/>the<sp/>Executable:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>Launch<sp/>the<sp/>desired<sp/>example<sp/>from<sp/>your<sp/>build<sp/>output<sp/>directory.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Following<sp/>these<sp/>steps<sp/>should<sp/>provide<sp/>a<sp/>streamlined,<sp/>cross-platform<sp/>workflow<sp/>for<sp/>building<sp/>and<sp/>running<sp/>the<sp/>Event-Driven<sp/>Programming<sp/>in<sp/>C++<sp/>project<sp/>without<sp/>manually<sp/>hardcoding<sp/>paths<sp/>or<sp/>running<sp/>deployment<sp/>commands.</highlight></codeline>
+    </programlisting>
+    <location file="build/md_files/docs/setup.md"/>
+  </compounddef>
+</doxygen>

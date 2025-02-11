@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['o_20and_20sockets_20demonstration_0',['o and sockets demonstration',['../md_build_2md__files_2docs_2io__and__sockets.html',1,'I/O and Sockets Demonstration'],['../md_src_2io__and__sockets_2README.html',1,'I/O and Sockets Demonstration']]],
+  ['o_20and_20sockets_20example_1',['Test Mode for I/O and Sockets Example',['../index.html#autotoc_md7',1,'']]],
+  ['o_20event_20handling_20with_20tt_20select_20tt_20tt_20poll_20tt_2',['4. I/O Event Handling with &lt;tt&gt;select()&lt;/tt&gt;/&lt;tt&gt;poll()&lt;/tt&gt;',['../md_build_2md__files_2docs_2design.html#autotoc_md30',1,'']]],
+  ['observer_3',['observer',['../namespaceobserver.html',1,'']]],
+  ['observer_20pattern_4',['observer pattern',['../md_build_2md__files_2docs_2design.html#autotoc_md27',1,'1. Observer Pattern'],['../md_build_2md__files_2docs_2event__driven__comparison.html#autotoc_md42',1,'Example: Observer Pattern'],['../md_build_2md__files_2docs_2observer__vs__callbacks.html#autotoc_md97',1,'Observer Pattern'],['../md_src_2observer_2README.html#autotoc_md180',1,'Overview of the Observer Pattern'],['../md_build_2md__files_2docs_2observer.html#autotoc_md91',1,'When to Use the Observer Pattern']]],
+  ['observer_20pattern_20example_5',['Observer Pattern Example',['../md_src_2observer_2README.html',1,'']]],
+  ['observer_20pattern_20in_20c_6',['Observer Pattern in C++',['../md_build_2md__files_2docs_2observer.html',1,'']]],
+  ['observer_20pattern_20vs_20callbacks_3a_20a_20comparison_7',['Observer Pattern vs. Callbacks: A Comparison',['../md_build_2md__files_2docs_2observer__vs__callbacks.html',1,'']]],
+  ['observer_2ehpp_8',['observer.hpp',['../observer_8hpp.html',1,'']]],
+  ['observer_2emd_9',['observer.md',['../observer_8md.html',1,'']]],
+  ['observer_5ftest_2ecpp_10',['observer_test.cpp',['../observer__test_8cpp.html',1,'']]],
+  ['observer_5fvs_5fcallbacks_2emd_11',['observer_vs_callbacks.md',['../observer__vs__callbacks_8md.html',1,'']]],
+  ['observers_12',['observers',['../classobserver_1_1Subject.html#aa290266885924983b5f596c3aa884955',1,'observer::Subject']]],
+  ['of_20event_20driven_20programming_13',['Benefits of Event-Driven Programming',['../md_build_2md__files_2docs_2what__is__event__driven__programming.html#autotoc_md140',1,'']]],
+  ['of_20qt_20s_20signal_20slot_20mechanism_14',['Key Features of Qt&apos;s Signal-Slot Mechanism',['../md_build_2md__files_2docs_2qt__signals.html#autotoc_md110',1,'']]],
+  ['of_20the_20example_15',['Overview of the Example',['../md_src_2qt__signals_2README.html#autotoc_md188',1,'']]],
+  ['of_20the_20observer_20pattern_16',['Overview of the Observer Pattern',['../md_src_2observer_2README.html#autotoc_md180',1,'']]],
+  ['of_20using_20callbacks_17',['Benefits of Using Callbacks',['../md_build_2md__files_2docs_2callbacks.html#autotoc_md21',1,'']]],
+  ['on_20qt6_5fdir_20and_20vcinstalldir_18',['Note on Qt6_DIR and VCINSTALLDIR',['../md_build_2md__files_2docs_2setup.html#autotoc_md129',1,'']]],
+  ['on_20windows_19',['Automatic Deployment on Windows',['../md_build_2md__files_2docs_2setup.html#autotoc_md128',1,'']]],
+  ['onmysignal_20',['onMySignal',['../classqt__signals_1_1QtSignalsExample.html#ad7a3e954f056e33ddd3ef1a34b97be89',1,'qt_signals::QtSignalsExample']]],
+  ['onnotify_21',['onnotify',['../classConcreteObserver.html#aebc85755ca3d5640fc2473da96c2b4d6',1,'ConcreteObserver::onNotify()'],['../classobserver_1_1IObserver.html#a97ed5f714384334387b9d2ef0aacd468',1,'observer::IObserver::onNotify()'],['../classTestObserver.html#acb60d7f2fe1cbdd8d1359d36088f3bb6',1,'TestObserver::onNotify()']]],
+  ['overview_22',['overview',['../md_build_2md__files_2docs_2README.html',1,'Documentation Overview'],['../md_build_2md__files_2docs_2io__and__sockets.html#autotoc_md74',1,'Overview'],['../md_build_2md__files_2docs_2observer.html#autotoc_md88',1,'Overview'],['../md_build_2md__files_2docs_2design.html#autotoc_md25',1,'Overview'],['../md_build_2md__files_2docs_2event__driven__comparison.html#autotoc_md56',1,'Overview'],['../md_build_2md__files_2docs_2event__driven__comparison.html#autotoc_md51',1,'Overview'],['../md_build_2md__files_2docs_2event__driven__comparison.html#autotoc_md46',1,'Overview'],['../md_src_2callbacks_2README.html#autotoc_md147',1,'Overview'],['../md_src_2event__queue_2README.html#autotoc_md162',1,'Overview'],['../md_build_2md__files_2docs_2event__driven__comparison.html#autotoc_md41',1,'Overview']]],
+  ['overview_20of_20the_20example_23',['Overview of the Example',['../md_src_2qt__signals_2README.html#autotoc_md188',1,'']]],
+  ['overview_20of_20the_20observer_20pattern_24',['Overview of the Observer Pattern',['../md_src_2observer_2README.html#autotoc_md180',1,'']]]
+];

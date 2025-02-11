@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="build_2md__files_2README_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Event-Driven<sp/>Programming<sp/>in<sp/>C++</highlight></codeline>
+<codeline><highlight class="normal">[TOC]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*Disclaimer:<sp/>This<sp/>project<sp/>was<sp/>built<sp/>collaboratively<sp/>with<sp/>AI,<sp/>step<sp/>by<sp/>step.<sp/>Its<sp/>primary<sp/>purpose<sp/>is<sp/>to<sp/>serve<sp/>as<sp/>an<sp/>educational<sp/>tool<sp/>for<sp/>studying<sp/>and<sp/>understanding<sp/>event-driven<sp/>programming<sp/>in<sp/>C++.*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>repository<sp/>is<sp/>a<sp/>case<sp/>study<sp/>demonstrating<sp/>various<sp/>approaches<sp/>to<sp/>event-driven<sp/>programming<sp/>in<sp/>C++.<sp/>It<sp/>includes<sp/>examples<sp/>implemented<sp/>in<sp/>C++<sp/>using<sp/>different<sp/>design<sp/>patterns<sp/>and<sp/>libraries<sp/>such<sp/>as:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>**Observer<sp/>pattern**<sp/>for<sp/>decoupled<sp/>event<sp/>notifications.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Callbacks**<sp/>using<sp/>`std::function`<sp/>to<sp/>handle<sp/>asynchronous<sp/>events.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Qt<sp/>Signals<sp/>&amp;<sp/>Slots**<sp/>to<sp/>leverage<sp/>Qt’s<sp/>robust<sp/>event-driven<sp/>system.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**I/O<sp/>and<sp/>Sockets**<sp/>for<sp/>cross-platform<sp/>asynchronous<sp/>I/O<sp/>and<sp/>socket<sp/>programming,<sp/>using<sp/>system<sp/>calls<sp/>(like<sp/>`select()`)<sp/>on<sp/>POSIX<sp/>systems<sp/>and<sp/>platform-specific<sp/>alternatives<sp/>on<sp/>Windows.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>An<sp/>**Event<sp/>Queue**<sp/>implementation<sp/>to<sp/>decouple<sp/>event<sp/>production<sp/>from<sp/>processing<sp/>in<sp/>a<sp/>thread-safe<sp/>manner.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Prerequisites</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Before<sp/>building<sp/>and<sp/>running<sp/>the<sp/>project,<sp/>ensure<sp/>you<sp/>have<sp/>the<sp/>following<sp/>installed:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**C++<sp/>Compiler:**<sp/>A<sp/>modern<sp/>C++<sp/>compiler<sp/>supporting<sp/>C++20<sp/>(e.g.,<sp/>GCC<sp/>10+,<sp/>Clang<sp/>10+,<sp/>or<sp/>MSVC<sp/>2019/2022).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**CMake:**<sp/>Version<sp/>3.19<sp/>or<sp/>later<sp/>(to<sp/>take<sp/>advantage<sp/>of<sp/>CMake<sp/>Presets).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Git:**<sp/>For<sp/>cloning<sp/>the<sp/>repository.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Qt6:**<sp/>Installed<sp/>on<sp/>your<sp/>system.<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Note:**<sp/>The<sp/>CMake<sp/>presets<sp/>assume<sp/>a<sp/>default<sp/>path<sp/>(e.g.,<sp/>`C:/Qt/6.8.2/msvc2022_64/lib/cmake/Qt6`<sp/>on<sp/>Windows);<sp/>you<sp/>may<sp/>need<sp/>to<sp/>modify<sp/>the<sp/>`Qt6_DIR`<sp/>variable<sp/>in<sp/>`CMakePresets.json`<sp/>to<sp/>match<sp/>your<sp/>installation.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Build<sp/>Tools:**<sp/>Ninja,<sp/>Visual<sp/>Studio,<sp/>or<sp/>another<sp/>supported<sp/>generator.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Building<sp/>the<sp/>Project</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>project<sp/>uses<sp/>CMake<sp/>with<sp/>presets<sp/>defined<sp/>in<sp/>`CMakePresets.json`<sp/>to<sp/>streamline<sp/>configuration<sp/>and<sp/>building<sp/>across<sp/>multiple<sp/>platforms<sp/>and<sp/>build<sp/>types.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Configuration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>example,<sp/>to<sp/>configure<sp/>the<sp/>project:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Default<sp/>(cross-platform):**</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```bash</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cmake<sp/>--preset<sp/>default</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Windows<sp/>MSVC<sp/>Debug:**</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```bash</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cmake<sp/>--preset<sp/>windows-msvc-debug</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Linux<sp/>GCC<sp/>Debug:**</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```bash</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cmake<sp/>--preset<sp/>linux-gcc-debug</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Building</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">After<sp/>configuration,<sp/>build<sp/>the<sp/>project<sp/>using:</highlight></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--build<sp/>--preset<sp/>&lt;preset&gt;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Replace<sp/>`&lt;preset&gt;`<sp/>with<sp/>your<sp/>chosen<sp/>configuration<sp/>(e.g.,<sp/>`windows-msvc-debug`<sp/>or<sp/>`linux-gcc-debug`).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">On<sp/>Windows,<sp/>post-build<sp/>steps<sp/>(such<sp/>as<sp/>running<sp/>`windeployqt`<sp/>for<sp/>Qt-based<sp/>examples)<sp/>are<sp/>executed<sp/>automatically.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Running<sp/>the<sp/>Examples</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>example<sp/>is<sp/>built<sp/>as<sp/>a<sp/>separate<sp/>executable:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Observer,<sp/>Callbacks,<sp/>Qt<sp/>Signals<sp/>&amp;<sp/>Slots,<sp/>I/O<sp/>and<sp/>Sockets,**<sp/>and<sp/>**Event<sp/>Queue**<sp/>examples<sp/>are<sp/>all<sp/>provided.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Run<sp/>the<sp/>desired<sp/>executable<sp/>from<sp/>its<sp/>build<sp/>directory<sp/>(e.g.,<sp/>via<sp/>the<sp/>command<sp/>line<sp/>or<sp/>your<sp/>IDE).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Running<sp/>the<sp/>Tests</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Unit<sp/>tests<sp/>are<sp/>located<sp/>in<sp/>the<sp/>`tests`<sp/>directory<sp/>and<sp/>are<sp/>registered<sp/>via<sp/>CTest.<sp/>To<sp/>run<sp/>all<sp/>tests:</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>Navigate<sp/>to<sp/>your<sp/>build<sp/>directory.</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>Run:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>```bash</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>ctest<sp/>--preset<sp/>&lt;preset&gt;<sp/>--verbose<sp/>-C<sp/>&lt;configuration&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>```</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>For<sp/>example,<sp/>on<sp/>Windows:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>```bash</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>ctest<sp/>--preset<sp/>windows-msvc-debug<sp/>--verbose<sp/>-C<sp/>Debug</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Test<sp/>Mode<sp/>for<sp/>I/O<sp/>and<sp/>Sockets<sp/>Example</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>automated<sp/>testing,<sp/>the<sp/>I/O<sp/>and<sp/>Sockets<sp/>demonstration<sp/>supports<sp/>a<sp/>`TEST_MODE`<sp/>macro.<sp/>When<sp/>defined,<sp/>the<sp/>Windows-specific<sp/>code<sp/>bypasses<sp/>the<sp/>`_kbhit()`<sp/>polling<sp/>and<sp/>reads<sp/>console<sp/>input<sp/>using<sp/>`std::getline()`.<sp/>This<sp/>allows<sp/>tests<sp/>to<sp/>simulate<sp/>input<sp/>automatically<sp/>(for<sp/>example,<sp/>by<sp/>redirecting<sp/>`std::cin`)<sp/>so<sp/>that<sp/>manual<sp/>intervention<sp/>isn’t<sp/>required.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Additional<sp/>Notes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Temporary<sp/>Directories:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>The<sp/>testing<sp/>process<sp/>may<sp/>create<sp/>a<sp/>`Testing/Temporary`<sp/>directory<sp/>as<sp/>part<sp/>of<sp/>CTest’s<sp/>internal<sp/>workflow.<sp/>This<sp/>is<sp/>normal<sp/>and<sp/>can<sp/>be<sp/>ignored.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Qt<sp/>DLL<sp/>Deployment<sp/>on<sp/>Windows:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>The<sp/>Qt-based<sp/>examples<sp/>automatically<sp/>run<sp/>`windeployqt`<sp/>as<sp/>a<sp/>post-build<sp/>step<sp/>on<sp/>Windows<sp/>to<sp/>deploy<sp/>the<sp/>required<sp/>Qt<sp/>DLLs.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Customization:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>You<sp/>are<sp/>welcome<sp/>to<sp/>modify<sp/>or<sp/>extend<sp/>any<sp/>of<sp/>the<sp/>examples<sp/>to<sp/>suit<sp/>your<sp/>needs.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Contributing</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Contributions,<sp/>improvements,<sp/>and<sp/>bug<sp/>fixes<sp/>are<sp/>welcome!<sp/>Please<sp/>submit<sp/>pull<sp/>requests<sp/>or<sp/>open<sp/>issues<sp/>to<sp/>help<sp/>enhance<sp/>the<sp/>project.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>License</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>project<sp/>is<sp/>licensed<sp/>under<sp/>the<sp/>MIT<sp/>License.<sp/>See<sp/>the<sp/>[LICENSE](LICENSE)<sp/>file<sp/>for<sp/>details.</highlight></codeline>
+    </programlisting>
+    <location file="build/md_files/README.md"/>
+  </compounddef>
+</doxygen>

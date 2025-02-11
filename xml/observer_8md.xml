@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="observer_8md" kind="file" language="Markdown">
+    <compoundname>observer.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Observer<sp/>Pattern<sp/>in<sp/>C++</highlight></codeline>
+<codeline><highlight class="normal">[TOC]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>**Observer<sp/>pattern**<sp/>is<sp/>a<sp/>behavioral<sp/>design<sp/>pattern<sp/>that<sp/>defines<sp/>a<sp/>one-to-many<sp/>dependency<sp/>between<sp/>objects.<sp/>When<sp/>one<sp/>object<sp/>(the<sp/>subject)<sp/>changes<sp/>state,<sp/>all<sp/>of<sp/>its<sp/>dependents<sp/>(observers)<sp/>are<sp/>automatically<sp/>notified<sp/>and<sp/>updated.<sp/>This<sp/>pattern<sp/>is<sp/>particularly<sp/>useful<sp/>for<sp/>implementing<sp/>event-driven<sp/>programming,<sp/>where<sp/>various<sp/>components<sp/>need<sp/>to<sp/>react<sp/>to<sp/>changes<sp/>or<sp/>events<sp/>in<sp/>a<sp/>decoupled<sp/>manner.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Overview</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Key<sp/>Concepts</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Subject:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>The<sp/>object<sp/>that<sp/>holds<sp/>the<sp/>state<sp/>and<sp/>sends<sp/>notifications<sp/>to<sp/>its<sp/>observers<sp/>when<sp/>its<sp/>state<sp/>changes.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Observer:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>The<sp/>object<sp/>that<sp/>subscribes<sp/>to<sp/>the<sp/>subject<sp/>to<sp/>receive<sp/>updates.<sp/>Observers<sp/>implement<sp/>a<sp/>common<sp/>interface,<sp/>ensuring<sp/>that<sp/>the<sp/>subject<sp/>can<sp/>notify<sp/>all<sp/>of<sp/>them<sp/>in<sp/>a<sp/>uniform<sp/>manner.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Decoupling:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>The<sp/>Observer<sp/>pattern<sp/>promotes<sp/>loose<sp/>coupling<sp/>between<sp/>the<sp/>subject<sp/>and<sp/>the<sp/>observers.<sp/>The<sp/>subject<sp/>does<sp/>not<sp/>need<sp/>to<sp/>know<sp/>the<sp/>concrete<sp/>classes<sp/>of<sp/>its<sp/>observers,<sp/>only<sp/>that<sp/>they<sp/>adhere<sp/>to<sp/>a<sp/>common<sp/>interface.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Benefits</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Modularity:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Observers<sp/>can<sp/>be<sp/>added<sp/>or<sp/>removed<sp/>without<sp/>modifying<sp/>the<sp/>subject,<sp/>making<sp/>the<sp/>system<sp/>more<sp/>maintainable<sp/>and<sp/>extensible.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Scalability:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Multiple<sp/>observers<sp/>can<sp/>react<sp/>to<sp/>changes<sp/>in<sp/>the<sp/>subject,<sp/>allowing<sp/>the<sp/>system<sp/>to<sp/>scale<sp/>as<sp/>new<sp/>functionality<sp/>is<sp/>added.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Flexibility:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Changes<sp/>to<sp/>the<sp/>subject<sp/>or<sp/>observers<sp/>can<sp/>be<sp/>made<sp/>independently,<sp/>as<sp/>long<sp/>as<sp/>the<sp/>interface<sp/>contract<sp/>is<sp/>maintained.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>When<sp/>to<sp/>Use<sp/>the<sp/>Observer<sp/>Pattern</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>When<sp/>a<sp/>change<sp/>to<sp/>one<sp/>object<sp/>requires<sp/>changing<sp/>others,<sp/>and<sp/>you<sp/>do<sp/>not<sp/>know<sp/>how<sp/>many<sp/>objects<sp/>need<sp/>to<sp/>be<sp/>changed.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>When<sp/>an<sp/>object<sp/>should<sp/>be<sp/>able<sp/>to<sp/>notify<sp/>other<sp/>objects<sp/>without<sp/>making<sp/>assumptions<sp/>about<sp/>who<sp/>those<sp/>objects<sp/>are.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>In<sp/>implementing<sp/>event-driven<sp/>architectures<sp/>where<sp/>various<sp/>parts<sp/>of<sp/>the<sp/>application<sp/>react<sp/>to<sp/>events<sp/>generated<sp/>by<sp/>a<sp/>single<sp/>source.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Example<sp/>Implementation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Below<sp/>is<sp/>a<sp/>simple<sp/>example<sp/>in<sp/>C++<sp/>that<sp/>demonstrates<sp/>the<sp/>Observer<sp/>pattern:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>observer.hpp</highlight></codeline>
+<codeline><highlight class="normal">#ifndef<sp/>OBSERVER_HPP</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>OBSERVER_HPP</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;string_view&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Observer<sp/>interface</highlight></codeline>
+<codeline><highlight class="normal">class<sp/>IObserver<sp/>{</highlight></codeline>
+<codeline><highlight class="normal">public:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>virtual<sp/>~IObserver()<sp/>=<sp/>default;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>virtual<sp/>void<sp/>onNotify(std::string_view<sp/>message)<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#endif<sp/>//<sp/>OBSERVER_HPP</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>subject.hpp</highlight></codeline>
+<codeline><highlight class="normal">#ifndef<sp/>SUBJECT_HPP</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>SUBJECT_HPP</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;observer.hpp&quot;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;vector&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">class<sp/>Subject<sp/>{</highlight></codeline>
+<codeline><highlight class="normal">public:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>addObserver(IObserver*<sp/>observer)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>observers.push_back(observer);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>removeObserver(IObserver*<sp/>observer)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>observers.erase(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::remove(observers.begin(),<sp/>observers.end(),<sp/>observer),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>observers.end()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>notify(std::string_view<sp/>message)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto*<sp/>observer<sp/>:<sp/>observers)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>observer-&gt;onNotify(message);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">private:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;IObserver*&gt;<sp/>observers;</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#endif<sp/>//<sp/>SUBJECT_HPP</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>concrete_observer.hpp</highlight></codeline>
+<codeline><highlight class="normal">#ifndef<sp/>CONCRETE_OBSERVER_HPP</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>CONCRETE_OBSERVER_HPP</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;observer.hpp&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">class<sp/>ConcreteObserver<sp/>:<sp/>public<sp/>IObserver<sp/>{</highlight></codeline>
+<codeline><highlight class="normal">public:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>onNotify(std::string_view<sp/>message)<sp/>override<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;ConcreteObserver<sp/>received:<sp/>&quot;<sp/>&lt;&lt;<sp/>message<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#endif<sp/>//<sp/>CONCRETE_OBSERVER_HPP</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>main.cpp</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;subject.hpp&quot;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;concrete_observer.hpp&quot;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;iostream&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int<sp/>main()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Subject<sp/>subject;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ConcreteObserver<sp/>observer1;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ConcreteObserver<sp/>observer2;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Register<sp/>observers</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>subject.addObserver(&amp;observer1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>subject.addObserver(&amp;observer2);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Notify<sp/>all<sp/>observers</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>subject.notify(&quot;Event<sp/>occurred!&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Removing<sp/>an<sp/>observer<sp/>and<sp/>notifying<sp/>again</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>subject.removeObserver(&amp;observer1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>subject.notify(&quot;Another<sp/>event<sp/>occurred!&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>How<sp/>It<sp/>Works</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>**Subject<sp/>Setup:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>The<sp/>`Subject`<sp/>class<sp/>maintains<sp/>a<sp/>list<sp/>of<sp/>observers.<sp/>It<sp/>provides<sp/>methods<sp/>to<sp/>add,<sp/>remove,<sp/>and<sp/>notify<sp/>observers<sp/>when<sp/>an<sp/>event<sp/>occurs.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">2.<sp/>**Observer<sp/>Implementation:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>The<sp/>`IObserver`<sp/>interface<sp/>defines<sp/>a<sp/>contract<sp/>(`onNotify`)<sp/>that<sp/>all<sp/>observers<sp/>must<sp/>implement.<sp/>In<sp/>this<sp/>example,<sp/>`ConcreteObserver`<sp/>implements<sp/>this<sp/>interface<sp/>and<sp/>defines<sp/>the<sp/>reaction<sp/>to<sp/>notifications.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">3.<sp/>**Notification<sp/>Mechanism:**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>When<sp/>the<sp/>subject&apos;s<sp/>`notify`<sp/>method<sp/>is<sp/>called,<sp/>it<sp/>iterates<sp/>over<sp/>all<sp/>registered<sp/>observers<sp/>and<sp/>calls<sp/>their<sp/>`onNotify`<sp/>method,<sp/>passing<sp/>along<sp/>the<sp/>event<sp/>message.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Conclusion</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>Observer<sp/>pattern<sp/>is<sp/>a<sp/>foundational<sp/>component<sp/>of<sp/>event-driven<sp/>programming<sp/>in<sp/>C++.<sp/>It<sp/>allows<sp/>for<sp/>flexible<sp/>and<sp/>decoupled<sp/>system<sp/>designs<sp/>where<sp/>components<sp/>can<sp/>react<sp/>to<sp/>events<sp/>dynamically.<sp/>By<sp/>leveraging<sp/>this<sp/>pattern,<sp/>you<sp/>can<sp/>create<sp/>applications<sp/>that<sp/>are<sp/>easier<sp/>to<sp/>maintain,<sp/>extend,<sp/>and<sp/>test.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Feel<sp/>free<sp/>to<sp/>extend<sp/>this<sp/>example<sp/>or<sp/>integrate<sp/>it<sp/>into<sp/>your<sp/>project<sp/>to<sp/>handle<sp/>more<sp/>complex<sp/>event<sp/>notifications<sp/>and<sp/>interactions.</highlight></codeline>
+    </programlisting>
+    <location file="build/md_files/docs/observer.md"/>
+  </compounddef>
+</doxygen>

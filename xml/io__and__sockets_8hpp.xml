@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="io__and__sockets_8hpp" kind="file" language="C++">
+    <compoundname>io_and_sockets.hpp</compoundname>
+    <includedby refid="io__and__sockets_2main_8cpp" local="yes">src/io_and_sockets/main.cpp</includedby>
+    <includedby refid="io__and__sockets__test_8cpp" local="yes">tests/io_and_sockets_test.cpp</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>src/io_and_sockets/io_and_sockets.hpp</label>
+        <link refid="io__and__sockets_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/io_and_sockets/main.cpp</label>
+        <link refid="io__and__sockets_2main_8cpp"/>
+      </node>
+      <node id="3">
+        <label>tests/io_and_sockets_test.cpp</label>
+        <link refid="io__and__sockets__test_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespaceio__and__sockets">io_and_sockets</innernamespace>
+    <briefdescription>
+<para>Declaration of the runDemo() function for the I/O and Sockets demonstration. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This header declares the runDemo() function which sets up and runs the demonstration for monitoring both socket events and console input. The demonstration creates a TCP server that listens on a specific port and continuously processes events until the user types &quot;quit&quot;. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>IO_AND_SOCKETS_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IO_AND_SOCKETS_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceio__and__sockets" kindref="compound">io_and_sockets</ref><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespaceio__and__sockets_1a299dfd5182c57c5d2facbb0bb8e5a8b4" kindref="member">runDemo</ref>();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>io_and_sockets</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>IO_AND_SOCKETS_HPP</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/io_and_sockets/io_and_sockets.hpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_d4a213ced0ecafd3d6be06d9b364b5c2" kind="dir">
+    <compoundname>src/io_and_sockets</compoundname>
+    <innerfile refid="io__and__sockets_8cpp">io_and_sockets.cpp</innerfile>
+    <innerfile refid="io__and__sockets_8hpp">io_and_sockets.hpp</innerfile>
+    <innerfile refid="io__and__sockets_2main_8cpp">main.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/io_and_sockets/"/>
+  </compounddef>
+</doxygen>

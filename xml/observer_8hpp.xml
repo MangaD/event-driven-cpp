@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="observer_8hpp" kind="file" language="C++">
+    <compoundname>observer.hpp</compoundname>
+    <includes local="no">string</includes>
+    <includedby refid="observer_2main_8cpp" local="yes">src/observer/main.cpp</includedby>
+    <includedby refid="subject_8hpp" local="yes">src/observer/subject.hpp</includedby>
+    <includedby refid="observer__test_8cpp" local="yes">tests/observer_test.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/observer/observer.hpp</label>
+        <link refid="observer_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/observer/main.cpp</label>
+        <link refid="observer_2main_8cpp"/>
+      </node>
+      <node id="1">
+        <label>src/observer/observer.hpp</label>
+        <link refid="observer_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/observer/subject.hpp</label>
+        <link refid="subject_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>tests/observer_test.cpp</label>
+        <link refid="observer__test_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classobserver_1_1IObserver" prot="public">observer::IObserver</innerclass>
+    <innernamespace refid="namespaceobserver">observer</innernamespace>
+    <briefdescription>
+<para>Declaration of the IObserver interface for the Observer pattern. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This file declares the IObserver interface which defines the contract that all observers must implement in order to receive event notifications from a Subject. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>OBSERVER_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OBSERVER_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceobserver" kindref="compound">observer</ref><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="classobserver_1_1IObserver" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classobserver_1_1IObserver" kindref="compound">IObserver</ref><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="42" refid="classobserver_1_1IObserver_1a8e18c92266b5e99b5a3f6270a38df190" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classobserver_1_1IObserver_1a8e18c92266b5e99b5a3f6270a38df190" kindref="member">~IObserver</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="classobserver_1_1IObserver_1a97ed5f714384334387b9d2ef0aacd468" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classobserver_1_1IObserver_1a97ed5f714384334387b9d2ef0aacd468" kindref="member">onNotify</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;message)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>observer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>OBSERVER_HPP</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/observer/observer.hpp"/>
+  </compounddef>
+</doxygen>

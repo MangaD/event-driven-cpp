@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="io__and__sockets__test_8cpp" kind="file" language="C++">
+    <compoundname>io_and_sockets_test.cpp</compoundname>
+    <includes refid="io__and__sockets_8hpp" local="yes">io_and_sockets/io_and_sockets.hpp</includes>
+    <includes local="no">cassert</includes>
+    <includes local="no">sstream</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">thread</includes>
+    <includes local="no">atomic</includes>
+    <includes local="no">arpa/inet.h</includes>
+    <includes local="no">sys/socket.h</includes>
+    <includes local="no">netinet/in.h</includes>
+    <includes local="no">unistd.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>io_and_sockets/io_and_sockets.hpp</label>
+        <link refid="io__and__sockets_8hpp"/>
+      </node>
+      <node id="1">
+        <label>tests/io_and_sockets_test.cpp</label>
+        <link refid="io__and__sockets__test_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>arpa/inet.h</label>
+      </node>
+      <node id="7">
+        <label>atomic</label>
+      </node>
+      <node id="3">
+        <label>cassert</label>
+      </node>
+      <node id="5">
+        <label>iostream</label>
+      </node>
+      <node id="10">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="4">
+        <label>sstream</label>
+      </node>
+      <node id="9">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="6">
+        <label>thread</label>
+      </node>
+      <node id="11">
+        <label>unistd.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="io__and__sockets__test_8cpp_1a614217d263be1fb1a5f76e2ff7be19a2" prot="public" static="no">
+        <name>PORT</name>
+        <initializer>12345</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/io_and_sockets_test.cpp" line="41" column="9" bodyfile="tests/io_and_sockets_test.cpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="io__and__sockets__test_8cpp_1ac6cec8e952f9431316b363684e877047" prot="public" static="no" mutable="no">
+        <type>std::atomic&lt; bool &gt;</type>
+        <definition>std::atomic&lt;bool&gt; clientConnected</definition>
+        <argsstring></argsstring>
+        <name>clientConnected</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/io_and_sockets_test.cpp" line="45" column="13" bodyfile="tests/io_and_sockets_test.cpp" bodystart="45" bodyend="45"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="io__and__sockets__test_8cpp_1ab71c60046211a77a2e046402a6ba468c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clientThreadFunction</definition>
+        <argsstring>()</argsstring>
+        <name>clientThreadFunction</name>
+        <briefdescription>
+<para>Client thread function that attempts to connect to the server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function waits briefly to allow the server to start up, then creates a client socket and attempts to connect to localhost on PORT. If the connection succeeds, the atomic flag is set. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/io_and_sockets_test.cpp" line="53" column="6" bodyfile="tests/io_and_sockets_test.cpp" bodystart="53" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="io__and__sockets__test_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/io_and_sockets_test.cpp" line="94" column="5" bodyfile="tests/io_and_sockets_test.cpp" bodystart="94" bodyend="122"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Unit test for the I/O and Sockets demonstration. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This test verifies that the I/O and Sockets demonstration (implemented in the <ref refid="namespaceio__and__sockets" kindref="compound">io_and_sockets</ref> module) terminates automatically when simulated input is provided and correctly accepts a client socket connection.</para>
+<para>In test mode (with TEST_MODE defined), the demonstration bypasses the Windows-specific _kbhit() polling and uses std::getline() to read console input. The test simulates input by redirecting std::cin and provides a string (&quot;client\nquit\n&quot;) that first allows a client connection and then instructs the demo to terminate.</para>
+<para>Additionally, a separate client thread is spawned to connect to the server. If the connection succeeds, a flag is set. The test asserts that runDemo() returns 0 and that the client connection was successfully established.</para>
+<para><simplesect kind="note"><para>This test uses the TEST_MODE macro. Ensure that your implementation of runDemo() (in <ref refid="io__and__sockets_8cpp" kindref="compound">io_and_sockets.cpp</ref>) is modified so that when TEST_MODE is defined, it reads input using std::getline() rather than using _kbhit() on Windows. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="io__and__sockets_8hpp" kindref="compound">io_and_sockets/io_and_sockets.hpp</ref>&quot;</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Adjust<sp/>the<sp/>path<sp/>as<sp/>needed.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cassert&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;atomic&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;winsock2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#pragma<sp/>comment(lib,<sp/>&quot;Ws2_32.lib&quot;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;arpa/inet.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;sys/socket.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;netinet/in.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Port<sp/>must<sp/>match<sp/>the<sp/>one<sp/>defined<sp/>in<sp/>io_and_sockets.cpp<sp/>(e.g.,<sp/>12345).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>PORT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PORT<sp/>12345</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Atomic<sp/>flag<sp/>to<sp/>indicate<sp/>a<sp/>successful<sp/>client<sp/>connection.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">std::atomic&lt;bool&gt;<sp/><ref refid="io__and__sockets__test_8cpp_1ac6cec8e952f9431316b363684e877047" kindref="member">clientConnected</ref>{</highlight><highlight class="keyword">false</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="io__and__sockets__test_8cpp_1ab71c60046211a77a2e046402a6ba468c" kindref="member">clientThreadFunction</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Wait<sp/>a<sp/>short<sp/>while<sp/>to<sp/>ensure<sp/>the<sp/>server<sp/>is<sp/>listening.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>std::this_thread::sleep_for(std::chrono::milliseconds(100));</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>SOCKET<sp/>sock<sp/>=<sp/>socket(AF_INET,<sp/>SOCK_STREAM,<sp/>IPPROTO_TCP);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sock<sp/>==<sp/>INVALID_SOCKET)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sock<sp/>=<sp/>socket(AF_INET,<sp/>SOCK_STREAM,<sp/>0);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sock<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">sockaddr_in<sp/>serverAddr;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>serverAddr.sin_family<sp/>=<sp/>AF_INET;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>serverAddr.sin_port<sp/>=<sp/>htons(<ref refid="io__and__sockets__test_8cpp_1a614217d263be1fb1a5f76e2ff7be19a2" kindref="member">PORT</ref>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>serverAddr.sin_addr.S_un.S_addr<sp/>=<sp/>inet_addr(</highlight><highlight class="stringliteral">&quot;127.0.0.1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>inet_pton(AF_INET,<sp/></highlight><highlight class="stringliteral">&quot;127.0.0.1&quot;</highlight><highlight class="normal">,<sp/>&amp;serverAddr.sin_addr);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Attempt<sp/>to<sp/>connect<sp/>to<sp/>the<sp/>server.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>result<sp/>=<sp/>connect(sock,<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">struct<sp/>sockaddr*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(&amp;serverAddr),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(serverAddr));</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(result<sp/>!=<sp/>SOCKET_ERROR)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="io__and__sockets__test_8cpp_1ac6cec8e952f9431316b363684e877047" kindref="member">clientConnected</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>closesocket(sock);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>result<sp/>=<sp/>connect(sock,<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">struct<sp/>sockaddr*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(&amp;serverAddr),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(serverAddr));</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(result<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="io__and__sockets__test_8cpp_1ac6cec8e952f9431316b363684e877047" kindref="member">clientConnected</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>close(sock);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="io__and__sockets__test_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kindref="member">main</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Prepare<sp/>simulated<sp/>input<sp/>containing<sp/>two<sp/>lines:<sp/>first<sp/>&quot;client&quot;,<sp/>then<sp/>&quot;quit&quot;.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>demonstration<sp/>will<sp/>read<sp/>&quot;client&quot;<sp/>(which<sp/>does<sp/>nothing<sp/>special)<sp/>and<sp/>then<sp/>&quot;quit&quot;<sp/>to<sp/>terminate.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>std::istringstream<sp/>simulatedInput(</highlight><highlight class="stringliteral">&quot;client\nquit\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Save<sp/>the<sp/>original<sp/>std::cin<sp/>stream<sp/>buffer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>std::streambuf*<sp/>originalCinBuffer<sp/>=<sp/>std::cin.rdbuf();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Redirect<sp/>std::cin<sp/>to<sp/>the<sp/>simulated<sp/>input.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cin.rdbuf(simulatedInput.rdbuf());</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Start<sp/>the<sp/>client<sp/>thread<sp/>to<sp/>connect<sp/>to<sp/>the<sp/>server.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>std::thread<sp/>clientThread(<ref refid="io__and__sockets__test_8cpp_1ab71c60046211a77a2e046402a6ba468c" kindref="member">clientThreadFunction</ref>);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Run<sp/>the<sp/>I/O<sp/>and<sp/>Sockets<sp/>demonstration.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="namespaceio__and__sockets_1a299dfd5182c57c5d2facbb0bb8e5a8b4" kindref="member">io_and_sockets::runDemo</ref>();</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Wait<sp/>for<sp/>the<sp/>client<sp/>thread<sp/>to<sp/>finish.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>clientThread.join();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Restore<sp/>the<sp/>original<sp/>std::cin<sp/>stream<sp/>buffer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cin.rdbuf(originalCinBuffer);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Verify<sp/>that<sp/>runDemo()<sp/>returned<sp/>0<sp/>and<sp/>the<sp/>client<sp/>successfully<sp/>connected.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(result<sp/>==<sp/>0<sp/>&amp;&amp;<sp/></highlight><highlight class="stringliteral">&quot;runDemo()<sp/>should<sp/>return<sp/>0<sp/>when<sp/>&apos;quit&apos;<sp/>is<sp/>provided<sp/>as<sp/>input.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(<ref refid="io__and__sockets__test_8cpp_1ac6cec8e952f9431316b363684e877047" kindref="member">clientConnected</ref><sp/>&amp;&amp;<sp/></highlight><highlight class="stringliteral">&quot;Client<sp/>should<sp/>have<sp/>successfully<sp/>connected<sp/>to<sp/>the<sp/>server.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;io_and_sockets<sp/>test<sp/>passed.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/></highlight></codeline>
+    </programlisting>
+    <location file="tests/io_and_sockets_test.cpp"/>
+  </compounddef>
+</doxygen>

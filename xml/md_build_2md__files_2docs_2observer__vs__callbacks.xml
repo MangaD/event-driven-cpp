@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md_build_2md__files_2docs_2observer__vs__callbacks" kind="page">
+    <compoundname>md_build_2md__files_2docs_2observer__vs__callbacks</compoundname>
+    <title>Observer Pattern vs. Callbacks: A Comparison</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="md_build_2md__files_2docs_2observer__vs__callbacks_1autotoc_md95"/></para>
+<para>In event-driven programming, both the Observer pattern and callbacks are widely used. This document outlines the pros and cons of each approach and provides guidance on how to choose between them.</para>
+<para><hruler/>
+</para>
+<sect1 id="md_build_2md__files_2docs_2observer__vs__callbacks_1autotoc_md97">
+<title>Observer Pattern</title>
+<sect2 id="md_build_2md__files_2docs_2observer__vs__callbacks_1autotoc_md98">
+<title>Pros</title>
+<para><itemizedlist>
+<listitem><para><bold>Decoupling:</bold> <linebreak/>
+ The subject does not need to know the concrete types of its observers—only that they adhere to a specific interface. This leads to a highly modular design.</para>
+</listitem><listitem><para><bold>Multiple Subscribers:</bold> <linebreak/>
+ It naturally supports one-to-many relationships; when an event occurs, all registered observers are notified.</para>
+</listitem><listitem><para><bold>Dynamic Registration:</bold> <linebreak/>
+ Observers can be added or removed at runtime, making the system flexible and extensible.</para>
+</listitem><listitem><para><bold>Extensibility:</bold> <linebreak/>
+ New observer types can be added without modifying the subject.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_build_2md__files_2docs_2observer__vs__callbacks_1autotoc_md99">
+<title>Cons</title>
+<para><itemizedlist>
+<listitem><para><bold>Complexity:</bold> <linebreak/>
+ Managing a large number of observers and their interactions can introduce complexity.</para>
+</listitem><listitem><para><bold>Performance Overhead:</bold> <linebreak/>
+ Iterating through a collection of observers adds runtime overhead, which may be significant in performance-critical applications.</para>
+</listitem><listitem><para><bold>Notification Order:</bold> <linebreak/>
+ There is no inherent guarantee regarding the order in which observers are notified.</para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2observer__vs__callbacks_1autotoc_md101">
+<title>Callbacks</title>
+<sect2 id="md_build_2md__files_2docs_2observer__vs__callbacks_1autotoc_md102">
+<title>Pros</title>
+<para><itemizedlist>
+<listitem><para><bold>Simplicity:</bold> <linebreak/>
+ Callbacks are simple to implement, especially when there’s only one or a few handlers.</para>
+</listitem><listitem><para><bold>Direct Connection:</bold> <linebreak/>
+ The event source is directly linked to its handler, making the control flow easy to follow in simple scenarios.</para>
+</listitem><listitem><para><bold>Flexibility with Context:</bold> <linebreak/>
+ With lambdas and <computeroutput>std::function</computeroutput>, callbacks can capture local context without requiring global state.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_build_2md__files_2docs_2observer__vs__callbacks_1autotoc_md103">
+<title>Cons</title>
+<para><itemizedlist>
+<listitem><para><bold>Limited Scalability:</bold> <linebreak/>
+ They work best in one-to-one or one-to-few relationships. Managing many callbacks individually can be cumbersome.</para>
+</listitem><listitem><para><bold>Tight Coupling:</bold> <linebreak/>
+ The event source and the callback become more directly linked, which can reduce flexibility if the handling logic needs to change.</para>
+</listitem><listitem><para><bold>Error Handling:</bold> <linebreak/>
+ It may require additional safeguards to ensure that the callback remains valid and that errors are handled appropriately.</para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2observer__vs__callbacks_1autotoc_md105">
+<title>How to Choose</title>
+<para><itemizedlist>
+<listitem><para><bold>Choose the Observer Pattern when:</bold><itemizedlist>
+<listitem><para>You need to notify multiple components about an event.</para>
+</listitem><listitem><para>You want to decouple the event source from its handlers.</para>
+</listitem><listitem><para>The number of event handlers is expected to change dynamically over time.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><bold>Choose Callbacks when:</bold><itemizedlist>
+<listitem><para>There is only a single or a very limited number of handlers.</para>
+</listitem><listitem><para>You prefer a simpler, more direct connection between event and handler.</para>
+</listitem><listitem><para>The event handling logic is straightforward, and you want to leverage the flexibility of lambdas or <computeroutput>std::function</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+</sect1>
+<sect1 id="md_build_2md__files_2docs_2observer__vs__callbacks_1autotoc_md107">
+<title>Conclusion</title>
+<para>The choice between the Observer pattern and callbacks depends on your system&apos;s requirements:<itemizedlist>
+<listitem><para>For highly decoupled, scalable systems with many listeners, the Observer pattern is often more appropriate.</para>
+</listitem><listitem><para>For simpler scenarios with one or a few event responses, callbacks can be a more straightforward solution.</para>
+</listitem></itemizedlist>
+</para>
+<para>Understanding the trade-offs of each approach will help you design a more robust and maintainable event-driven system. </para>
+</sect1>
+    </detaileddescription>
+    <location file="build/md_files/docs/observer_vs_callbacks.md"/>
+  </compounddef>
+</doxygen>

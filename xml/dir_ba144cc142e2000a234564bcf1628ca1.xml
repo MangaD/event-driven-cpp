@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_ba144cc142e2000a234564bcf1628ca1" kind="dir">
+    <compoundname>src/callbacks</compoundname>
+    <innerfile refid="callbacks_8cpp">callbacks.cpp</innerfile>
+    <innerfile refid="callbacks_8hpp">callbacks.hpp</innerfile>
+    <innerfile refid="callbacks_2main_8cpp">main.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/callbacks/"/>
+  </compounddef>
+</doxygen>

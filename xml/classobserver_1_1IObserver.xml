@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classobserver_1_1IObserver" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>observer::IObserver</compoundname>
+    <derivedcompoundref refid="classConcreteObserver" prot="public" virt="non-virtual">ConcreteObserver</derivedcompoundref>
+    <derivedcompoundref refid="classTestObserver" prot="public" virt="non-virtual">TestObserver</derivedcompoundref>
+    <includes refid="observer_8hpp" local="no">observer.hpp</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classobserver_1_1IObserver_1a8e18c92266b5e99b5a3f6270a38df190" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual observer::IObserver::~IObserver</definition>
+        <argsstring>()=default</argsstring>
+        <name>~IObserver</name>
+        <qualifiedname>observer::IObserver::~IObserver</qualifiedname>
+        <briefdescription>
+<para>Virtual destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Ensures that derived classes are properly destroyed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/observer/observer.hpp" line="42" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classobserver_1_1IObserver_1a97ed5f714384334387b9d2ef0aacd468" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void observer::IObserver::onNotify</definition>
+        <argsstring>(const std::string &amp;message)=0</argsstring>
+        <name>onNotify</name>
+        <qualifiedname>observer::IObserver::onNotify</qualifiedname>
+        <reimplementedby refid="classConcreteObserver_1aebc85755ca3d5640fc2473da96c2b4d6">onNotify</reimplementedby>
+        <reimplementedby refid="classTestObserver_1acb60d7f2fe1cbdd8d1359d36088f3bb6">onNotify</reimplementedby>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Notifies the observer of an event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This pure virtual function must be overridden by derived classes to handle event notifications.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A string containing details about the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/observer/observer.hpp" line="52" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Interface for observer objects. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classobserver_1_1IObserver" kindref="compound">IObserver</ref> interface declares the <ref refid="classobserver_1_1IObserver_1a97ed5f714384334387b9d2ef0aacd468" kindref="member">onNotify()</ref> method that must be implemented by any class that wishes to be notified of events by a <ref refid="classobserver_1_1Subject" kindref="compound">Subject</ref>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ConcreteObserver</label>
+        <link refid="classConcreteObserver"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>TestObserver</label>
+        <link refid="classTestObserver"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>observer::IObserver</label>
+        <link refid="classobserver_1_1IObserver"/>
+      </node>
+    </inheritancegraph>
+    <location file="src/observer/observer.hpp" line="35" column="1" bodyfile="src/observer/observer.hpp" bodystart="35" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classobserver_1_1IObserver_1a97ed5f714384334387b9d2ef0aacd468" prot="public" virt="pure-virtual"><scope>observer::IObserver</scope><name>onNotify</name></member>
+      <member refid="classobserver_1_1IObserver_1a8e18c92266b5e99b5a3f6270a38df190" prot="public" virt="virtual"><scope>observer::IObserver</scope><name>~IObserver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
