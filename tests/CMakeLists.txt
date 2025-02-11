@@ -53,9 +53,9 @@ add_executable(io_and_sockets_test
     io_and_sockets_test.cpp
     ${CMAKE_SOURCE_DIR}/src/io_and_sockets/io_and_sockets.cpp
 )
+# Enable test mode so that runDemo() uses std::getline().
+target_compile_definitions(io_and_sockets_test PUBLIC TEST_MODE)
 if(WIN32)
-    # Enable test mode so that runDemo() uses std::getline() on Windows.
-    target_compile_definitions(io_and_sockets_test PUBLIC TEST_MODE)
     target_link_libraries(io_and_sockets_test PRIVATE ws2_32)
 endif()
 target_link_libraries(io_and_sockets_test PRIVATE common)

@@ -1,0 +1,65 @@
+name: CI and Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake qt6-base-dev doxygen graphviz 
+
+      - name: Configure Project
+        run: cmake -S . -B build
+
+      - name: Build Project
+        run: cmake --build build -- -j $(nproc)
+
+      - name: Run Tests
+        run: |
+          cd build
+          ctest --output-on-failure -C Debug
+
+  deploy_docs:
+    name: Generate and Deploy Documentation
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake doxygen
+
+      - name: Configure Project for Documentation
+        run: cmake -S . -B build -DBUILD_SOURCE=OFF
+
+      - name: Generate Doxygen Documentation
+        run: cmake --build build --target doxygen
+
+      # In the repository settings, go to Actions -> General -> Workflow permissions
+      # and enable Read and write permissions.
+      # After the workflow runs successfully, go to Settings -> Pages -> Branch
+      # select `gh-pages` and click "Save".
+      - name: Deploy Documentation to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/doxygen/html

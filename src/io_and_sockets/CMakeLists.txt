@@ -21,8 +21,10 @@ add_executable(io_and_sockets_example
 
 # On Windows, link against the ws2_32 library which provides the Winsock API functions.
 if(WIN32)
-    target_link_libraries(io_and_sockets_example PRIVATE ws2_32 common)
+    target_link_libraries(io_and_sockets_example PRIVATE ws2_32)
 endif()
+
+target_link_libraries(io_and_sockets_example PRIVATE common)
 
 # Optionally, print a status message showing the project configuration.
 message(STATUS "Configured io_and_sockets_example with C++20 and common utilities from ${CMAKE_SOURCE_DIR}/src/common")

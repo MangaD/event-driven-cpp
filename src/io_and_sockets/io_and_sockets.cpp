@@ -37,6 +37,8 @@
     // POSIX-specific header inclusions.
     // The following headers provide socket programming and I/O functions on POSIX systems.
     #include <sys/select.h> // For select().
+    #include <sys/socket.h> // For socket(), bind(), listen(), accept().
+    #include <arpa/inet.h>  // For htons().
     #include <unistd.h>     // For STDIN_FILENO.
     #include <fcntl.h>      // For fcntl().
 #endif
@@ -196,10 +198,17 @@ int runDemo() {
         fd_set readfds;
         FD_ZERO(&readfds);
         FD_SET(serverSocket, &readfds);
+    #ifndef TEST_MODE
+        // When not in test mode, add STDIN_FILENO to the fd_set.
         FD_SET(STDIN_FILENO, &readfds);
+    #endif
 
-        // Calculate the maximum file descriptor to monitor.
-        int maxfd = std::max(serverSocket, STDIN_FILENO);
+        // Determine the maximum file descriptor.
+        int maxfd = serverSocket;
+    #ifndef TEST_MODE
+        maxfd = std::max(serverSocket, STDIN_FILENO);
+    #endif
+
         struct timeval tv;
         tv.tv_sec = 1;
         tv.tv_usec = 0;
@@ -215,16 +224,33 @@ int runDemo() {
                     close_socket(clientSocket);
                 }
             }
-            // Check if standard input is ready for reading.
-            if (FD_ISSET(STDIN_FILENO, &readfds)) {
-                std::string input;
-                std::getline(std::cin, input);
+        }
+
+        // In test mode, or if select() did not monitor STDIN properly, read from standard input unconditionally.
+    #ifdef TEST_MODE
+        {
+            common::Logger::debug("Waiting for input in test mode...");
+            std::string input;
+            // Since in test mode std::cin is redirected to a non-blocking stream (like an istringstream),
+            // std::getline() should not block.
+            if (std::getline(std::cin, input)) {
                 std::cout << "Console input: " << input << std::endl;
                 if (input == "quit") {
                     running = false;
                 }
             }
         }
+    #else
+        // In normal operation, check if STDIN_FILENO was flagged as ready.
+        if (FD_ISSET(STDIN_FILENO, &readfds)) {
+            std::string input;
+            std::getline(std::cin, input);
+            std::cout << "Console input: " << input << std::endl;
+            if (input == "quit") {
+                running = false;
+            }
+        }
+    #endif
 #endif
         // Sleep briefly to reduce CPU usage.
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
