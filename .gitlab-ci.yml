@@ -1,0 +1,60 @@
+stages:
+  - build
+  - test
+  - docs
+  - pages
+
+variables:
+  BUILD_TYPE: Debug
+  # Set the output directory for Doxygen documentation (should match your CMake configuration)
+  DOXYGEN_OUTPUT: "docs/doxygen"
+
+before_script:
+  # Update and install required packages
+  - apt-get update -qq
+  - apt-get install -y build-essential cmake qt6-base-dev doxygen graphviz
+  # Ensure that submodules are checked out.
+  - git submodule update --init --recursive
+
+build:
+  stage: build
+  script:
+    # Configure the project
+    - cmake -S . -B build
+    # Build the project using all available cores
+    - cmake --build build -- -j $(nproc)
+  artifacts:
+    paths:
+      - build/
+
+test:
+  stage: test
+  script:
+    - cd build
+    # Run tests with CTest and output any failures
+    - ctest --output-on-failure -C $BUILD_TYPE
+
+docs:
+  stage: docs
+  script:
+    # Configure the project for documentation (e.g. disable building sources if desired)
+    - cmake -S . -B build -DBUILD_SOURCE=OFF
+    # Build the doxygen target to generate documentation
+    - cmake --build build --target doxygen
+  artifacts:
+    # Save the generated HTML documentation as an artifact
+    paths:
+      - docs/doxygen/html
+    expire_in: 1 week
+
+pages:
+  stage: pages
+  script:
+    # Create a "public" directory and copy the generated documentation there.
+    - mkdir -p public
+    - cp -r docs/doxygen/html/* public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - main

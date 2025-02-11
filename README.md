@@ -1,6 +1,8 @@
 # Event-Driven Programming in C++
 
-[![CI](https://github.com/MangaD/event-driven-cpp/actions/workflows/ci.yml/badge.svg)](https://github.com/MangaD/event-driven-cpp/actions/workflows/ci.yml) [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-published-brightgreen)](https://mangad.github.io/event-driven-cpp)
+[![CI](https://github.com/MangaD/event-driven-cpp/actions/workflows/ci.yml/badge.svg)](https://github.com/MangaD/event-driven-cpp/actions/workflows/ci.yml) [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-published-brightgreen)](https://mangad.github.io/event-driven-cpp) [![pipeline status](https://gitlab.com/MangaD/event-driven-cpp/badges/main/pipeline.svg)](https://gitlab.com/MangaD/event-driven-cpp/-/pipelines)
+[![GitLab Pages](https://img.shields.io/badge/GitLab%20Pages-published-brightgreen)](https://MangaD.gitlab.io/event-driven-cpp/)
+
 
 *Disclaimer: This project was built collaboratively with AI, step by step. Its primary purpose is to serve as an educational tool for studying and understanding event-driven programming in C++.*
 
