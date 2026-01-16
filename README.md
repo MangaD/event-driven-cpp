@@ -96,3 +96,5 @@ Contributions, improvements, and bug fixes are welcome! Please submit pull reque
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+**Note on Qt Usage**: The Qt Signals & Slots example uses Qt, which is licensed under the LGPL v2.1. This example is subject to Qt's LGPL terms in addition to the MIT License for the rest of the project. For more details, see [Qt's licensing page](https://www.qt.io/licensing/).
